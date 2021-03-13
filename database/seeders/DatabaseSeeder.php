@@ -2,6 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\CreditCard;
+use App\Models\Food;
+use App\Models\Order;
+use App\Models\OrderedFood;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,8 +18,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        \App\Models\CreditCard::factory(10)->create();
-        \App\Models\Order::factory(10)->create();
+        Food::factory(10)->create();
+        OrderedFood::factory(10)->create();
+        User::factory(10)->create();
+        CreditCard::factory(10)->create();
+        Order::factory(10)->create();
     }
 }
