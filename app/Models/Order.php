@@ -42,4 +42,8 @@ class Order extends Model
     {
         return $this->attributes['created_at'];
     }
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

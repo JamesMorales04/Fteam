@@ -28,8 +28,14 @@
                     </ul>
 
                     @endif
-                    <form role="form" method="POST" action="{{ route('creditCard.save') }}" required>
+                    <form role="form" method="POST" action="{{ route('creditCard.save') }}"  required>
                         @csrf
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">User Id</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="user_id" value="{{ Auth::Id() }}" readonly>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Card Name</label>
                             <div class="col-sm-10">
@@ -43,7 +49,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Expiration Date</label>
+                            <label class="col-sm-2 col-form-label" >Expiration Date</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="expirationDate" name="expirationDate" placeholder="Expiration Date" value="{{ old('expirationDate') }}" required>
                             </div>

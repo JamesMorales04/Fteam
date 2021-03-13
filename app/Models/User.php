@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use App\Models\CreditCard;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -96,8 +98,18 @@ class User extends Authenticatable
         $this->attributes['role'] = $role;
     }
 
+
+
     public function getCreationDate()
     {
         return $this->attributes['created_at'];
+    }
+
+    public function creditCard(){
+        return $this->hasMany(CreditCard::class);
+    }
+
+    public function order(){
+        return $this->hasMany(Order::class);
     }
 }
