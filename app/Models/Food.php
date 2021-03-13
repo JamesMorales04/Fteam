@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Food extends Model
 {
@@ -21,7 +22,7 @@ class Food extends Model
         'availability' => 'boolean',
     ];
 
-    public function validate(Request $request)
+    public static function validate(Request $request)
     {
         $request['availability'] = $request->has('availability');
 

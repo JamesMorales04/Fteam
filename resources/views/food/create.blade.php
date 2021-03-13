@@ -22,7 +22,6 @@
                     @csrf
                    <li> <input type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" /> </li> <br>
                    <li><label for="terms">Available</label> <input type="checkbox" name="availability" value="{{ old('availability') }}" > </li>
-                   <!-- <li> <input type="text" placeholder="Enter recipe" name="recipe" value="{{ old('recipe') }}" /> </li> -->
                    <li>Enter recipe</li>
                    <textarea cols="40" name="recipe" spellcheck="true" value="{{ old('recipe') }}" ></textarea> <br>
                    <li> <input type="text" placeholder="Enter price" name="price" value="{{ old('price') }}" /> </li> <br>
