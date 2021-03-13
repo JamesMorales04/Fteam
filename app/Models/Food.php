@@ -9,11 +9,29 @@ class Food extends Model
 {
     use HasFactory;
 
-    //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name', 'availability', 'recipe', 'price'];
+    //attributes id, name, availability, recipe, price, created_at, updated_at
+    protected $fillable = [
+        'name',
+        'availability',
+        'recipe',
+        'price',
+    ];
+
     protected $casts = [
         'availability' => 'boolean',
     ];
+
+    public function validate(Request $request)
+    {
+        $request['availability'] = $request->has('availability');
+
+        $request->validate([
+            'name' => 'required',
+            'availability' => 'required',
+            'recipe' => 'required',
+            'price' => 'required|numeric|gt:0',
+        ]);
+    }
 
     public function getId()
     {

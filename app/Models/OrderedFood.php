@@ -9,7 +9,7 @@ class OrderedFood extends Model
 {
     use HasFactory;
 
-    //attributes id, amount, price, created_at, updated_at
+    //attributes id, amount, subTotal, created_at, updated_at
     protected $fillable = ['amount', 'subTotal'];
 
     public function getId()

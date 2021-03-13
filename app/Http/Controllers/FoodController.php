@@ -9,7 +9,7 @@ class FoodController extends Controller
 {
     public function show($foodID)
     {
-        $data = []; //to be sent to the view
+        $data = [];
         $food = Food::findOrFail($foodID);
 
         $data['title'] = $food->getName();
@@ -27,7 +27,7 @@ class FoodController extends Controller
 
     public function create()
     {
-        $data = []; //to be sent to the view
+        $data = [];
         $data['title'] = 'Create food';
 
         return view('food.create')->with('data', $data);
@@ -35,18 +35,8 @@ class FoodController extends Controller
 
     public function save(Request $request)
     {
+        Food::validate($request);
 
-        // echo $request;
-
-        $request['availability'] = $request->has('availability');
-
-        // dd($values);
-        $request->validate([
-            'name' => 'required',
-            'availability' => 'required',
-            'recipe' => 'required',
-            'price' => 'required|numeric|gt:0',
-        ]);
         Food::create($request->only(['name', 'availability', 'recipe', 'price']));
 
         return back()->with('success', 'Item created successfully!');

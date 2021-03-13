@@ -19,16 +19,19 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['prefix' => 'food'], function () {
+    Route::get('/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
+    Route::get('/show', 'App\Http\Controllers\FoodController@showAll')->name('food.showAll');
+    Route::get('/create', 'App\Http\Controllers\foodController@create')->name('food.create');
+    Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
+    Route::delete('/show/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
+});
 
-Route::get('/food/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
-Route::get('/food/show', 'App\Http\Controllers\FoodController@showAll')->name('food.showAll');
-Route::get('/food/create', 'App\Http\Controllers\foodController@create')->name('food.create');
-Route::post('/food/save', 'App\Http\Controllers\foodController@save')->name('food.save');
-Route::delete('/food/show/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
-
-Route::get('/orderedfood/show/{id}', 'App\Http\Controllers\OrderedFoodController@show')->name('orderedFood.show');
-Route::get('/orderedfood/show', 'App\Http\Controllers\OrderedFoodController@showAll')->name('orderedFood.showAll');
-Route::delete('/orderedfood/show/{id}', 'App\Http\Controllers\OrderedFoodController@delete')->name('orderedFood.delete');
+Route::group(['prefix' => 'orderedfood'], function () {
+    Route::get('/show/{id}', 'App\Http\Controllers\OrderedFoodController@show')->name('orderedFood.show');
+    Route::get('/show', 'App\Http\Controllers\OrderedFoodController@showAll')->name('orderedFood.showAll');
+    Route::delete('/show/{id}', 'App\Http\Controllers\OrderedFoodController@delete')->name('orderedFood.delete');
+});
 
 Route::group(['prefix' => 'users'], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\UserController@show')->name('user.show');
@@ -52,4 +55,3 @@ Route::group(['prefix' => 'creditCards'], function () {
     Route::get('/update/{id}', 'App\Http\Controllers\CreditCardController@update')->name('creditCard.update');
     Route::post('/updateSave', 'App\Http\Controllers\CreditCardController@updateSave')->name('creditCard.updateSave');
 });
-
