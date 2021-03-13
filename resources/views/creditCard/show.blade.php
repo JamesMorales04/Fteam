@@ -20,8 +20,9 @@
                     <b>Card Number: </b> {{ $creditCard->getCardNumber() }}<br />
                     <b>Creation Date: </b> {{ $creditCard->getRegisterDate() }}<br /> 
                     <br />
-                    <a method="GET" href="{{ route('creditCard.update',['id' => $creditCard->getID()])}}"  type="button" class="btn btn-outline-primary" >Editar</a>
-                    <a method="POST" href="{{ route('creditCard.delete',['id' => $creditCard->getID()])}}"  type="button" class="btn btn-outline-danger" >Borrar</a>
+
+                    <a method="GET" href="{{ route('creditCard.update',['id' => $creditCard->getId()])}}"  type="button" class="btn btn-outline-primary" >Editar</a>
+                    <a method="POST" href="{{ route('creditCard.delete',['id' => $creditCard->getId()])}}"  type="button" class="btn btn-outline-danger" >Borrar</a>
                 </div>
 
             </div>

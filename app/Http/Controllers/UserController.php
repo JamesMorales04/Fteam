@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\CreditCard;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,14 +11,14 @@ class UserController extends Controller
 {
     public function show($id)
     {
-        $data=[];
+        $data = [];
         try {
             $data['user'] = User::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        $data['card'] = CreditCard::where('user_id', $id)->get();;
+        $data['card'] = CreditCard::where('user_id', $id)->get();
 
         return view('user.profile')->with('data', $data);
     }
@@ -55,17 +55,6 @@ class UserController extends Controller
 
         $user->save();
 
-        return back()->with('success', 'User created successfully!');
-    }
-
-    public function updateCreditCard(Request $request)
-    {
-        $user = User::findOrFail(Auth::id());
-
-        $user->setCreditCardId($request->get('id'));
-
-        $user->save();
-
-        return view('user.profile')->with('user', $user);
+        return redirect()->route('user.show', ['id'=>Auth::id()]);
     }
 }

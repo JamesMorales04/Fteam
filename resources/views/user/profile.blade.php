@@ -33,7 +33,7 @@
 
                     <b>Credit Card {{$loop->index}}: </b><br />
 
-                    <a method="GET" href="{{ route('creditCard.show',['id' => $card->getID()])}}" type="button" class="btn btn-outline-primary">Editar</a>  
+                    <a method="GET" href="{{ route('creditCard.show',['id' => $card->getID()])}}" type="button" class="btn btn-outline-primary">Ver</a>  
                     <a method="GET" href="{{ route('creditCard.delete',['id' => $card->getID()])}}" type="button" class="btn btn-outline-danger">Borrar</a><br />
 
                     @endforeach

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class CreditCard extends Model
 {
@@ -18,7 +17,7 @@ class CreditCard extends Model
         'securityCode',
         'expirationDate',
         'cardNumber',
-        'user_id'
+        'user_id',
     ];
 
     public static function validate(Request $request)
@@ -31,8 +30,8 @@ class CreditCard extends Model
             'securityCode' => 'required|numeric',
 
             'cardNumber' => 'required|numeric',
-            
-            'user_id' => 'required'
+
+            'user_id' => 'required',
         ]);
     }
 

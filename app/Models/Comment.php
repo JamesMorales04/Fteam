@@ -8,8 +8,8 @@ class Comment extends Model
 {
     //attributes id, description, product_id, created_at, updated_at
     protected $fillable = [
-        'description', 
-        'product_id'
+        'description',
+        'product_id',
     ];
 
     public function getId()
@@ -42,7 +42,8 @@ class Comment extends Model
         $this->attributes['product_id'] = $pId;
     }
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo(Product::class);
     }
 }

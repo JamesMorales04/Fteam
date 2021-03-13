@@ -21,11 +21,10 @@ class CreditCardController extends Controller
 
     public function save(Request $request)
     {
-        
         CreditCard::validate($request);
-        CreditCard::create($request->only(['cardName', 'securityCode', 'expirationDate', 'cardNumber','user_id']));
+        CreditCard::create($request->only(['cardName', 'securityCode', 'expirationDate', 'cardNumber', 'user_id']));
 
-        return redirect()->route('user.show',['id'=>Auth::id()]);
+        return view('user.show', ['id'=>Auth::id()]);
     }
 
     public function create()
@@ -45,7 +44,7 @@ class CreditCardController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        return redirect()->route('user.show',['id'=>Auth::id()]);
+        return view('creditCard.update')->with('creditCard', $creditCard);
     }
 
     public function updateSave(Request $request)
@@ -63,13 +62,13 @@ class CreditCardController extends Controller
 
         $creditCard->save();
 
-        return redirect()->route('home')->with('success', 'Elemento actualizado exitosamente');
+        return redirect()->route('user.show', ['id'=>Auth::id()]);
     }
 
     public function delete($id)
     {
         CreditCard::destroy($id);
 
-        return back();
+        return redirect()->route('user.show', ['id'=>Auth::id()]);
     }
 }

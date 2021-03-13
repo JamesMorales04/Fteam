@@ -47,7 +47,6 @@ Route::group(['prefix' => 'users'], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\UserController@show')->name('user.show');
     Route::get('/delete/{id}', 'App\Http\Controllers\UserController@delete')->name('user.delete');
     Route::get('/update/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
-    Route::get('/updateCreditCard', 'App\Http\Controllers\UserController@updateCreditCard')->name('user.updateCreditCard');
     Route::post('/updateSave', 'App\Http\Controllers\UserController@updateSave')->name('user.updateSave');
 });
 
