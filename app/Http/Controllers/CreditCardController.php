@@ -25,7 +25,7 @@ class CreditCardController extends Controller
         CreditCard::validate($request);
         CreditCard::create($request->only(['cardName', 'securityCode', 'expirationDate', 'cardNumber','user_id']));
 
-        return view('user.show',['id'=>Auth::id()]);
+        return redirect()->route('user.show',['id'=>Auth::id()]);
     }
 
     public function create()
@@ -45,7 +45,7 @@ class CreditCardController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        return view('user.show',['id'=>Auth::id()]);
+        return redirect()->route('user.show',['id'=>Auth::id()]);
     }
 
     public function updateSave(Request $request)
