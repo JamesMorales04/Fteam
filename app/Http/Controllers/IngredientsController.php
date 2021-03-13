@@ -12,7 +12,6 @@ class IngredientsController extends Controller
         $data = []; //to be sent to the view
         $ingredients = Ingredients::all();
         $data['ingredients'] = $ingredients;
-        $data['i'] = 0;
 
         return view('Ingredients.show')->with('data', $data);
     }
@@ -38,12 +37,8 @@ class IngredientsController extends Controller
 
     public function save(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric|gt:0',
-            'amount' => 'required|numeric|gt:0',
-            'availability' => 'required|numeric',
-        ]);
+        Ingredients::validate($request);
+
         Ingredients::create($request->only(['id', 'name', 'price', 'amount', 'availability']));
 
         return back()->with('success', 'Item created successfully!');
@@ -56,7 +51,6 @@ class IngredientsController extends Controller
         $data = []; //to be sent to the view
         $ingredients = Ingredients::all();
         $data['ingredients'] = $ingredients;
-        $data['i'] = 0;
 
         return view('Ingredients.show')->with('data', $data);
     }

@@ -5,7 +5,7 @@
 @section('header')
 <div class="container d-flex align-items-center flex-column">
     <!-- Masthead Heading-->
-    <h1 class="masthead-heading text-uppercase mb-0">INGREDIENTES</h1>
+    <h1 class="masthead-heading text-uppercase mb-0">INGREDIENTS</h1>
     <!-- Icon Divider-->
     <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
@@ -29,12 +29,7 @@
                     <b>These are the products available:</b><br />
                     <ul>
                         @foreach($data["ingredients"] as $product)
-                            @if ($data["i"]<2)
-                                <li><strong>ID: <a href="{{ route('Ingredients.show') }}/{{$product->getId()}}">{{ $product->getId() }}</a></strong> - <strong>Name:</strong> {{ $product->getName() }} </li>
-                                <!--{{$data["i"]=$data["i"]+1}} --> 
-                            @else
-                                <li><strong>ID:</strong> <a href="{{ route('Ingredients.show') }}/{{$product->getId()}}">{{ $product->getId() }}</a> - <strong>Name:</strong> {{ $product->getName() }} </li>
-                            @endif      
+                            <li><strong>ID:</strong> <a href="{{ route('Ingredients.show') }}/{{$product->getId()}}">{{ $product->getId() }}</a> - <strong>Name:</strong> {{ $product->getName() }} </li>     
                         @endforeach        
                     </ul>
                     <center><input type="submit" value="Back to Home" onclick= "location='{{ route('home.index') }}'"></center>

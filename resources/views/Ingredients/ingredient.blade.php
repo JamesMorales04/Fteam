@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $data["product"]["name"] }}</div>
+                <div class="card-header">{{ $data["product"]->getName() }}</div>
 
                 <div class="card-body">
                     <b>Product ID:</b> {{$data["product"]->getId()}}<br />
@@ -21,7 +21,7 @@
                     @endif
                     <center>
                         <input type="submit" value="Back to Ingredients" onclick= "location='{{ route('Ingredients.show') }}'">
-                        <input type="submit" value="Delete Ingredient" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]["id"] }}' " method="put">
+                        <input type="submit" value="Delete Ingredient" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
                     </center>
                 </div>
             </div>
