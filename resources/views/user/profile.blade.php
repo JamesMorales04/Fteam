@@ -31,7 +31,7 @@
                     <a method="GET" href="{{ route('creditCard.create')}}" type="button" class="btn btn-outline-primary">Add</a><br />
                     @foreach($data['card'] as $card)
 
-                    <b>Credit Card {{$loop->index}}: </b><br />
+                    <b>Credit Card {{($loop->index)+1}}: </b><br />
 
                     <a method="GET" href="{{ route('creditCard.show',['id' => $card->getID()])}}" type="button" class="btn btn-outline-primary">Ver</a>  
                     <a method="GET" href="{{ route('creditCard.delete',['id' => $card->getID()])}}" type="button" class="btn btn-outline-danger">Borrar</a><br />
