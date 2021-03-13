@@ -12,7 +12,7 @@ class Ingredients extends Model
 
     //attributes id, name, price, ingredientAmount, availability
     public $timestamps = false;
-    protected $fillable = ['name','price','price','amount','availability'];
+    protected $fillable = ['name', 'price', 'price', 'amount', 'availability'];
 
     public function getId()
     {
@@ -63,5 +63,4 @@ class Ingredients extends Model
     {
         $this->attributes['availability'] = $availability;
     }
-
 }
