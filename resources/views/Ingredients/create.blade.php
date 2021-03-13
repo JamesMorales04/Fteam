@@ -23,7 +23,7 @@
         <div class="col-md-8">
             @include('util.message')
             <div class="card">
-                <div class="card-header">Create product</div>
+                <div class="card-header">Create Ingredient</div>
                 <div class="card-body">
                 @if($errors->any())
                 <ul id="errors">
@@ -39,7 +39,8 @@
                         <input type="text" placeholder="Enter price" name="price" value="{{ old('price') }}" />
                         <p></p>
                         <input type="text" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
-                        <input type="text" placeholder="Enter availability" name="availability" value="{{ old('availability') }}" />
+                        <!--<input type="text" placeholder="Enter availability" name="availability" value="{{ old('availability') }}" />-->
+                        <label for="terms">Available</label> <input type="checkbox" name="availability" value="{{ old('availability') }}" >
                         <input type="submit" value="Send" />
                     </form>
                 </center>

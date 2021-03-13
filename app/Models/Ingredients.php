@@ -22,11 +22,12 @@ class Ingredients extends Model
 
     public static function validate(Request $request)
     {
+        $request['availability'] = $request->has('availability');
+
         $request->validate([
             'name' => 'required',
             'price' => 'required|numeric|gt:0',
             'amount' => 'required|numeric|gt:0',
-            'availability' => 'required|numeric',
         ]);
     }
 
