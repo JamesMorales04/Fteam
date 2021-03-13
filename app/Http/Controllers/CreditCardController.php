@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CreditCard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CreditCardController extends Controller
 {
@@ -20,11 +21,11 @@ class CreditCardController extends Controller
 
     public function save(Request $request)
     {
+        
         CreditCard::validate($request);
+        CreditCard::create($request->only(['cardName', 'securityCode', 'expirationDate', 'cardNumber','user_id']));
 
-        CreditCard::create($request->only(['cardName', 'securityCode', 'expirationDate', 'cardNumber']));
-
-        return back()->with('success', 'Credit Card created successfully!');
+        return view('user.show',['id'=>Auth::id()]);
     }
 
     public function create()
@@ -44,7 +45,7 @@ class CreditCardController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        return view('creditCard.update')->with('creditCard', $creditCard);
+        return view('user.show',['id'=>Auth::id()]);
     }
 
     public function updateSave(Request $request)
@@ -55,10 +56,10 @@ class CreditCardController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        $creditCard->cardName = $request->get('cardName');
-        $creditCard->securityCode = $request->get('securityCode');
-        $creditCard->expirationDate = $request->get('expirationDate');
-        $creditCard->cardNumber = $request->get('cardNumber');
+        $creditCard->setCardName($request->get('cardName'));
+        $creditCard->setSecurityCode($request->get('securityCode'));
+        $creditCard->setExpirationDate($request->get('expirationDate'));
+        $creditCard->setCardNumber($request->get('cardNumber'));
 
         $creditCard->save();
 
@@ -69,6 +70,6 @@ class CreditCardController extends Controller
     {
         CreditCard::destroy($id);
 
-        return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
+        return back();
     }
 }
