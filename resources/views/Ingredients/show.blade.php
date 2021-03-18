@@ -32,7 +32,7 @@
                             <li><strong>ID:</strong> <a href="{{ route('Ingredients.show') }}/{{$product->getId()}}">{{ $product->getId() }}</a> - <strong>Name:</strong> {{ $product->getName() }} </li>     
                         @endforeach        
                     </ul>
-                    <center><input type="submit" value="Back to Home" onclick= "location='{{ route('home.index') }}'"></center>
+                    <center><input type="submit"  class="btn btn-outline-danger" value="Back to Home" onclick= "location='{{ route('home.index') }}'"></center>
                 </div>
             </div>
         </div>

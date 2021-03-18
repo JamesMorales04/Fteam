@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,11 @@ Route::group(['prefix' => 'food'], function () {
     Route::get('/create', 'App\Http\Controllers\foodController@create')->name('food.create');
     Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
     Route::delete('/show/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
+});
+
+Route::group(['prefix' => 'reviews'], function () {
+    Route::get('/create/{id}', 'App\Http\Controllers\ReviewsController@create')->name('reviews.create');
+    Route::post('/save', 'App\Http\Controllers\ReviewsController@save')->name('reviews.save');
 });
 
 Route::group(['prefix' => 'orderedfood'], function () {

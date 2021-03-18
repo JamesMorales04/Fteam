@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Reviews;
+use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -14,6 +16,7 @@ class FoodController extends Controller
 
         $data['title'] = $food->getName();
         $data['food'] = $food;
+        $data['reviews'] = Food::with("reviews")->get();
 
         return view('food.show')->with('data', $data);
     }
@@ -44,6 +47,8 @@ class FoodController extends Controller
 
     public function delete($foodID)
     {
+        $data['reviews'] = Reviews::where('food_id', $foodID)->delete();
+        
         Food::destroy($foodID);
 
         $data = Food::orderBy('id', 'DESC')->get();
