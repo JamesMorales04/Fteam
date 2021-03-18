@@ -17,9 +17,9 @@
                 <div class="card-body">
 
                     <b>Total: </b> {{ $order->getTotal() }}<br />
-                    <b>Creation Date: </b> {{ $order->getRegisterDate() }}<br />
+                    <b>{{  __('messages.creationDate')  }}</b> {{ $order->getRegisterDate() }}<br />
                     <br />
-                    <a method="DELETE" href="{{ route('order.delete',['id' => $order->getID()])}}"  type="button" class="btn btn-outline-danger" >Borrar</a>
+                    <a method="DELETE" href="{{ route('order.delete',['id' => $order->getID()])}}"  type="button" class="btn btn-outline-danger" >{{  __('messages.delete')  }}</a>
                 </div>
 
             </div>

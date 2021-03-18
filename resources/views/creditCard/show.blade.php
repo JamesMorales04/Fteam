@@ -16,13 +16,13 @@
 
                 <div class="card-body">
 
-                    <b>Card Name: </b> {{ $creditCard->getCardName() }}<br />
-                    <b>Card Number: </b> {{ $creditCard->getCardNumber() }}<br />
-                    <b>Creation Date: </b> {{ $creditCard->getRegisterDate() }}<br /> 
+                    <b>{{  __('messages.cardName')  }}:</b> {{ $creditCard->getCardName() }}<br />
+                    <b>{{  __('messages.cardNumber')  }}:</b> {{ $creditCard->getCardNumber() }}<br />
+                    <b>{{  __('messages.creationDate')  }}:</b> {{ $creditCard->getRegisterDate() }}<br /> 
                     <br />
 
-                    <a method="GET" href="{{ route('creditCard.update',['id' => $creditCard->getId()])}}"  type="button" class="btn btn-outline-primary" >Editar</a>
-                    <a method="POST" href="{{ route('creditCard.delete',['id' => $creditCard->getId()])}}"  type="button" class="btn btn-outline-danger" >Borrar</a>
+                    <a method="GET" href="{{ route('creditCard.update',['id' => $creditCard->getId()])}}"  type="button" class="btn btn-outline-primary" >{{  __('messages.edit')  }}</a>
+                    <a method="POST" href="{{ route('creditCard.delete',['id' => $creditCard->getId()])}}"  type="button" class="btn btn-outline-danger" >{{  __('messages.delete')  }}</a>
                 </div>
 
             </div>

@@ -37,11 +37,11 @@
                     @else
                     <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href='{{ route('Ingredients.show') }}'>See Ingredients</a></li>
                     <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href='{{ route('Ingredients.create') }}'>Create Ingredients</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
-
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.show',['id' => Auth::id()]) }}">Profile</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}">Carrito de compras</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf

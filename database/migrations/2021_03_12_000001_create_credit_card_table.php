@@ -16,9 +16,10 @@ class CreateCreditCardTable extends Migration
         Schema::create('credit_cards', function (Blueprint $table) {
             $table->id();
             $table->string('cardName');
-            $table->date('expirationDate');
+            $table->integer('expirationYear');
+            $table->integer('expirationMonth');
             $table->integer('securityCode');
-            $table->integer('cardNumber');
+            $table->text('cardNumber');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->unsigned();
             $table->timestamps();
