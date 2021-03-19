@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ShoppingController extends Controller
 {
-    public function index()
-    {
-        $data = []; //to be sent to the view
-        $data["title"] = "Store food";
-        $data["foods"] = Food::all();
-
-        return view('shopping.index')->with("data",$data);
-    }
-
     public function cart(Request $request){
         $data = []; //to be sent to the view
         $data["title"] = "Store food";
