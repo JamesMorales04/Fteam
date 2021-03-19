@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,22 @@ Route::group(['prefix' => 'food'], function () {
     Route::delete('/show/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
 });
 
+Route::group(['prefix' => 'reviews'], function () {
+    Route::get('/create/{id}', 'App\Http\Controllers\ReviewsController@create')->name('reviews.create');
+    Route::post('/save', 'App\Http\Controllers\ReviewsController@save')->name('reviews.save');
+});
+
 Route::group(['prefix' => 'orderedfood'], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\OrderedFoodController@show')->name('orderedFood.show');
     Route::get('/show', 'App\Http\Controllers\OrderedFoodController@showAll')->name('orderedFood.showAll');
     Route::delete('/show/{id}', 'App\Http\Controllers\OrderedFoodController@delete')->name('orderedFood.delete');
+});
+
+Route::group(['prefix' => 'shop'], function () {
+    Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name("shop.add");
+    Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name("shop.removeAll");
+    Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
+    Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
 });
 
 Route::group(['prefix' => 'users'], function () {

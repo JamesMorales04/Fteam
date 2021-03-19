@@ -8,21 +8,31 @@
         @foreach ($data as $food)
         <br/>
         <div class="card">
-                <div class="card-header">{{$food->getName()}} </div>
+                <div class="card-header"> 
+                    <div class="row">
+                        <div class="col align-self-start"> {{$food->getName()}} </div>
+
+                        <div class="col align-self-end">
+                            <a class="float-right" href="{{ route('food.show',['id' => $food->getId()]) }}">
+                                <button class="btn btn-outline-primary" >{{  __('messages.view')  }}</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="card-body">
-                @if ($loop->index < 2)
-                     <strong > <u> food id:
-                    <a href="{{ route('food.show',['id' => $food->getId()]) }}"> {{$food->getId()}} <br /> </a> </u> </strong> 
-                    <br/>
-                @else 
-                    <b>food id:</b> 
-                    <a href="{{ route('food.show',['id' => $food->getId()]) }}"> {{$food->getId()}} <br /> </a>
-                    <br/>
-                @endif
-                    <b>food name:</b> {{$food->getName()}} <br />
+                    <b>food description:</b> {{$food->getDescription()}} <br />
                     <b>food status:</b> {{$food->getAvailability() ? "Available" : "Not available"}} <br />
                     <b>food price:</b> {{$food->getPrice()}}<br />
+                    <div class="row">
+                        <div class="col-auto"> 
+                            <a href="{{ route('shop.add', ['id'=> $food->getId()]) }}"> Add to cart </a> 
+                        </div>
+
+                        <div class="col-auto"> 
+                            <a href="{{ route('shop.add', ['id'=> $food->getId()]) }}">{{  __('messages.askForIngredients')  }}</a> 
+                        </div>
+                    </div>
                 </div>
             </div>
         @endforeach
