@@ -16,6 +16,7 @@ return [
     'view' => 'Ver',
     'delete' => 'Borrar',
     'edit' => 'Editar',
+    'return' => 'Volver',
 
     //Dates
 
@@ -38,5 +39,11 @@ return [
 
     //Formulario
     'send' => 'Enviar',
+
+    //Carrito de compras
+    'confirmation' => 'Compra realizada correctamente',
+
+    //Vista food
+    'askForIngredients' => 'Pedir ingredientes',
 
 ];

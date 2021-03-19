@@ -10,9 +10,10 @@ class Food extends Model
 {
     use HasFactory;
 
-    //attributes id, name, availability, recipe, price, created_at, updated_at
+    //attributes id, name, description, availability, recipe, price, created_at, updated_at
     protected $fillable = [
         'name',
+        'description',
         'availability',
         'recipe',
         'price',
@@ -52,6 +53,16 @@ class Food extends Model
     public function setName($name)
     {
         $this->attributes['name'] = $name;
+    }
+
+    public function getDescription()
+    {
+        return $this->attributes['description'];
+    }
+
+    public function setDescription($name)
+    {
+        $this->attributes['description'] = $description;
     }
 
     public function getAvailability()
