@@ -10,7 +10,7 @@ class CreditCard extends Model
 {
     use HasFactory;
 
-    //attributes id, cardName, securityCode, created_at, updated_at, expirationYear,expiratioexpirationMonthnYear, cardNumber
+    //attributes id, cardName, securityCode, created_at, updated_at, expirationYear,expirationMonth, cardNumber
 
     protected $fillable = [
         'cardName',
@@ -32,7 +32,7 @@ class CreditCard extends Model
 
             'securityCode' => 'required|numeric',
 
-            'cardNumber' => 'required',
+            'cardNumber' => 'required|numeric',
 
             'user_id' => 'required',
         ]);
