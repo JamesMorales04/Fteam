@@ -2,7 +2,6 @@
 
 return [
 
-
     //Datos basicos
     'name' => 'Nombre',
     'email' => 'Correo',
@@ -23,13 +22,12 @@ return [
     'month' => 'Mes',
     'year' => 'Año',
 
-    //Crud User 
+    //Crud User
 
     'updateUser' => 'Actualizar Usuario',
 
-
     // Tarjeta de Credito
-    
+
     'createCreditCard' => 'Crear una tarjeta de credito',
     'creditCard' => 'Tarjeta de credito',
     'newCreditCard' => 'Añadir una nueva tarjeta de credito',

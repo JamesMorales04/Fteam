@@ -17,6 +17,6 @@ return [
     'sent' => 'Te enviamos un email para la recuperacion de la contraseña!',
     'throttled' => 'Por favor espera antes de re-intentar.',
     'token' => 'El token de reseteo del password es incorrecto.',
-    'user' => "No podemos encontrar un usuario con esa direccion de correo.",
+    'user' => 'No podemos encontrar un usuario con esa direccion de correo.',
 
 ];

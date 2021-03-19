@@ -21,7 +21,7 @@ return [
     'month' => 'Month',
     'year' => 'Year',
 
-    //Crud User 
+    //Crud User
 
     'updateUser' => 'Update user',
 

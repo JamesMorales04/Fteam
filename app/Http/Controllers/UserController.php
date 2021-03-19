@@ -28,6 +28,7 @@ class UserController extends Controller
         $data['card'] = CreditCard::where('user_id', $id)->delete();
 
         User::destroy($id);
+
         return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
     }
 
