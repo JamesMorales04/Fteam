@@ -9,7 +9,7 @@ class OrderedFood extends Model
 {
     use HasFactory;
 
-    //attributes id, amount, subTotal, created_at, updated_at
+    //attributes id, amount, food_id, order_id, subTotal, created_at, updated_at
     protected $fillable = ['amount', 'subTotal'];
 
     public function getId()
@@ -40,5 +40,33 @@ class OrderedFood extends Model
     public function setSubTotal($subTotal)
     {
         $this->attributes['subTotal'] = $subTotal;
+    }
+
+    public function getOrderId()
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrderId($order_id)
+    {
+        $this->attributes['order_id'] = $order_id;
+    }
+
+    public function getFoodId()
+    {
+        return $this->attributes['food_id'];
+    }
+
+    public function setFoodId($food_id)
+    {
+        $this->attributes['food_id'] = $food_id;
+    }
+
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+
+    public function food(){
+        return $this->belongsTo(Food::class);
     }
 }

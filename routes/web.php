@@ -49,6 +49,14 @@ Route::group(['prefix' => 'orderedfood'], function () {
     Route::delete('/show/{id}', 'App\Http\Controllers\OrderedFoodController@delete')->name('orderedFood.delete');
 });
 
+Route::group(['prefix' => 'shop'], function () {
+    Route::get('/index', "App\Http\Controllers\ShoppingController@index")->name('shop.index');
+    Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name("shop.add");
+    Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name("shop.removeAll");
+    Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
+    Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
+});
+
 Route::group(['prefix' => 'users'], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\UserController@show')->name('user.show');
     Route::get('/delete/{id}', 'App\Http\Controllers\UserController@delete')->name('user.delete');

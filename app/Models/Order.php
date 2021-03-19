@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
+
 class Order extends Model
 {
     use HasFactory;
@@ -38,9 +39,19 @@ class Order extends Model
         return $this->attributes['total'];
     }
 
+    public function setTotal($total)
+    {
+        $this->attributes['total'] = $total;
+    }
+
     public function getRegisterDate()
     {
         return $this->attributes['created_at'];
+    }
+
+    public function setUserId($user_id)
+    {
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function user()

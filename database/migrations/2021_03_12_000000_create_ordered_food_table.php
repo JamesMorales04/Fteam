@@ -17,6 +17,10 @@ class CreateOrderedFoodTable extends Migration
             $table->bigIncrements('id');
             $table->integer('amount');
             $table->float('subTotal');
+            $table->bigInteger('food_id')->unsigned();
+            $table->foreign('food_id')->references('id')->on('food');
+            $table->bigInteger('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
     }
