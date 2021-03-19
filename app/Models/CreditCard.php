@@ -10,12 +10,13 @@ class CreditCard extends Model
 {
     use HasFactory;
 
-    //attributes id, cardName, securityCode, created_at, updated_at, expirationDate. cardNumber
+    //attributes id, cardName, securityCode, created_at, updated_at, expirationYear,expirationMonth, cardNumber
 
     protected $fillable = [
         'cardName',
         'securityCode',
-        'expirationDate',
+        'expirationMonth',
+        'expirationYear',
         'cardNumber',
         'user_id',
     ];
@@ -25,7 +26,9 @@ class CreditCard extends Model
         $request->validate([
             'cardName' => 'required',
 
-            'expirationDate' => 'required',
+            'expirationYear' => 'required|numeric',
+
+            'expirationMonth' => 'required|numeric',
 
             'securityCode' => 'required|numeric',
 
@@ -55,14 +58,24 @@ class CreditCard extends Model
         $this->attributes['cardName'] = $cardName;
     }
 
-    public function getExpirationDate()
+    public function getExpirationYear()
     {
-        return $this->attributes['expirationDate'];
+        return $this->attributes['expirationYear'];
     }
 
-    public function setExpirationDate($expirationDate)
+    public function setExpirationYear($expirationYear)
     {
-        $this->attributes['expirationDate'] = $expirationDate;
+        $this->attributes['expirationYear'] = $expirationYear;
+    }
+
+    public function getExpirationMonth()
+    {
+        return $this->attributes['expirationMonth'];
+    }
+
+    public function setExpirationMonth($expirationMonth)
+    {
+        $this->attributes['expirationMonth'] = $expirationMonth;
     }
 
     public function getSecurityCode()
