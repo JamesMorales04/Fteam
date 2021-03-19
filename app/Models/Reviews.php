@@ -11,15 +11,12 @@ class Reviews extends Model
     protected $fillable = [
         'rating',
         'comments',
-        'status',
         'user_id',
         'food_id',
     ];
 
     public static function validate(Request $request)
     {
-        $request['status'] = $request->has('status');
-
         $request->validate([
             'rating' => 'required|numeric|gt:0|max:5',
             'comments' => 'required',

@@ -2,6 +2,21 @@
 
 @section("title", $data["title"])
 
+@section('header')
+<div class="container d-flex align-items-center flex-column">
+    <!-- Masthead Heading-->
+    <h1 class="masthead-heading text-uppercase mb-0">{{ $data["product"]->getName() }}</h1>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+    <!-- Masthead Subheading-->
+    <p class="masthead-subheading font-weight-light mb-0">Website - {{ $data["product"]->getName() }}</p>
+</div>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -10,18 +25,18 @@
                 <div class="card-header">{{ $data["product"]->getName() }}</div>
 
                 <div class="card-body">
-                    <b>Product ID:</b> {{$data["product"]->getId()}}<br />
-                    <b>Product name:</b> {{$data["product"]->getName() }}<br />
-                    <b>Product price:</b> {{ $data["product"]->getPrice() }}<br />
-                    <b>Product amount:</b> {{ $data["product"]->getAmount() }}<br />   
+                    <b>{{ __('messages.productID') }}:</b> {{$data["product"]->getId()}}<br />
+                    <b>{{ __('messages.productName') }}:</b> {{$data["product"]->getName() }}<br />
+                    <b>{{ __('messages.productPrice') }}:</b> {{ $data["product"]->getPrice() }}<br />
+                    <b>{{ __('messages.productAmount') }}:</b> {{ $data["product"]->getAmount() }}<br />   
                     @if ($data["product"]->getAvailability()==1)
-                        <b>Product availability:</b> Yes <br /><br />    
+                        <b>{{ __('messages.productAvailability') }}:</b> {{ __('messages.yes') }} <br /><br />    
                     @else
-                        <b>Product availability:</b> No <br /><br />
+                        <b>{{ __('messages.productAvailability') }}:</b> {{ __('messages.no') }} <br /><br />
                     @endif
                     <center>
-                        <input type="submit" class="btn btn-outline-success" value="Back to Ingredients" onclick= "location='{{ route('Ingredients.show') }}'">
-                        <input type="submit" class="btn btn-outline-danger" value="Delete Ingredient" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
+                        <input type="submit" class="btn btn-outline-success" value="{{ __('messages.backIngredients') }}" onclick= "location='{{ route('Ingredients.show') }}'">
+                        <input type="submit" class="btn btn-outline-danger" value="{{ __('messages.delete') }}" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
                     </center>
                 </div>
             </div>

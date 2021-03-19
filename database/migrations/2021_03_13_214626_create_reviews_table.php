@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('rating');
             $table->text('comments');
-            $table->boolean('status');
+            $table->boolean('status')->default('0');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('food_id')->unsigned();
