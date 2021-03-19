@@ -20,8 +20,8 @@
                         <b>Product availability:</b> No <br /><br />
                     @endif
                     <center>
-                        <input type="submit" value="Back to Ingredients" onclick= "location='{{ route('Ingredients.show') }}'">
-                        <input type="submit" value="Delete Ingredient" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
+                        <input type="submit" class="btn btn-outline-success" value="Back to Ingredients" onclick= "location='{{ route('Ingredients.show') }}'">
+                        <input type="submit" class="btn btn-outline-danger" value="Delete Ingredient" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
                     </center>
                 </div>
             </div>
