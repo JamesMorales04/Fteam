@@ -32,19 +32,41 @@
                     @endforeach
                 </ul>
                 @endif
-                <center>
-                    <form method="POST" action="{{ route('Ingredients.save') }}">
-                        @csrf
-                        <input type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-                        <input type="text" placeholder="Enter price" name="price" value="{{ old('price') }}" />
-                        <p></p>
-                        <input type="text" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
-                        <!--<input type="text" placeholder="Enter availability" name="availability" value="{{ old('availability') }}" />-->
-                        <label for="terms">Available</label> <input type="checkbox" name="availability" value="{{ old('availability') }}" >
-                        <input type="submit" value="Send" />
-                    </form>
-                </center>
-                <p><center><input type="submit" value="Back to Home" onclick= "location='{{ route('home.index') }}'"></center></p>
+                <form method="POST" action="{{ route('Ingredients.save') }}">
+                    @csrf
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control"  placeholder="Enter the name of the ingredient" name="name" value="{{ old('name') }}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Price</label>
+                        <div class="col-8">
+                            <input type="number" class="form-control"  placeholder="Enter the price" name="price" value="{{ old('price') }}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Amount</label>
+                        <div class="col-8">
+                            <input type="number" class="form-control"  placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Available</label>
+                        <div class="col-sm-10 col col-lg-2">
+                            <center><input type="checkbox" class="col-sm-100" name="availability" value="{{ old('availability') }}" ></center>
+                        </div>
+                    </div>
+                    <div class="col-md-auto">
+                        <center><input class="btn btn-primary" type="submit" value="Send" /></center>
+                    </div>
+                    <br \>
+                    <div class="col-md-auto">
+                        <center><input type="submit"  class="btn-danger" value="Back to Home" onclick= "location='{{ route('home.index') }}'"></center>
+                    </div>
+                </form>
+                
                 </div>
             </div>
         </div>
