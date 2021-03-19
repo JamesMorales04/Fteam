@@ -44,7 +44,6 @@ Route::group(['prefix' => 'orderedfood'], function () {
 });
 
 Route::group(['prefix' => 'shop'], function () {
-    Route::get('/index', "App\Http\Controllers\ShoppingController@index")->name('shop.index');
     Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name("shop.add");
     Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name("shop.removeAll");
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
