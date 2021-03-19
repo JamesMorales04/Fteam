@@ -5,7 +5,7 @@
 @section('header')
 <div class="container d-flex align-items-center flex-column">
     <!-- Masthead Heading-->
-    <h1 class="masthead-heading text-uppercase mb-0">CREATE</h1>
+    <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.create') }}</h1>
     <!-- Icon Divider-->
     <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
@@ -13,7 +13,7 @@
         <div class="divider-custom-line"></div>
     </div>
     <!-- Masthead Subheading-->
-    <p class="masthead-subheading font-weight-light mb-0">Website - Create</p>
+    <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.create') }}</p>
 </div>
 @endsection
 
@@ -23,7 +23,7 @@
         <div class="col-md-8">
             @include('util.message')
             <div class="card">
-                <div class="card-header">Create Ingredient</div>
+                <div class="card-header">{{ __('messages.createIngredient') }}</div>
                 <div class="card-body">
                 @if($errors->any())
                 <ul id="errors">
@@ -35,35 +35,35 @@
                 <form method="POST" action="{{ route('Ingredients.save') }}">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Name</label>
+                        <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
                         <div class="col-8">
                             <input type="text" class="form-control"  placeholder="Enter the name of the ingredient" name="name" value="{{ old('name') }}" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Price</label>
+                        <label class="col-sm-2 col-form-label">{{ __('messages.price') }}</label>
                         <div class="col-8">
                             <input type="number" class="form-control"  placeholder="Enter the price" name="price" value="{{ old('price') }}" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Amount</label>
+                        <label class="col-sm-2 col-form-label">{{ __('messages.amount') }}</label>
                         <div class="col-8">
                             <input type="number" class="form-control"  placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Available</label>
+                        <label class="col-sm-2 col-form-label">{{ __('messages.avaliable') }}</label>
                         <div class="col-sm-10 col col-lg-2">
                             <center><input type="checkbox" class="col-sm-100" name="availability" value="{{ old('availability') }}" ></center>
                         </div>
                     </div>
                     <div class="col-md-auto">
-                        <center><input class="btn btn-primary" type="submit" value="Send" /></center>
+                        <center><input class="btn btn-primary" type="submit" value="{{ __('messages.send') }}" /></center>
                     </div>
                     <br \>
                     <div class="col-md-auto">
-                        <center><input type="submit"  class="btn-danger" value="Back to Home" onclick= "location='{{ route('home.index') }}'"></center>
+                        <center><input type="submit"  class="btn-danger" value="{{ __('messages.backHome') }}" onclick= "location='{{ route('home.index') }}'"></center>
                     </div>
                 </form>
                 
