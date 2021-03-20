@@ -9,6 +9,8 @@ class Reviews extends Model
 {
     //attributes id, rating, comments, status, user_id, food_id, created_at, updated_at
     protected $fillable = [
+        'id',
+        'status',
         'rating',
         'comments',
         'user_id',
