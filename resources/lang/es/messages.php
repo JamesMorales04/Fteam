@@ -70,4 +70,7 @@ return [
     'createReviews' => 'Crear una Review',
     'comments' => 'Comentarios',
 
+    //Review
+    'reviews' => 'Reseñas de',
+
 ];

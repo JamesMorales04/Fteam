@@ -66,4 +66,5 @@ return [
     //Reviews
     'createReviews' => 'Create Reviews',
     'comments' => 'Comments',
+    'reviews' => 'Reviews of',
 ];
