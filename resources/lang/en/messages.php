@@ -77,5 +77,5 @@ return [
     'order'=>'Order',
     'total'=>'Total',
     'noOrders'=>'There are no orders for this user',
-    
+
 ];

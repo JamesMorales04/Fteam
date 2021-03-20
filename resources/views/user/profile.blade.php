@@ -54,6 +54,7 @@
                             <b>{{ __('messages.role') }}:</b> {{ $data['user']->getRole() }}<br />
 
 
+
                             <br />
                             <a method="PUT" href="{{ route('user.update', ['id' => $data['user']->getID()]) }}"
                                 type="button" class="btn btn-outline-primary">{{ __('messages.edit') }}</a>
@@ -81,7 +82,7 @@
 
                                 @foreach ($data['card'] as $card)
 
-                                    <b>{{ __('messages.creditCard') }}{{ $loop->index + 1 }}: </b><br />
+                                    <b>{{ __('messages.creditCard') }} {{ $loop->index + 1 }}: </b><br />
 
                                     <a method="GET" href="{{ route('creditCard.show', ['id' => $card->getID()]) }}"
                                         type="button" class="btn btn-outline-primary">{{ __('messages.view') }}</a>
