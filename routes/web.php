@@ -34,11 +34,14 @@ Route::group(['prefix' => 'food'], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
     Route::get('/show', 'App\Http\Controllers\FoodController@showAll')->name('food.showAll');
     Route::get('/create', 'App\Http\Controllers\foodController@create')->name('food.create');
-    Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
-    Route::delete('/show/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
+    Route::get('/update/{id}', 'App\Http\Controllers\FoodController@update')->name('food.update');
+    Route::get('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
+    Route::post('/saveupdate', 'App\Http\Controllers\foodController@updateSave')->name('food.updateSave');
+    Route::delete('/delete/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
 });
 
 Route::group(['prefix' => 'reviews'], function () {
+    Route::get('/show/{id}', 'App\Http\Controllers\ReviewsController@show')->name('reviews.show');
     Route::get('/create/{id}', 'App\Http\Controllers\ReviewsController@create')->name('reviews.create');
     Route::post('/save', 'App\Http\Controllers\ReviewsController@save')->name('reviews.save');
 });

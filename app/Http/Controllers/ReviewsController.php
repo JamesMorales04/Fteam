@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class ReviewsController extends Controller
 {
+    public function show($foodID)
+    {
+        $data = [];
+        $review = Reviews::all();
+        $food = Food::findOrFail($foodID);
+        $data['title'] = $food->getName();
+        $data['reviews']  = Reviews::where('food_id','LIKE',"%$foodID%")->get();
+        return view('reviews.showAll')->with('data', $data);
+    }
 
     public function create($id)
     {

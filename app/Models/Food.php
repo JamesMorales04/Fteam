@@ -29,6 +29,7 @@ class Food extends Model
 
         $request->validate([
             'name' => 'required',
+            'description' => 'required',
             'availability' => 'required',
             'recipe' => 'required',
             'price' => 'required|numeric|gt:0',
@@ -60,7 +61,7 @@ class Food extends Model
         return $this->attributes['description'];
     }
 
-    public function setDescription($name)
+    public function setDescription($description)
     {
         $this->attributes['description'] = $description;
     }

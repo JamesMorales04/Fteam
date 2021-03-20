@@ -46,4 +46,7 @@ return [
     //Vista food
     'askForIngredients' => 'Pedir ingredientes',
 
+    //Review
+    'reviews' => 'Reseñas de',
+
 ];
