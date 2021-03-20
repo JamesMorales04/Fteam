@@ -59,10 +59,12 @@ Route::group(['prefix' => 'orderedfood'], function () {
 
 Route::group(['prefix' => 'shop'], function () {
     Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name('shop.add');
+    Route::get('/addAsIngresients/{id}', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name('shop.removeAll');
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
     Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
+    Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
 });
 
 Route::group(['prefix' => 'users'], function () {

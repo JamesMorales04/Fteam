@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Ingredients;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,7 @@ class FoodController extends Controller
     {
         $data = [];
         $data['title'] = 'Create food';
+        $data['ingredients'] = Ingredients::All();
 
         return view('food.create')->with('data', $data);
     }
@@ -38,7 +40,11 @@ class FoodController extends Controller
     public function update($id)
     {
         try {
-            $data = Food::findOrFail($id);
+            $food = Food::findOrFail($id);
+            $data['food'] = $food;
+            $data['item']= $food['ingredients'];
+            $data['ingredients'] = Ingredients::All();
+
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
@@ -49,7 +55,14 @@ class FoodController extends Controller
     public function updateSave(Request $request)
     {
         Food::validate($request);
-        
+
+        $ingredient = array();
+        foreach ($request['ingredients'] as $key) {
+            array_push($ingredient, (int)$key);
+        }
+        $request['ingredients']=$ingredient;
+
+        // dd($request);
         try {
             $food = Food::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -61,6 +74,7 @@ class FoodController extends Controller
         $food->setAvailability($request->get('availability'));
         $food->setRecipe($request->get('recipe'));
         $food->setPrice($request->get('price'));
+        $food->setIngredients(json_encode($ingredient));
 
         $food->save();
 
@@ -69,9 +83,16 @@ class FoodController extends Controller
 
     public function save(Request $request)
     {
+        
         Food::validate($request);
+        
+        $ingredient = array();
+        foreach ($request['ingredients'] as $key) {
+            array_push($ingredient, (int)$key);
+        }
+        $request['ingredients']=$ingredient;
 
-        Food::create($request->only(['name', 'description', 'availability', 'recipe', 'price']));
+        Food::create($request->only(['name', 'description', 'availability', 'recipe', 'price', 'ingredients']));
 
         return back()->with('success', 'Item created successfully!');
     }
