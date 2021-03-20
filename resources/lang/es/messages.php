@@ -9,6 +9,10 @@ return [
     'password' => 'Contraseña',
     'creationDate' => 'Fecha de creacion',
     'role' => 'Rol',
+    'price' => 'Precio',
+    'amount' => 'Cantidad',
+    'avaliable' => 'Disponible',
+    'id' => 'ID',
 
     // Crud basico
 
@@ -17,6 +21,10 @@ return [
     'delete' => 'Borrar',
     'edit' => 'Editar',
     'return' => 'Volver',
+    'create' => 'Crear',
+    'backHome' => 'Volver a Home',
+    'yes' => 'Sí',
+    'no'  => 'No',
 
     //Dates
 
@@ -45,6 +53,22 @@ return [
 
     //Vista food
     'askForIngredients' => 'Pedir ingredientes',
+    'backFood' => 'Volver a Comida',
+
+    //Ingredientes
+    'ingredients' => 'Ingredientes',
+    'theseAreTheIngredients' => 'Estos son los ingredientes disponibles',
+    'createIngredient' => 'Crear un Ingrediente',
+    'productID' => 'ID del producto',
+    'productName' => 'Nombre del producto',
+    'productPrice' => 'Precio del producto',
+    'productAmount' => 'Cantidad de producto',             
+    'productAvailability' => 'Disponibilidad del producto',
+    'backIngredients' => 'Volver a Ingredientes',
+
+    //Reviews
+    'createReviews' => 'Crear una Review',
+    'comments' => 'Comentarios',
 
     //Review
     'reviews' => 'Reseñas de',

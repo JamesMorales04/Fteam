@@ -9,6 +9,10 @@ return [
     'password' => 'Password',
     'creationDate' => 'Creation Date',
     'role' => 'Role',
+    'price' => 'Price',
+    'amount' => 'Amount',
+    'avaliable' => 'Avaliable',
+    'id' => 'ID',
 
     // Crud basico
     'add' => 'Add',
@@ -16,7 +20,10 @@ return [
     'delete' => 'Delete',
     'edit' => 'Edit',
     'return' => 'Go back',
-
+    'create' => 'Create',
+    'backHome' => 'Back to Home',
+    'yes' => 'Yes',
+    'no'  => 'No',
     //Dates
 
     'month' => 'Month',
@@ -43,8 +50,21 @@ return [
 
     //Vista food
     'askForIngredients' => 'Only ingredients',
+    'backFood' => 'Back to food',
 
-    //Review
+    //Ingredientes
+    'ingredients' => 'Ingredients',
+    'theseAreTheIngredients' => 'These are the ingredients available',
+    'createIngredient' => 'Create a Ingredient',
+    'productID' => 'Product ID',
+    'productName' => 'Product name',
+    'productPrice' => 'Product price',
+    'productAmount' => 'Product amount',             
+    'productAvailability' => 'Product availability',
+    'backIngredients' => 'Back to Ingredients',
+
+    //Reviews
+    'createReviews' => 'Create Reviews',
+    'comments' => 'Comments',
     'reviews' => 'Reviews of',
-
 ];
