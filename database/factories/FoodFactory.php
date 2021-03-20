@@ -23,14 +23,15 @@ class FoodFactory extends Factory
     {
         $food = \Faker\Factory::create();
         $food->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($food));
+
         return [
             'name' => $food->foodName(),
             'availability' => $this->faker->boolean(),
             'recipe' => $this->faker->text(),
             'description' => $this->faker->text(),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 100),
-            'ingredients' => [$this->faker->numberBetween($min = 0, $max = 10),$this->faker->numberBetween($min = 0, $max = 10)
-                                ,$this->faker->numberBetween($min = 0, $max = 10)],
+            'ingredients' => [$this->faker->numberBetween($min = 1, $max = 10),$this->faker->numberBetween($min = 1, $max = 10)
+                                ,$this->faker->numberBetween($min = 1, $max = 10)],
         ];
     }
 }

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reviews;
 use App\Models\Food;
-use App\Models\User;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class ReviewsController extends Controller
 {
@@ -16,7 +14,8 @@ class ReviewsController extends Controller
         $review = Reviews::all();
         $food = Food::findOrFail($foodID);
         $data['title'] = $food->getName();
-        $data['reviews']  = Reviews::where('food_id','LIKE',"%$foodID%")->get();
+        $data['reviews'] = Reviews::where('food_id', 'LIKE', "%$foodID%")->get();
+
         return view('reviews.showAll')->with('data', $data);
     }
 
@@ -25,6 +24,7 @@ class ReviewsController extends Controller
         $data = []; //to be sent to the view
         $data['title'] = 'Create comment';
         $data['food_id'] = $id;
+
         return view('reviews.create')->with('data', $data);
     }
 
@@ -43,8 +43,9 @@ class ReviewsController extends Controller
         // $data = []; //to be sent to the view
         // $ingredients = Comments::all();
         // $data['ingredients'] = $ingredients;
-        
+
         $data = Food::orderBy('id', 'DESC')->get();
+
         return view('food.showAll')->with('data', $data);
 
         // return view('Comments.show')->with('data', $data);
