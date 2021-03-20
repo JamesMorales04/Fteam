@@ -52,29 +52,30 @@ class ShoppingController extends Controller
         $data['title'] = 'Buy';
 
         $order = new Order();
-        $order->setTotal(0);
-        $order->setUserId(Auth::Id());
-        $order->save();
         $total = 0;
         $ids = $request->session()->get('food');
 
         if ($ids) {
+            $order->setTotal(0);
+            $order->setUserId(Auth::Id());
+            $order->save();
             $listFoodInCart = Food::findMany($ids);
+
             foreach ($listFoodInCart as $food) {
                 $orderedFood = new OrderedFood();
                 $orderedFood->setAmount(1);
                 $orderedFood->setSubTotal($food->getPrice());
+                $orderedFood->setFoodName($food->getName());
                 $orderedFood->setFoodId($food->getId());
                 $orderedFood->setOrderId($order->getId());
                 $orderedFood->save();
                 $total = $total + $food->getPrice();
             }
+            $order->setTotal($total);
+            $order->save();
+            $request->session()->forget('food');
         }
-
-        $order->setTotal($total);
-        $order->save();
-        $request->session()->forget('food');
-
-        return view('shopping.buy')->with('data', $data);
+        
+        return view('shopping.buy')->with("data",$data);
     }
 }
