@@ -59,7 +59,7 @@ return [
     'productID' => 'Product ID',
     'productName' => 'Product name',
     'productPrice' => 'Product price',
-    'productAmount' => 'Product amount',             
+    'productAmount' => 'Product amount',
     'productAvailability' => 'Product availability',
     'backIngredients' => 'Back to Ingredients',
 

@@ -22,7 +22,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $data["product"]->getName() }}</div>
+                <div class="card-header"><strong>{{ $data["product"]->getName() }}</strong></div>
 
                 <div class="card-body">
                     <b>{{ __('messages.productID') }}:</b> {{$data["product"]->getId()}}<br />
@@ -36,6 +36,7 @@
                     @endif
                     <center>
                         <input type="submit" class="btn btn-outline-success" value="{{ __('messages.backIngredients') }}" onclick= "location='{{ route('Ingredients.show') }}'">
+                        <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('Ingredients.update',['id' => $data['product']->getId()]) }}'">
                         <input type="submit" class="btn btn-outline-danger" value="{{ __('messages.delete') }}" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
                     </center>
                 </div>

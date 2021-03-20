@@ -19,24 +19,25 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            @include('util.message')
-            <div class="card">
-                <div class="card-header">{{ __('messages.ingredients') }}</div>
+    <h1>{{ __('messages.ingredients') }}</h1>
 
-                <div class="card-body">
-                    <b>{{ __('messages.theseAreTheIngredients') }}:</b><br />
-                    <ul>
-                        @foreach($data["ingredients"] as $product)
-                            <li><strong>{{ __('messages.id') }}</strong> <a href="{{ route('Ingredients.show') }}/{{$product->getId()}}">{{ $product->getId() }}</a> - <strong>{{ __('messages.name') }}</strong> {{ $product->getName() }} </li>     
-                        @endforeach        
-                    </ul>
-                    <center><input type="submit"  class="btn btn-outline-danger" value="{{ __('messages.backHome') }}" onclick= "location='{{ route('home.index') }}'"></center>
+    <ul>
+        @foreach ($data["ingredients"] as $ingredients)
+        <br/>
+        <div class="card">
+                <div class="card-header"> 
+                    <div class="row">
+                        <div class="col align-self-start"><strong>{{ __('messages.productName') }}:</strong> {{$ingredients->getName()}} </div>
+                        <div class="col align-self-start"><strong>{{ __('messages.productAmount') }}:</strong> {{$ingredients->getAmount()}} </div>
+                        <div class="col align-self-end">
+                            <a class="float-right" href="{{ route('Ingredients.show') }}/{{$ingredients->getId()}}">
+                                <button class="btn btn-outline-primary" >{{  __('messages.view')  }}</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @endforeach
+    </ul>
 </div>
 @endsection
-

@@ -62,7 +62,7 @@ return [
     'productID' => 'ID del producto',
     'productName' => 'Nombre del producto',
     'productPrice' => 'Precio del producto',
-    'productAmount' => 'Cantidad de producto',             
+    'productAmount' => 'Cantidad de producto',
     'productAvailability' => 'Disponibilidad del producto',
     'backIngredients' => 'Volver a Ingredientes',
 

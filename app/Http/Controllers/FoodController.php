@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
@@ -49,13 +48,13 @@ class FoodController extends Controller
     public function updateSave(Request $request)
     {
         Food::validate($request);
-        
+
         try {
             $food = Food::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
-        
+
         $food->setName($request->get('name'));
         $food->setDescription($request->get('description'));
         $food->setAvailability($request->get('availability'));
@@ -79,7 +78,7 @@ class FoodController extends Controller
     public function delete($foodID)
     {
         $data['reviews'] = Reviews::where('food_id', $foodID)->delete();
-        
+
         Food::destroy($foodID);
 
         $data = Food::orderBy('id', 'DESC')->get();

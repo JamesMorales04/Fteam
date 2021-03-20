@@ -23,6 +23,7 @@ class FoodFactory extends Factory
     {
         $food = \Faker\Factory::create();
         $food->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($food));
+
         return [
             'name' => $food->foodName(),
             'availability' => $this->faker->boolean(),
