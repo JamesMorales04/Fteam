@@ -32,38 +32,55 @@
                     @endforeach
                 </ul>
                 @endif
-                <form method="POST" action="{{ route('Ingredients.save') }}">
+                <form role="form" method="POST" action="{{ route('Ingredients.updateSave') }}">
                     @csrf
+
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
-                        <div class="col-8">
-                            <input type="text" class="form-control"  placeholder="Enter the name of the ingredient" name="name" value="{{ old('name') }}" />
+                        <div class="col-sm-2 col-form-label">
+                            <input type="hidden" class="form-control" name="id" value="{{ $data->getId() }}" />
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">{{ __('messages.productName') }}</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control"  placeholder="Enter name" name="name" value="{{ $data->getName() }}" />
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">{{ __('messages.productPrice') }}</label>
                         <div class="col-8">
-                            <input type="number" class="form-control"  placeholder="Enter the price" name="price" value="{{ old('price') }}" />
+                            <textarea type="number" name="price" class="form-control" spellcheck="true" value="{{ old('price') }}" >{{ $data->getPrice() }}
+                            </textarea>
                         </div>
                     </div>
+
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">{{ __('messages.amount') }}</label>
+                        <label class="col-sm-2 col-form-label">{{ __('messages.productAmount') }}</label>
                         <div class="col-8">
-                            <input type="number" class="form-control"  placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
+                            <textarea type="number" name="amount" class="form-control" spellcheck="true" value="{{ old('amount') }}" >{{$data->getAmount() }}</textarea>
                         </div>
                     </div>
-                    <div class="col-md-auto">
-                        <center><input class="btn btn-primary" type="submit" value="{{ __('messages.send') }}" /></center>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">{{ __('messages.productAvailability') }}</label>
+                        <div class="col-8">
+                            @if ($data->getAvailability())
+                                <input type="checkbox" class="col-sm-100" name="availability" value="{{ old('availability') }}" checked>
+                            @else
+                                <input type="checkbox" class="col-sm-100" name="availability" value="{{ old('availability') }}">
+                            @endif
+                        </div>
                     </div>
-                    <br \>
+
                     <div class="col-md-auto">
-                        <center><input type="submit"  class="btn-danger" value="{{ __('messages.backHome') }}" onclick= "location='{{ route('home.index') }}'"></center>
+                        <center><input class="btn btn-primary" type="submit" value="Send" /></center>
                     </div>
-                </form>
-                
+                </form> 
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> </br>
 @endsection

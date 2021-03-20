@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Food;
+use App\Models\Ingredients;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class FoodFactory extends Factory
+class IngredientsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Food::class;
+    protected $model = Ingredients::class;
 
     /**
      * Define the model's default state.
@@ -21,15 +21,13 @@ class FoodFactory extends Factory
      */
     public function definition()
     {
-        $food = \Faker\Factory::create();
-        $food->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($food));
+        $ingredients = \Faker\Factory::create();
+        $ingredients->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($ingredients));
 
         return [
-            'name' => $food->foodName(),
-            'availability' => $this->faker->boolean(),
-            'recipe' => $this->faker->text(),
-            'description' => $this->faker->text(),
+            'name' => $ingredients->vegetableName(),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 100),
+            'amount' => $this->faker->numberBetween($min = 15, $max = 100),
         ];
     }
 }

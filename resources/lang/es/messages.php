@@ -35,6 +35,7 @@ return [
     //Crud User
 
     'updateUser' => 'Actualizar Usuario',
+    'userID' => 'ID de Usuario',
 
     // Tarjeta de Credito
 
@@ -55,6 +56,7 @@ return [
     //Vista food
     'askForIngredients' => 'Pedir ingredientes',
     'backFood' => 'Volver a Comida',
+    'foodName' => 'Nombre de la Comida',
 
     //Ingredientes
     'ingredients' => 'Ingredientes',
@@ -63,16 +65,15 @@ return [
     'productID' => 'ID del producto',
     'productName' => 'Nombre del producto',
     'productPrice' => 'Precio del producto',
-    'productAmount' => 'Cantidad de producto',             
+    'productAmount' => 'Cantidad de producto',
     'productAvailability' => 'Disponibilidad del producto',
     'backIngredients' => 'Volver a Ingredientes',
 
     //Reviews
     'createReviews' => 'Crear una Review',
     'comments' => 'Comentarios',
-
-    //Review
     'reviews' => 'Reseñas de',
+    'rating' => 'Puntuación',
 
     //Orders
 

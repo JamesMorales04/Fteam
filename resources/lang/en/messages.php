@@ -33,6 +33,7 @@ return [
     //Crud User
 
     'updateUser' => 'Update user',
+    'userID' => 'User ID',
 
     // Tarjeta de Credito
     'createCreditCard' => 'Create a credit card',
@@ -52,6 +53,7 @@ return [
     //Vista food
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
+    'foodName' => 'Food Name',
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -60,7 +62,7 @@ return [
     'productID' => 'Product ID',
     'productName' => 'Product name',
     'productPrice' => 'Product price',
-    'productAmount' => 'Product amount',             
+    'productAmount' => 'Product amount',
     'productAvailability' => 'Product availability',
     'backIngredients' => 'Back to Ingredients',
 
@@ -68,11 +70,12 @@ return [
     'createReviews' => 'Create Reviews',
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
-
+    'rating' => 'Rating',
     //Orders
 
     'orders'=>'Orders',
     'order'=>'Order',
     'total'=>'Total',
-    'noOrders'=>'There are no orders for this user'
+    'noOrders'=>'There are no orders for this user',
+    
 ];

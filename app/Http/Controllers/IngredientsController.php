@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class IngredientsController extends Controller
 {
-    public function show()
+    public function showAll()
     {
         $data = []; //to be sent to the view
         $ingredients = Ingredients::all();
@@ -16,7 +16,7 @@ class IngredientsController extends Controller
         return view('Ingredients.show')->with('data', $data);
     }
 
-    public function showI($id)
+    public function showIngredient($id)
     {
         $data = []; //to be sent to the view
         $product = Ingredients::findOrFail($id);
@@ -30,7 +30,7 @@ class IngredientsController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
-        $data['title'] = 'Create product';
+        $data['title'] = 'Create Ingredient';
 
         return view('Ingredients.create')->with('data', $data);
     }
@@ -53,5 +53,36 @@ class IngredientsController extends Controller
         $data['ingredients'] = $ingredients;
 
         return view('Ingredients.show')->with('data', $data);
+    }
+
+    public function update($id)
+    {
+        try {
+            $data = Ingredients::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
+
+        return view('Ingredients.update')->with('data', $data);
+    }
+
+    public function updateSave(Request $request)
+    {
+        Ingredients::validate($request);
+
+        try {
+            $food = Ingredients::findOrFail($request->get('id'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
+
+        $food->setName($request->get('name'));
+        $food->setPrice($request->get('price'));
+        $food->setAmount($request->get('amount'));
+        $food->setAvailability($request->get('availability'));
+
+        $food->save();
+
+        return redirect()->route('Ingredients.show', [$request->get('id')]);
     }
 }
