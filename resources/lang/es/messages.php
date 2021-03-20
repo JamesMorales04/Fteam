@@ -13,6 +13,7 @@ return [
     'amount' => 'Cantidad',
     'avaliable' => 'Disponible',
     'id' => 'ID',
+    'profile'=>'User Profile',
 
     // Crud basico
 
@@ -73,5 +74,12 @@ return [
     'comments' => 'Comentarios',
     'reviews' => 'Reseñas de',
     'rating' => 'Puntuación',
+
+    //Orders
+
+    'orders'=>'Ordenes',
+    'order'=>'Orden',
+    'total'=>'Total',
+    'noOrders'=>'No existen ordenes para este usuario'
 
 ];

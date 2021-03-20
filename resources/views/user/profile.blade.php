@@ -2,18 +2,48 @@
 
 @section('title', $data['user']->getName())
 
+@section('header')
+<div class="container d-flex align-items-center flex-column">
+    <!-- Masthead Heading-->
+    <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.profile') }} </h1>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+    <!-- Masthead Subheading-->
+    <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.profile') }} </p>
+</div>
+@endsection
+
 @section('content')
 
     <div class="container">
 
         <div class="row justify-content-center">
+            @include('util.message')
 
             <div class="col-md-8">
                 <div class="card-deck">
 
                     <div class="card">
 
-                        <div class="card-header">{{ $data['user']->getName() }}</div>
+                        <div class="card-header">
+                        
+                            <div class="row">
+                                <div class="col align-self-start"> {{ $data['user']->getName() }} </div>
+        
+                                <div class="col align-self-end">
+                                    <a class="float-right" href="{{ route('order.showAll')}}">
+                                        <button class="btn btn-outline-primary" >{{  __('messages.orders')  }}</button>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                        
 
                         <div class="card-body">
 
@@ -47,7 +77,7 @@
                             @else
                                 <b>{{ __('messages.newCreditCard') }} </b><br />
                                 <a method="GET" href="{{ route('creditCard.create') }}" type="button"
-                                    class="btn btn-outline-primary">{{ __('messages.add') }}</a><br />
+                                    class="btn btn-outline-primary">{{ __('messages.add') }}</a><br /><br />
 
                                 @foreach ($data['card'] as $card)
 

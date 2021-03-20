@@ -13,6 +13,7 @@ return [
     'amount' => 'Amount',
     'avaliable' => 'Avaliable',
     'id' => 'ID',
+    'profile'=>'User Profile',
 
     // Crud basico
     'add' => 'Add',
@@ -70,4 +71,11 @@ return [
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
     'rating' => 'Rating',
+    //Orders
+
+    'orders'=>'Orders',
+    'order'=>'Order',
+    'total'=>'Total',
+    'noOrders'=>'There are no orders for this user',
+    
 ];

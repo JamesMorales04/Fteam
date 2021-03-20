@@ -55,6 +55,11 @@ class CreditCardController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
+        $request['user_id']=Auth::id();
+        
+
+        CreditCard::validate($request);
+
         $creditCard->setCardName($request->get('cardName'));
         $creditCard->setSecurityCode($request->get('securityCode'));
         $creditCard->setExpirationMonth($request->get('expirationMonth'));

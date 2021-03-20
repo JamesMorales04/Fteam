@@ -32,7 +32,7 @@ class CreditCard extends Model
 
             'securityCode' => 'required|numeric',
 
-            'cardNumber' => 'required|numeric',
+            'cardNumber' => 'required|regex:/[0-9 ]+/',
 
             'user_id' => 'required',
         ]);
