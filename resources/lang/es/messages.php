@@ -13,6 +13,7 @@ return [
     'amount' => 'Cantidad',
     'avaliable' => 'Disponible',
     'id' => 'ID',
+    'profile'=>'User Profile',
 
     // Crud basico
 
@@ -34,6 +35,7 @@ return [
     //Crud User
 
     'updateUser' => 'Actualizar Usuario',
+    'userID' => 'ID de Usuario',
 
     // Tarjeta de Credito
 
@@ -54,6 +56,7 @@ return [
     //Vista food
     'askForIngredients' => 'Pedir ingredientes',
     'backFood' => 'Volver a Comida',
+    'foodName' => 'Nombre de la Comida',
 
     //Ingredientes
     'ingredients' => 'Ingredientes',
@@ -69,8 +72,14 @@ return [
     //Reviews
     'createReviews' => 'Crear una Review',
     'comments' => 'Comentarios',
-
-    //Review
     'reviews' => 'Reseñas de',
+    'rating' => 'Puntuación',
+
+    //Orders
+
+    'orders'=>'Ordenes',
+    'order'=>'Orden',
+    'total'=>'Total',
+    'noOrders'=>'No existen ordenes para este usuario'
 
 ];

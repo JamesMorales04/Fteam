@@ -1,18 +1,38 @@
 @extends('layouts.app')
 
 @section('title', $data['title'])
-
+@section('header')
+<div class="container d-flex align-items-center flex-column">
+    <!-- Masthead Heading-->
+    <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.creditCard') }} </h1>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+    <!-- Masthead Subheading-->
+    <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.creditCard') }} </p>
+</div>
+@endsection
 @section('content')
 
     <div class="container">
 
         <div class="row justify-content-center">
-
+            @include('util.message')
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">
                         <strong>{{  __('messages.creditCard')  }}</strong>
                     </div>
+                    @if($errors->any())
+                    <ul id="errors">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
                     <form role="form" method="POST" action="{{ route('creditCard.save') }}" required>
                         @csrf
                         <div class="form-group row">

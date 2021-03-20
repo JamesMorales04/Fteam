@@ -45,7 +45,7 @@ class OrderedFood extends Model
         $this->attributes['subTotal'] = $subTotal;
     }
 
-    public function getFoodNamel()
+    public function getFoodName()
     {
         return $this->attributes['foodName'];
     }

@@ -3,43 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderedFood;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function show($id)
-    {
-        try {
-            $order = Order::findOrFail($id);
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+   
+
+    public function showAll(){
+        $order['orders'] = Order::where('user_id',Auth::id())->get();
+
+        foreach ($order['orders'] as $orderAux) {
+            $order[$orderAux->getId()] = OrderedFood::where('order_id',$orderAux->getId())->get();
         }
 
-        return view('order.show')->with('order', $order);
+        
+
+        return view('order.showAll')->with('orders', $order);
     }
 
-    public function create()
-    {
-        $data = []; //to be sent to the view
-
-        $data['title'] = 'Create user';
-
-        return view('order.create')->with('data', $data);
-    }
 
     public function save(Request $request)
     {
         Order::validate($request);
 
-        Order::create($request->only(['total']));
+        Order::create($request->only(['total','user_id']));
 
         return back()->with('success', 'Order created successfully!');
     }
 
-    public function delete($id)
-    {
-        Order::destroy($id);
 
-        return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
-    }
 }
