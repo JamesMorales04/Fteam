@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\CreditCard;
 use App\Models\Food;
+use App\Models\Ingredients;
 use App\Models\Order;
 use App\Models\OrderedFood;
 use App\Models\User;
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Food::factory(10)->create();
+        Ingredients::factory(10)->create();
         OrderedFood::factory(10)->create();
         User::factory(10)->create();
         CreditCard::factory(10)->create();
