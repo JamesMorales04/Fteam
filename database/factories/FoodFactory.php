@@ -29,6 +29,8 @@ class FoodFactory extends Factory
             'recipe' => $this->faker->text(),
             'description' => $this->faker->text(),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 100),
+            'ingredients' => [$this->faker->numberBetween($min = 0, $max = 10),$this->faker->numberBetween($min = 0, $max = 10)
+                                ,$this->faker->numberBetween($min = 0, $max = 10)],
         ];
     }
 }
