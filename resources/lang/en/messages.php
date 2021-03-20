@@ -32,6 +32,7 @@ return [
     //Crud User
 
     'updateUser' => 'Update user',
+    'userID' => 'User ID',
 
     // Tarjeta de Credito
     'createCreditCard' => 'Create a credit card',
@@ -51,6 +52,7 @@ return [
     //Vista food
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
+    'foodName' => 'Food Name',
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -67,4 +69,5 @@ return [
     'createReviews' => 'Create Reviews',
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
+    'rating' => 'Rating',
 ];
