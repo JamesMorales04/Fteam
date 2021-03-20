@@ -11,7 +11,6 @@ class ReviewsController extends Controller
     public function show($foodID)
     {
         $data = [];
-        $review = Reviews::all();
         $food = Food::findOrFail($foodID);
         $data['title'] = $food->getName();
         $data['reviews'] = Reviews::where('food_id', 'LIKE', "%$foodID%")->get();
@@ -40,14 +39,6 @@ class ReviewsController extends Controller
     {
         Reviews::where('id', $id)->delete();
 
-        // $data = []; //to be sent to the view
-        // $ingredients = Comments::all();
-        // $data['ingredients'] = $ingredients;
-
-        $data = Food::orderBy('id', 'DESC')->get();
-
-        return view('food.showAll')->with('data', $data);
-
-        // return view('Comments.show')->with('data', $data);
+        return back();
     }
 }
