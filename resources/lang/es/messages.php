@@ -80,6 +80,6 @@ return [
     'orders'=>'Ordenes',
     'order'=>'Orden',
     'total'=>'Total',
-    'noOrders'=>'No existen ordenes para este usuario'
+    'noOrders'=>'No existen ordenes para este usuario',
 
 ];

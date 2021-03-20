@@ -64,6 +64,15 @@
         $(this).removeClass("floating-label-form-group-with-focus");
       });
     });
-  
+
+    //multi select
+    $('#my-select').multiSelect();
+    $(document).ready(function() {       
+      $('#languages').multiselect({		
+        nonSelectedText: 'Select Language'				
+      });
+    });
   })(jQuery); // End of use strict
+
+
   
