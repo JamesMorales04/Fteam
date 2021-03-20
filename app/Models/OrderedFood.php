@@ -75,11 +75,13 @@ class OrderedFood extends Model
         $this->attributes['food_id'] = $food_id;
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 
-    public function food(){
+    public function food()
+    {
         return $this->belongsTo(Food::class);
     }
 }

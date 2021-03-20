@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +23,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
 Route::group(['prefix' => 'ingredient'], function () {
-    Route::get('/show', 'App\Http\Controllers\IngredientsController@show')->name('Ingredients.show');
-    Route::get('/show/{id}', 'App\Http\Controllers\IngredientsController@showI')->name('Ingredients.showI');
+    Route::get('/show', 'App\Http\Controllers\IngredientsController@showAll')->name('Ingredients.show');
+    Route::get('/show/{id}', 'App\Http\Controllers\IngredientsController@showIngredient')->name('Ingredients.showI');
     Route::get('/create', 'App\Http\Controllers\IngredientsController@create')->name('Ingredients.create');
     Route::post('/save', 'App\Http\Controllers\IngredientsController@save')->name('Ingredients.save');
     Route::get('/ingredient/delete/{id}', 'App\Http\Controllers\IngredientsController@delete')->name('Ingredients.delete');
+    Route::get('/update/{id}', 'App\Http\Controllers\IngredientsController@update')->name('Ingredients.update');
+    Route::post('/saveupdate', 'App\Http\Controllers\IngredientsController@updateSave')->name('Ingredients.updateSave');
 });
 
 Route::group(['prefix' => 'food'], function () {
@@ -53,8 +55,8 @@ Route::group(['prefix' => 'orderedfood'], function () {
 });
 
 Route::group(['prefix' => 'shop'], function () {
-    Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name("shop.add");
-    Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name("shop.removeAll");
+    Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name('shop.add');
+    Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name('shop.removeAll');
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
 });

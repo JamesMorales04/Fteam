@@ -96,7 +96,8 @@ class Food extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function reviews(){
+    public function reviews()
+    {
         return $this->hasMany(Reviews::class);
     }
 }

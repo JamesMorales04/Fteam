@@ -85,7 +85,8 @@ class Reviews extends Model
         $this->attributes['user_id'] = $uId;
     }
 
-    public function food(){
+    public function food()
+    {
         return $this->belongsTo(Food::class);
     }
 }
