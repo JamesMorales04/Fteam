@@ -55,8 +55,7 @@ class CreditCardController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        $request['user_id']=Auth::id();
-        
+        $request['user_id'] = Auth::id();
 
         CreditCard::validate($request);
 

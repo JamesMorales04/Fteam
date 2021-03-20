@@ -41,4 +41,32 @@ class ReviewsController extends Controller
 
         return back();
     }
+
+    public function update($id)
+    {
+        try {
+            $data = Reviews::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
+
+        return view('reviews.update')->with('data', $data);
+    }
+
+    public function updateSave(Request $request)
+    {
+        Reviews::validate($request);
+        try {
+            $reviews = Reviews::findOrFail($request->get('id'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
+
+        $reviews->setRating($request->get('rating'));
+        $reviews->setComments($request->get('comments'));
+
+        $reviews->save();
+
+        return redirect()->route('reviews.show', [$reviews->getFoodId()]);
+    }
 }

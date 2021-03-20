@@ -11,8 +11,8 @@ class OrderedFood extends Model
 
     //attributes id, amount, onlyIngredients, foodName, food_id, order_id, subTotal, created_at, updated_at
     protected $fillable = [
-        'amount', 
-        'subTotal'
+        'amount',
+        'subTotal',
     ];
 
     public function getId()

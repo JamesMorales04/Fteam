@@ -71,18 +71,19 @@ class IngredientsController extends Controller
         Ingredients::validate($request);
 
         try {
-            $food = Ingredients::findOrFail($request->get('id'));
+            $ingredients = Ingredients::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        $food->setName($request->get('name'));
-        $food->setPrice($request->get('price'));
-        $food->setAmount($request->get('amount'));
-        $food->setAvailability($request->get('availability'));
+        $ingredients->setName($request->get('name'));
+        $ingredients->setPrice($request->get('price'));
+        $ingredients->setAmount($request->get('amount'));
+        $ingredients->setAvailability($request->get('availability'));
 
-        $food->save();
+        $ingredients->save();
 
-        return redirect()->route('Ingredients.show', [$request->get('id')]);
+        return redirect()->route('Ingredients.showI', [$ingredients->getId()]);
+
     }
 }

@@ -118,7 +118,9 @@ class ShoppingController extends Controller
             $order->save();
             $request->session()->forget('food');
         }
+
         $request->session()->forget('ingredients');
         return view('shopping.buy')->with("data",$data);
+
     }
 }

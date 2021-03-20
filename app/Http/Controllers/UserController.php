@@ -23,6 +23,11 @@ class UserController extends Controller
 
         $data['card'] = CreditCard::where('user_id', $id)->get();
 
+        $data['prueba'] = [];
+        foreach ($data['card'] as $cards) {
+            array_push($data['prueba'], $cards->getCardName());
+        }
+
         return view('user.profile')->with('data', $data);
     }
 
@@ -31,16 +36,14 @@ class UserController extends Controller
         $data['card'] = CreditCard::where('user_id', $id)->delete();
         $data['order'] = Order::where('user_id', $id)->get();
 
-        
         foreach ($data['order'] as $order) {
-            $aux=OrderedFood::where('order_id', $order->getId())->get();
+            $aux = OrderedFood::where('order_id', $order->getId())->get();
             foreach ($aux as $value) {
                 $value->delete();
             }
             $order->delete();
         }
 
-        
         User::destroy($id);
 
         return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
@@ -65,8 +68,8 @@ class UserController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        $request['password']=$user->getPassword();
-        $request['role']=$user->getRole();
+        $request['password'] = $user->getPassword();
+        $request['role'] = $user->getRole();
 
         User::validate($request);
 
