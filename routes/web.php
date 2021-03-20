@@ -47,6 +47,8 @@ Route::group(['prefix' => 'reviews'], function () {
     Route::get('/create/{id}', 'App\Http\Controllers\ReviewsController@create')->name('reviews.create');
     Route::post('/save', 'App\Http\Controllers\ReviewsController@save')->name('reviews.save');
     Route::delete('/delete/{id}', 'App\Http\Controllers\ReviewsController@delete')->name('reviews.delete');
+    Route::get('/update/{id}', 'App\Http\Controllers\ReviewsController@update')->name('reviews.update');
+    Route::post('/saveupdate', 'App\Http\Controllers\ReviewsController@updateSave')->name('reviews.updateSave');
 });
 
 Route::group(['prefix' => 'orderedfood'], function () {

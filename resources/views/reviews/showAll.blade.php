@@ -41,6 +41,11 @@
                                         </form>
                                     </div>     
                                 </div>
+                                <div class="col align-self-end">
+                                    <div class="col-auto" >
+                                        <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
+                                    </div>     
+                                </div>
                             @endif
                         </div>
                     </div>
