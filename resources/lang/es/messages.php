@@ -13,6 +13,7 @@ return [
     'amount' => 'Cantidad',
     'avaliable' => 'Disponible',
     'id' => 'ID',
+    'profile'=>'User Profile',
 
     // Crud basico
 
@@ -76,6 +77,8 @@ return [
     //Orders
 
     'orders'=>'Ordenes',
-    'noOrders'=>'No existen ordenes creadas para este usuario'
+    'order'=>'Orden',
+    'total'=>'Total',
+    'noOrders'=>'No existen ordenes para este usuario'
 
 ];

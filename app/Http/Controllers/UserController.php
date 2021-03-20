@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CreditCard;
+use App\Models\Order;
+use App\Models\OrderedFood;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +28,18 @@ class UserController extends Controller
     public function delete($id)
     {
         $data['card'] = CreditCard::where('user_id', $id)->delete();
+        $data['order'] = Order::where('user_id', $id)->get();
 
+        
+        foreach ($data['order'] as $order) {
+            $aux=OrderedFood::where('order_id', $order->getId())->get();
+            foreach ($aux as $value) {
+                $value->delete();
+            }
+            $order->delete();
+        }
+
+        
         User::destroy($id);
 
         return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
@@ -50,6 +63,11 @@ class UserController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
+
+        $request['password']=$user->getPassword();
+        $request['role']=$user->getRole();
+
+        User::validate($request);
 
         $user->setName($request->get('name'));
         $user->setEmail($request->get('email'));

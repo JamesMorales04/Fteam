@@ -9,36 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function show($id)
-    {
-        try {
-            $orderBase = Order::findOrFail($id);
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
-        }
-
-        $order['order'] = OrderedFood::where('order_id',$id)->get();
-
-        $order['orderBase'] = $orderBase;
-
-
-        return view('order.show')->with('order', $order);
-    }
+   
 
     public function showAll(){
-        $orders = Order::where('user_id',Auth::id())->get();
-        return view('order.showAll')->with('orders', $orders);
+        $order['orders'] = Order::where('user_id',Auth::id())->get();
+
+        foreach ($order['orders'] as $orderAux) {
+            $order[$orderAux->getId()] = OrderedFood::where('order_id',$orderAux->getId())->get();
+        }
+
+        
+
+        return view('order.showAll')->with('orders', $order);
     }
 
-
-    public function create()
-    {
-        $data = []; //to be sent to the view
-
-        $data['title'] = 'Create user';
-
-        return view('order.create')->with('data', $data);
-    }
 
     public function save(Request $request)
     {
@@ -49,10 +33,5 @@ class OrderController extends Controller
         return back()->with('success', 'Order created successfully!');
     }
 
-    public function delete($id)
-    {
-        Order::destroy($id);
 
-        return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
-    }
 }
