@@ -40,6 +40,7 @@ Route::group(['prefix' => 'food'], function () {
     Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
     Route::post('/saveupdate', 'App\Http\Controllers\foodController@updateSave')->name('food.updateSave');
     Route::delete('/delete/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
+    Route::get('/topThree', 'App\Http\Controllers\OrderedFoodController@topThree')->name('food.topThree');
 });
 
 Route::group(['prefix' => 'reviews'], function () {

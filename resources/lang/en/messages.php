@@ -55,6 +55,8 @@ return [
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
     'foodName' => 'Food Name',
+    'topThree' => 'Top three food',
+    'best-selling' => 'The three best-selling products are',
 
     //Ingredientes
     'ingredients' => 'Ingredients',
