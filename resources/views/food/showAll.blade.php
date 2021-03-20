@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Food list</h1>
-
+    <input style="align-self: left" type="submit" class="btn btn-outline-primary" value="{{ __('messages.topThree') }}" onclick= "location='{{ route('food.topThree') }}'">
     <ul>
         @foreach ($data as $food)
         <br/>
