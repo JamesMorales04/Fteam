@@ -20,6 +20,7 @@ class CreateFoodTable extends Migration
             $table->boolean('availability');
             $table->text('recipe');
             $table->float('price');
+            $table->json('ingredients');
             $table->timestamps();
         });
     }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\food;
+use App\Models\Food;
+use App\Models\Ingredients;
 use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
@@ -10,6 +11,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ShoppingController extends Controller
 {
+    public function ingredients($id)
+    {
+        $data = [];
+        $food = Food::findOrFail($id);
+        $data = Ingredients::findMany($food['ingredients']);
+
+        return view('shopping.ingredient')->with('data', $data);
+    }
+
     public function cart(Request $request)
     {
         $data = []; //to be sent to the view

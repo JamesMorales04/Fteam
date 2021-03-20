@@ -10,17 +10,19 @@ class Food extends Model
 {
     use HasFactory;
 
-    //attributes id, name, description, availability, recipe, price, created_at, updated_at
+    //attributes id, name, description, availability, recipe, price, ingredients, created_at, updated_at
     protected $fillable = [
         'name',
         'description',
         'availability',
         'recipe',
         'price',
+        'ingredients',
     ];
 
     protected $casts = [
         'availability' => 'boolean',
+        'ingredients' => 'array',
     ];
 
     public static function validate(Request $request)
@@ -33,6 +35,7 @@ class Food extends Model
             'availability' => 'required',
             'recipe' => 'required',
             'price' => 'required|numeric|gt:0',
+            'ingredients'=> 'required',
         ]);
     }
 
@@ -96,8 +99,17 @@ class Food extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function reviews()
+    public function getIngredients()
     {
+        return $this->attributes['ingredients'];
+    }
+
+    public function setIngredients($ingredients)
+    {
+        $this->attributes['ingredients'] = $ingredients;
+    }
+
+    public function reviews(){
         return $this->hasMany(Reviews::class);
     }
 }
