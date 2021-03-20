@@ -11,6 +11,7 @@ class UserController extends Controller
 {
     public function show($id)
     {
+        // dd(Auth::user()->getRole());
         $data = [];
         try {
             $data['user'] = User::findOrFail($id);
