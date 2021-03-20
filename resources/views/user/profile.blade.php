@@ -13,7 +13,21 @@
 
                     <div class="card">
 
-                        <div class="card-header">{{ $data['user']->getName() }}</div>
+                        <div class="card-header">
+                        
+                            <div class="row">
+                                <div class="col align-self-start"> {{ $data['user']->getName() }} </div>
+        
+                                <div class="col align-self-end">
+                                    <a class="float-right" href="{{ route('order.showAll')}}">
+                                        <button class="btn btn-outline-primary" >{{  __('messages.orders')  }}</button>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                        
 
                         <div class="card-body">
 

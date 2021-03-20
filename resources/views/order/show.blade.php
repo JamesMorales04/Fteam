@@ -1,25 +1,34 @@
 @extends('layouts.app')
 
-@section("title", $order->getId())
+@section('title', __('messages.order') )
 
 @section('content')
 
-<div class="container">
+    <div class="container">
 
-    <div class="row justify-content-center">
+        <div class="row justify-content-center">
 
-        <div class="col-md-8">
+            <div class="col-md-8">
 
-            <div class="card">
+                <div class="card">
 
-                <div class="card-header">{{ $order->getId() }}</div>
+                    <div class="card-header"><strong>{{ __('messages.order') }} {{ $order['orderBase']->getId()}}</div></strong>
 
-                <div class="card-body">
+                    <div class="card-body">
 
-                    <b>Total: </b> {{ $order->getTotal() }}<br />
-                    <b>{{  __('messages.creationDate')  }}</b> {{ $order->getRegisterDate() }}<br />
-                    <br />
-                    <a method="DELETE" href="{{ route('order.delete',['id' => $order->getID()])}}"  type="button" class="btn btn-outline-danger" >{{  __('messages.delete')  }}</a>
+                        @foreach ($order['order'] as $food)
+
+                            <strong>name:</strong> {{ $food->getAmount()}}</b><br />
+
+                        @endforeach
+                        <label class="col-ld-8 "><strong>{{ __('messages.total') }}</strong>: {{ $order['orderBase']->getTotal()}}</label><br />
+                        <label class="col-ld-8 "><strong>{{__('messages.creationDate')  }}</strong>: {{ $order['orderBase']->getRegisterDate()}}</label><br />
+                        <a method="GET" href="{{ redirect()->back()->getTargetUrl() }}" type="button"class="btn btn-outline-primary">{{ __('messages.return') }}</a>
+                        
+
+
+
+                    </div>
                 </div>
 
             </div>
@@ -27,7 +36,5 @@
         </div>
 
     </div>
-
-</div>
 
 @endsection

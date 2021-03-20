@@ -67,4 +67,12 @@ return [
     'createReviews' => 'Create Reviews',
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
+
+    //Orders
+
+    'orders'=>'Orders',
+    'order'=>'Order',
+    'total'=>'Total',
+    
+    'noOrders'=>'There are no orders for this user'
 ];

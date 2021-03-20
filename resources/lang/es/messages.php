@@ -73,4 +73,9 @@ return [
     //Review
     'reviews' => 'Reseñas de',
 
+    //Orders
+
+    'orders'=>'Ordenes',
+    'noOrders'=>'No existen ordenes creadas para este usuario'
+
 ];

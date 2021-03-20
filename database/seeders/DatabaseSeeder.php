@@ -19,9 +19,5 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Food::factory(10)->create();
-        OrderedFood::factory(10)->create();
-        User::factory(10)->create();
-        CreditCard::factory(10)->create();
-        Order::factory(10)->create();
     }
 }
