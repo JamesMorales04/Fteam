@@ -49,6 +49,7 @@ return [
 
     //Carrito de compras
     'confirmation' => 'Purchase successful',
+    'AddCart' => 'Add to cart',
 
     //Vista food
     'askForIngredients' => 'Only ingredients',
@@ -71,8 +72,8 @@ return [
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
     'rating' => 'Rating',
-    //Orders
 
+    //Orders
     'orders'=>'Orders',
     'order'=>'Order',
     'total'=>'Total',

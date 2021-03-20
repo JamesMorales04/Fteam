@@ -52,6 +52,7 @@ return [
 
     //Carrito de compras
     'confirmation' => 'Compra realizada correctamente',
+    'AddCart' => 'Añadir al carrito',
 
     //Vista food
     'askForIngredients' => 'Pedir ingredientes',
