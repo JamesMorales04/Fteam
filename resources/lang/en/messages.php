@@ -16,6 +16,7 @@ return [
     'profile'=>'User Profile',
 
     // Crud basico
+
     'add' => 'Add',
     'view' => 'View',
     'delete' => 'Delete',
@@ -25,6 +26,7 @@ return [
     'backHome' => 'Back to Home',
     'yes' => 'Yes',
     'no'  => 'No',
+
     //Dates
 
     'month' => 'Month',
@@ -36,6 +38,7 @@ return [
     'userID' => 'User ID',
 
     // Tarjeta de Credito
+
     'createCreditCard' => 'Create a credit card',
     'creditCard' => 'Credit card',
     'newCreditCard' => 'Add a new credit card',
@@ -88,5 +91,7 @@ return [
     'order'=>'Order',
     'total'=>'Total',
     'noOrders'=>'There are no orders for this user',
+    'thanks'=>'Thanks for your purchase',
+    'payment'=>'Products to pay',
 
 ];

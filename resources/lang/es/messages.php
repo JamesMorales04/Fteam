@@ -91,5 +91,7 @@ return [
     'order'=>'Orden',
     'total'=>'Total',
     'noOrders'=>'No existen ordenes para este usuario',
+    'thanks'=>'Gracias por tu compra',
+    'payment'=>'Productos a pagar',
 
 ];
