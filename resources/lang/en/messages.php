@@ -85,6 +85,8 @@ return [
     'productAmount' => 'Product amount',
     'productAvailability' => 'Product availability',
     'backIngredients' => 'Back to Ingredients',
+    'seeIngredients' => 'See all Ingredients',
+    'createIngredients' => 'Create Ingredients',
 
     //Reviews
     'createReviews' => 'Create Reviews',

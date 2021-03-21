@@ -55,6 +55,22 @@
                                 </div>
 
                             </div>
+                            <br />
+                            <div class="col-md-2">
+                                <div class="inner">
+                                    <strong><label class="col-ld-8 ">{{ __('messages.seeIngredients') }}</label> </strong><br />
+                                    <a method="GET" href="{{ route('Ingredients.show') }}" type="button"
+                                        class="btn btn-outline-primary">{{ __('messages.view') }}</a><br /><br />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-2">
+                                <div class="inner">
+                                    <strong><label class="col-ld-8 ">{{ __('messages.createIngredients') }}</label> </strong><br />
+                                    <a method="GET" href="{{ route('Ingredients.create') }}" type="button"
+                                        class="btn btn-outline-primary">{{ __('messages.create') }}</a><br /><br />
+                                </div>
+                            </div>                            
                         </div>
 
                         <strong><label class="col-ld-8 ">{{ __('messages.return') }}</label></strong><br />
