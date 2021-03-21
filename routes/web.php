@@ -40,6 +40,7 @@ Route::group(['prefix' => 'food'], function () {
     Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
     Route::post('/saveupdate', 'App\Http\Controllers\foodController@updateSave')->name('food.updateSave');
     Route::delete('/delete/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
+    Route::get('/topThree', 'App\Http\Controllers\OrderedFoodController@topThree')->name('food.topThree');
 });
 
 Route::group(['prefix' => 'reviews'], function () {
@@ -59,11 +60,14 @@ Route::group(['prefix' => 'orderedfood'], function () {
 
 Route::group(['prefix' => 'shop'], function () {
     Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name('shop.add');
+    Route::get('/addAsIngresients/{id}', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name('shop.removeAll');
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
     Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
     Route::get('/pdf', 'App\Http\Controllers\ShoppingController@createPdf')->name('shop.pdf');
+    Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
+
 });
 
 Route::group(['prefix' => 'users'], function () {

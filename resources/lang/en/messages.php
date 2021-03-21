@@ -49,11 +49,14 @@ return [
 
     //Carrito de compras
     'confirmation' => 'Purchase successful',
+    'AddCart' => 'Add to cart',
 
     //Vista food
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
     'foodName' => 'Food Name',
+    'topThree' => 'Top three food',
+    'best-selling' => 'The three best-selling products are',
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -71,8 +74,8 @@ return [
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
     'rating' => 'Rating',
-    //Orders
 
+    //Orders
     'orders'=>'Orders',
     'order'=>'Order',
     'total'=>'Total',
