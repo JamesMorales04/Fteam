@@ -51,10 +51,18 @@ return [
     'confirmation' => 'Purchase successful',
     'AddCart' => 'Add to cart',
 
-    //Vista food
+    //Food
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
     'foodName' => 'Food Name',
+    'description' => 'Description',
+    'status' => 'Status',
+    'available' => 'Available',
+    'notAvailable' => 'Not available',
+    'menu' => 'Menu',
+    'recipe' => 'Recipe',
+
+    
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -69,6 +77,7 @@ return [
 
     //Reviews
     'createReviews' => 'Create Reviews',
+    'seeReviews' => 'See Reviews',
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
     'rating' => 'Rating',

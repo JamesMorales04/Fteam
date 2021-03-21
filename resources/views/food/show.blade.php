@@ -25,12 +25,13 @@
                 <div class="card-header">{{ $data['food']->getName() }}</div>
 
                 <div class="card-body">
-                    <b>food id:</b> {{ $data['food']->getId() }}<br />
-                    <b>food name:</b> {{ $data['food']->getName() }}<br />
-                    <b>food status:</b> {{ $data['food']->getAvailability() ? "Available" : "Not available" }}<br />
-                    <b>food recipe:</b> {{ $data['food']->getRecipe() }}<br />
+                    <b>{{  __('messages.id')  }}:</b> {{ $data['food']->getId() }}<br />
+                    <b>{{  __('messages.name')  }}:</b> {{ $data['food']->getName() }}<br />
+                    <b>{{  __('messages.description')  }}:</b> {{$data['food']->getDescription()}} <br />
+                    <b>{{  __('messages.status')  }}:</b> {{ $data['food']->getAvailability() ? "Available" : "Not available" }}<br />
+                    <b>{{  __('messages.recipe')  }}:</b> {{ $data['food']->getRecipe() }}<br />
 
-                    <b>food price:</b> {{ $data['food']->getPrice() }}<br />
+                    <b>{{  __('messages.price')  }}:</b> {{ $data['food']->getPrice() }}<br />
 
                     <div class="row">
                         <div class="col-auto" >
