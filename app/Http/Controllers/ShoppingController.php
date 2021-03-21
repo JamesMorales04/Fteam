@@ -112,7 +112,7 @@ class ShoppingController extends Controller
     {
         $data = []; //to be sent to the view
         $data['title'] = 'Buy';
-
+        $data['food']=array();
         $order = new Order();
         $total = 0;
         $ids1 = $request->session()->get('food1');
@@ -135,6 +135,7 @@ class ShoppingController extends Controller
                 $orderedFood->setFoodId($food->getId());
                 $orderedFood->setOrderId($order->getId());
                 $orderedFood->save();
+                array_push($data['food'],[$food->getName(),$food->getPrice()]);
                 $total = $total + $food->getPrice();
             }
             $order->setTotal($total);
@@ -148,7 +149,7 @@ class ShoppingController extends Controller
             $order->save();
             $listFoodInCart = Food::findMany($ids2);
 
-            $data['food']=array();
+            
             foreach ($listFoodInCart as $food) {
                 $orderedFood = new OrderedFood();
                 $orderedFood->setAmount($amount2);
