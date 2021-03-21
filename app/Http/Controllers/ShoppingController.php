@@ -107,6 +107,37 @@ class ShoppingController extends Controller
 
         return back();
     }
+    
+    public function validation($ids, &$order, $amount, &$data, &$total, $status)
+    {
+        if ($ids) {
+            $order->setTotal(0);
+            $order->setUserId(Auth::Id());
+            $order->save();
+            $listFoodInCart = Food::findMany($ids);
+
+            foreach ($listFoodInCart as $food) {
+                $orderedFood = new OrderedFood();
+                $orderedFood->setAmount($amount);
+                $orderedFood->setSubTotal($food->getPrice()*$amount);
+                $orderedFood->setOnlyIngredients($status);
+                $orderedFood->setFoodName($food->getName());
+                $orderedFood->setFoodId($food->getId());
+                $orderedFood->setOrderId($order->getId());
+                $orderedFood->save();
+                array_push($data['food'],[$food->getName(),$food->getPrice()]);
+                $total = ($total + $food->getPrice())*$amount;
+            }
+            $order->setTotal($total);
+            $order->save();
+            
+        }
+        return 0;
+    }
+    public function cosa()
+    {
+        return 0;
+    }
 
     public function buy(Request $request)
     {
@@ -120,58 +151,16 @@ class ShoppingController extends Controller
         $amount1 = $request->session()->get('amount1');
         $amount2 = $request->session()->get('amount2');
         // dd($ids1);
-        if ($ids1) {
-            $order->setTotal(0);
-            $order->setUserId(Auth::Id());
-            $order->save();
-            $listFoodInCart = Food::findMany($ids1);
+        $this->validation($ids1, $order, $amount1, $data, $total, false);
+        $this->validation($ids2, $order, $amount2, $data, $total, true);
 
-            foreach ($listFoodInCart as $food) {
-                $orderedFood = new OrderedFood();
-                $orderedFood->setAmount($amount1);
-                $orderedFood->setSubTotal($food->getPrice());
-                $orderedFood->setOnlyIngredients(false);
-                $orderedFood->setFoodName($food->getName());
-                $orderedFood->setFoodId($food->getId());
-                $orderedFood->setOrderId($order->getId());
-                $orderedFood->save();
-                array_push($data['food'],[$food->getName(),$food->getPrice()]);
-                $total = $total + $food->getPrice();
-            }
-            $order->setTotal($total);
-            $order->save();
-            $request->session()->forget('food1');
-        }
-
-        if ($ids2) {
-            $order->setTotal(0);
-            $order->setUserId(Auth::Id());
-            $order->save();
-            $listFoodInCart = Food::findMany($ids2);
-
-            
-            foreach ($listFoodInCart as $food) {
-                $orderedFood = new OrderedFood();
-                $orderedFood->setAmount($amount2);
-                $orderedFood->setSubTotal($food->getPrice());
-                $orderedFood->setOnlyIngredients(true);
-                $orderedFood->setFoodName($food->getName());
-                $orderedFood->setFoodId($food->getId());
-                $orderedFood->setOrderId($order->getId());
-                $orderedFood->save();
-                array_push($data['food'],[$food->getName(),$food->getPrice()]);
-                $total = $total + $food->getPrice();
-            }
-            $order->setTotal($total);
-            $order->save();
-            $request->session()->forget('food2');
-        }
         $data['total']=$total;
-
-        $request->session()->forget('ingredients');
+        $request->session()->forget('food2');
+        $request->session()->forget('food1');
         $request->session()->forget('amount1');
         $request->session()->forget('amount2');
 
         return view('shopping.buy')->with("data", $data);
     }
+
 }
