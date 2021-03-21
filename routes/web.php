@@ -65,7 +65,9 @@ Route::group(['prefix' => 'shop'], function () {
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
     Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
+    Route::get('/pdf', 'App\Http\Controllers\ShoppingController@createPdf')->name('shop.pdf');
     Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
+
 });
 
 Route::group(['prefix' => 'users'], function () {
@@ -78,6 +80,7 @@ Route::group(['prefix' => 'users'], function () {
 Route::group(['prefix' => 'orders'], function () {
     Route::get('/showAll', 'App\Http\Controllers\OrderController@showAll')->name('order.showAll');
     Route::post('/save', 'App\Http\Controllers\OrderController@save')->name('order.save');
+    
 });
 
 Route::group(['prefix' => 'creditCards'], function () {
