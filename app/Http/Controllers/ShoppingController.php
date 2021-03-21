@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Lang;
 use PDF;
 
 class ShoppingController extends Controller
@@ -44,31 +45,36 @@ class ShoppingController extends Controller
 
     }
 
+    public function orderCart($id, $amount, &$data, &$total)
+    {
+        if ($id) {
+            $listFoodInCart = Food::findMany($id);
+            foreach ($listFoodInCart as $food) {
+                array_push($data['foods'],[$food, $amount]);
+                $total = ($total + $food->getPrice())*$amount;
+            }
+        }
+        
+        
+    }
+
     public function cart(Request $request)
     {
         $data = []; //to be sent to the view
         $data['title'] = 'Store food';
-
+        $data['foods'] = array();
         $listFoodInCart = [];
         $total = 0;
         $ids1 = $request->session()->get('food1');
         $ids2 = $request->session()->get('food2');
-        if ($ids1) {
-            $listFoodInCart = Food::findMany($ids1);
-            foreach ($listFoodInCart as $food) {
-                $total = $total + $food->getPrice();
-            }
-        }
+        $amount1 = $request->session()->get('amount1');
+        $amount2 = $request->session()->get('amount2');
+        
+        $this->orderCart($ids1,$amount1,$data,$total);
+        $this->orderCart($ids2,$amount2,$data,$total);
 
-        if ($ids2) {
-            $listFoodInCart = Food::findMany($ids2);
-            foreach ($listFoodInCart as $food) {
-                $total = $total + $food->getPrice();
-            }
-        }
         $data['total'] = $total;
-        $data['foods'] = $listFoodInCart;
-
+        
         return view('shopping.cart')->with('data', $data);
     }
 
@@ -82,7 +88,7 @@ class ShoppingController extends Controller
         $amount = $amount + 1;
         $request->session()->put('amount1', $amount);
 
-        return back();
+        return back()->with('success', Lang::get('messages.addToCart'));
     }
 
     public function addAsIngresients($id, Request $request)
@@ -95,7 +101,7 @@ class ShoppingController extends Controller
         $amount = $amount + 1;
         $request->session()->put('amount2', $amount);
 
-        return back();
+        return back()->with('success', Lang::get('messages.addToCart'));
     }
 
     public function removeAll(Request $request)

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-
+    @include('util.message')
     <div class="row">
         <div class="col align-self-start"> <h1>{{  __('messages.menu')  }}</h1> </div>
 
