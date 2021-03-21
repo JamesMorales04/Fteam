@@ -16,7 +16,6 @@ return [
     'profile'=>'User Profile',
 
     // Crud basico
-
     'add' => 'Añadir',
     'view' => 'Ver',
     'delete' => 'Borrar',
@@ -54,10 +53,17 @@ return [
     'confirmation' => 'Compra realizada correctamente',
     'AddCart' => 'Añadir al carrito',
 
-    //Vista food
+    //Food
     'askForIngredients' => 'Pedir ingredientes',
     'backFood' => 'Volver a Comida',
     'foodName' => 'Nombre de la Comida',
+
+    'description' => 'Descripción',
+    'status' => 'Estado',
+    'available' => 'Disponible',
+    'notAvailable' => 'Agotado',
+    'menu' => 'Menu',
+    'recipe' => 'Receta',
     'topThree' => 'Top 3 de Comida',
     'best-selling' => 'Los tres productos más vendidos son',
 
@@ -74,6 +80,7 @@ return [
 
     //Reviews
     'createReviews' => 'Crear una Review',
+    'seeReviews' => 'Ver Reviews',
     'comments' => 'Comentarios',
     'reviews' => 'Reseñas de',
     'rating' => 'Puntuación',

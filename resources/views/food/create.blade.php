@@ -21,42 +21,42 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Name</label>
+                            <label class="col-sm-2 col-form-label">{{  __('messages.name')  }}</label>
                             <div class="col-8">
                                 <input type="text" class="form-control"  placeholder="Enter name" name="name" value="{{ old('name') }}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-auto">Enter description</label>
+                            <label class="col-md-auto">{{  __('messages.add')  }} {{  __('messages.description')  }}</label>
                             <div class="col-8">
                                 <textarea cols="40" name="description" class="form-control" spellcheck="true" value="{{ old('description') }}" ></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Available</label>
+                            <label class="col-sm-2 col-form-label">{{  __('messages.avaliable')  }}</label>
                             <div class="col-sm-10 col col-lg-2">
                                 <input type="checkbox" class="col-sm-100" name="availability" value="{{ old('availability') }}" >
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-auto">Enter recipe</label>
+                            <label class="col-md-auto">{{  __('messages.add')  }}  {{  __('messages.recipe')  }} </label>
                             <div class="col-8">
                                 <textarea cols="40" name="recipe" class="form-control" spellcheck="true" value="{{ old('recipe') }}" ></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-auto">Enter price</label>
+                            <label class="col-md-auto">{{  __('messages.add')  }} {{  __('messages.price')  }}</label>
                             <div class="col-8">
-                                <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{ old('price') }}" />
+                                <input type="text" class="form-control" placeholder="0000" name="price" value="{{ old('price') }}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-auto">Ingredients</label>
+                            <label class="col-md-auto">{{  __('messages.add')  }} {{  __('messages.ingredients')  }}</label>
                             @foreach($data['ingredients'] as $ingredients)
                             <div class="checkbox">
                                 <label>
