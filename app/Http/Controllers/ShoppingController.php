@@ -150,7 +150,7 @@ class ShoppingController extends Controller
         $ids2 = $request->session()->get('food2');
         $amount1 = $request->session()->get('amount1');
         $amount2 = $request->session()->get('amount2');
-        // dd($ids1);
+        
         $this->validation($ids1, $order, $amount1, $data, $total, false);
         $this->validation($ids2, $order, $amount2, $data, $total, true);
 
