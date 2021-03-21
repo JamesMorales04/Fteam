@@ -28,4 +28,17 @@ class OrderedFoodController extends Controller
 
         return view('orderedFood.showAll')->with('data', $data);
     }
+
+    public function topThree()
+    {
+        $results = OrderedFood::pluck('foodName')->toArray();
+        $valores = array_count_values($results);
+        asort($valores);
+        $res = array_slice($valores, -3, 3, true);
+        $valores= array_reverse ($res,true);
+        $valores = array_keys($valores);
+        // dd($valores);
+
+        return view('food.topThree')->with('data', $valores);
+    }
 }

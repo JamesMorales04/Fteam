@@ -61,8 +61,9 @@ return [
     'notAvailable' => 'Not available',
     'menu' => 'Menu',
     'recipe' => 'Recipe',
+    'topThree' => 'Top three food',
+    'best-selling' => 'The three best-selling products are',
 
-    
 
     //Ingredientes
     'ingredients' => 'Ingredients',

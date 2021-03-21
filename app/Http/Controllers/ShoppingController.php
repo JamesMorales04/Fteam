@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class ShoppingController extends Controller
 {
@@ -27,11 +28,20 @@ class ShoppingController extends Controller
         return view('shopping.ingredient')->with('data', $data);
     }
 
+
+    public function createPdf(Request $request){
+        $data=$request->get('data');
+        set_time_limit(300);
+
+        $pdf = PDF::loadView('shopping.pdf',$data);
+        return $pdf->download('payment.pdf');
+    }
     public function addIngredient(Request $request)
     {
         dd($request);
 
         return view('shopping.cart');
+
     }
 
     public function cart(Request $request)
@@ -138,6 +148,7 @@ class ShoppingController extends Controller
             $order->save();
             $listFoodInCart = Food::findMany($ids2);
 
+            $data['food']=array();
             foreach ($listFoodInCart as $food) {
                 $orderedFood = new OrderedFood();
                 $orderedFood->setAmount($amount2);
@@ -147,12 +158,14 @@ class ShoppingController extends Controller
                 $orderedFood->setFoodId($food->getId());
                 $orderedFood->setOrderId($order->getId());
                 $orderedFood->save();
+                array_push($data['food'],[$food->getName(),$food->getPrice()]);
                 $total = $total + $food->getPrice();
             }
             $order->setTotal($total);
             $order->save();
             $request->session()->forget('food2');
         }
+        $data['total']=$total;
 
         $request->session()->forget('ingredients');
         $request->session()->forget('amount1');

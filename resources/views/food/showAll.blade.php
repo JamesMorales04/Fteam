@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+
     <div class="row">
         <div class="col align-self-start"> <h1>{{  __('messages.menu')  }}</h1> </div>
 
@@ -11,6 +12,8 @@
             </a>
         </div>
     </div>
+    <input style="align-self: left" type="submit" class="btn btn-outline-primary" value="{{ __('messages.topThree') }}" onclick= "location='{{ route('food.topThree') }}'">
+
     <ul>
         @foreach ($data as $food)
         <br/>

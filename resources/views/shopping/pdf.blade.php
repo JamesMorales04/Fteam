@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.shop')
 
 @section('content')
     <br />
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
                 <div class="card " >
                     <div class="card-body">
                         <div class="px-4 py-5">
@@ -14,15 +13,13 @@
                             <div class="mb-3">
                                 <hr class="new1">
                             </div>
-                            @foreach ($data['food'] as $food)
-                            <div class="d-flex justify-content-between"> <small>{{ $food[0] }}</small> <small>{{ $food[1] }}</small>
+                            @foreach ($food as $foodAux)
+                            <div class="d-flex justify-content-between"> <small>{{ $foodAux[0] }}</small> <small>{{ $foodAux[1]  }}</small>
                             </div>
                             @endforeach
                             <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">{{ __('messages.total') }}</span>
-                                <span class="font-weight-bold theme-color">{{$data['total']}}</span> </div>
+                                <span class="font-weight-bold theme-color">{{$total}}</span> </div>
 
-
-                                <div class="text-center mt-5"><button type="button" class="btn btn-outline-primary" onclick="window.location='{{ route('shop.pdf',['data' => $data]) }}'">{{ __('messages.download') }}</button></div>
                         </div>
                     </div>
                 </div>
