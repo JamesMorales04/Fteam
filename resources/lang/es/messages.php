@@ -52,6 +52,10 @@ return [
     //Carrito de compras
     'confirmation' => 'Compra realizada correctamente',
     'AddCart' => 'Añadir al carrito',
+    'addToCart' => 'Ítem agregado correctamente',
+    'shoppingCart' => 'Carrito de compras',
+    'removeAll' => 'Vaciar carrito',
+    'buy' => 'Comprar',
 
     //Food
     'askForIngredients' => 'Pedir ingredientes',

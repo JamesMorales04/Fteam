@@ -3,27 +3,39 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            Food in Cart
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header"> {{ __('messages.shoppingCart') }}</div>
 
-            <ul id="errors">
-                @foreach($data["foods"] as $food)
-                    <li>
-                        {{ $food->getId() }} - {{ $food->getName() }} : {{ $food->getPrice() }}
-                    </li>
-                @endforeach
-            </ul>
-            <br />
-            
-            Total in cart: {{ $data['total'] }}<br /><br />
-            @if ($data["foods"])
-                <a href="{{ route('shop.buy') }}">Buy</a>
-            @else
-                <a>Buy</a>
-            @endif
-            
-            <br /><br />
-            <a href="{{ route('shop.removeAll') }}">Remove all food from cart</a>
+                <div class="card-body">
+                    <ul id="errors">
+                        @foreach($data["foods"] as $food)
+                            <li>
+                                {{ __('messages.amount') }} {{$food[1]}} - {{ $food[0]->getName() }} : {{ $food[0]->getPrice() }}
+                            </li>
+                        @endforeach
+                    </ul>
+                    <br />
+                    {{ __('messages.total') }}: {{ $data['total'] }}<br /><br />
+                    <div class="row">
+                        <div class="col-auto" >
+                            @if ($data["foods"])
+                            <a method="GET" href="{{ route('shop.buy') }}">
+                                <button class="btn btn-outline-primary" > {{ __('messages.buy') }} </button>
+                            </a>
+                            @else
+                                <button class="btn outline-primary" > {{ __('messages.buy') }} </button>
+                            @endif
+                        </div>
+
+                        <div class="col-auto" >
+                            <a href="{{ route('shop.removeAll') }}">
+                                <button class="btn btn-outline-danger" > {{ __('messages.removeAll') }} </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
