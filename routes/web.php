@@ -22,12 +22,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
-Route::group(['prefix' => 'ingredient','middleware' => ['login']], function () {
+Route::group(['prefix' => 'admin/ingredient','middleware' => ['admin','login']], function () {
     Route::get('/show', 'App\Http\Controllers\IngredientsController@showAll')->name('Ingredients.show');
     Route::get('/show/{id}', 'App\Http\Controllers\IngredientsController@showIngredient')->name('Ingredients.showI');
-});
-
-Route::group(['prefix' => 'ingredient','middleware' => ['admin','login']], function () {
     Route::get('/create', 'App\Http\Controllers\IngredientsController@create')->name('Ingredients.create');
     Route::post('/save', 'App\Http\Controllers\IngredientsController@save')->name('Ingredients.save');
     Route::get('/ingredient/delete/{id}', 'App\Http\Controllers\IngredientsController@delete')->name('Ingredients.delete');
@@ -51,12 +48,15 @@ Route::group(['prefix' => 'food','middleware' => ['login','admin']], function ()
 
 
 Route::group(['prefix' => 'reviews','middleware' => ['login']], function () {
-    Route::get('/show/{id}', 'App\Http\Controllers\ReviewsController@show')->name('reviews.show');
     Route::get('/create/{id}', 'App\Http\Controllers\ReviewsController@create')->name('reviews.create');
     Route::post('/save', 'App\Http\Controllers\ReviewsController@save')->name('reviews.save');
     Route::delete('/delete/{id}', 'App\Http\Controllers\ReviewsController@delete')->name('reviews.delete');
     Route::get('/update/{id}', 'App\Http\Controllers\ReviewsController@update')->name('reviews.update');
     Route::post('/saveupdate', 'App\Http\Controllers\ReviewsController@updateSave')->name('reviews.updateSave');
+});
+
+Route::group(['prefix' => 'reviews'], function () {
+    Route::get('/show/{id}', 'App\Http\Controllers\ReviewsController@show')->name('reviews.show');
 });
 
 Route::group(['prefix' => 'orderedfood','middleware' => ['login']], function () {
