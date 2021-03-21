@@ -76,13 +76,9 @@ Route::group(['prefix' => 'shop','middleware' => ['login']], function () {
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
     Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
     Route::get('/pdf', 'App\Http\Controllers\ShoppingController@createPdf')->name('shop.pdf');
-});
-
-Route::group(['prefix' => 'shop','middleware' => ['login','admin']], function () {
     Route::get('/addAsIngresients/{id}', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
 });
-
 
 Route::group(['prefix' => 'users','middleware' => ['login']], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\UserController@show')->name('user.show');

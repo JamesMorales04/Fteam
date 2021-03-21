@@ -40,7 +40,6 @@ return [
     'users'=>'Users',
 
     // Tarjeta de Credito
-
     'createCreditCard' => 'Create a credit card',
     'creditCard' => 'Credit card',
     'newCreditCard' => 'Add a new credit card',
@@ -73,6 +72,7 @@ return [
     'recipe' => 'Recipe',
     'topThree' => 'Top three food',
     'best-selling' => 'The three best-selling products are',
+    'createFood' => 'Create food',
 
 
     //Ingredientes
