@@ -20,6 +20,8 @@ class OrderController extends Controller
         return view('order.showAll')->with('orders', $order);
     }
 
+    
+
     public function save(Request $request)
     {
         Order::validate($request);
