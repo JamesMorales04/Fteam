@@ -19,7 +19,7 @@
                                     <small class="col-sm">{{ $foodAux[0] }}</small>
                                     <small class="col-sm">{{ __('messages.amount') }}: {{ $foodAux[2] }}</small>
                                     <small class="col-sm"> {{ __('messages.foodType') }}:
-                                        {{ $foodAux[3] ? 'Si' : 'No' }}</small>
+                                        {{ $foodAux[3] ? __('messages.yes') : __('messages.no') }}</small>
                                     <small>{{ $foodAux[1] }}</small>
                                 </div>
                             @endforeach
@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <br />
 @endsection

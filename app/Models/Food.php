@@ -112,4 +112,15 @@ class Food extends Model
     public function reviews(){
         return $this->hasMany(Reviews::class);
     }
+
+    public function Ingredients()
+    {
+        return $this->hasMany(Ingredients::class);
+    }
+
+    public function orderedFood()
+    {
+        return $this->belongsTo(OrderedFood::class);
+    }
+    
 }
