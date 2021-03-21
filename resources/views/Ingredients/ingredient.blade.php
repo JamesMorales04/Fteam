@@ -37,7 +37,7 @@
                     <center>
                         <input type="submit" class="btn btn-outline-success" value="{{ __('messages.backIngredients') }}" onclick= "location='{{ route('Ingredients.show') }}'">
                         <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('Ingredients.update',['id' => $data['product']->getId()]) }}'">
-                        <input type="submit" class="btn btn-outline-danger" value="{{ __('messages.delete') }}" onclick= "location='/Fteam/public/ingredient/delete/{{ $data["product"]->getId() }}' " method="put">
+                        <input type="submit" class="btn btn-outline-danger" value="{{ __('messages.delete') }}" onclick= "location='{{ route('Ingredients.delete',['id' => $data['product']->getId()]) }}'">
                     </center>
                 </div>
             </div>

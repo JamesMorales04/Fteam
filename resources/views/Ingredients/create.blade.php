@@ -53,14 +53,13 @@
                         </div>
                     </div>
                     <div class="col-md-auto">
-                        <center><input class="btn btn-primary" type="submit" value="{{ __('messages.send') }}" /></center>
+                        <center><input class="btn btn-outline-primary" type="submit" value="{{ __('messages.send') }}" /></center>
                     </div>
-                    <br \>
-                    <div class="col-md-auto">
-                        <center><input type="submit"  class="btn-danger" value="{{ __('messages.backHome') }}" onclick= "location='{{ route('home.index') }}'"></center>
-                    </div>
+                    <br \>                    
                 </form>
-                
+                <div class="col-md-auto">
+                    <center><input type="submit"  class="btn btn-outline-danger" value="{{ __('messages.backHome') }}" onclick= "location='{{ route('home.index') }}'"></center>
+                </div>    
                 </div>
             </div>
         </div>

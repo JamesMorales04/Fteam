@@ -40,12 +40,25 @@
                                 <input type="hidden" class="form-control" id="id" name="id" placeholder="id" value="{{ $data->getId() }}" readonly>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                                <input type="hidden" class="form-control" id="status" name="status" placeholder="status" value="{{ $data->getStatus() }}" readonly>
-                            </div>
-                        </div>
+                        
+                        @if (Auth::user()->getRole()==="Administrador")
+                            @if ($data->getStatus() === 1)
+                                <div class="form-group row">
+                                    <label class="col-md-auto">{{ __('messages.status') }}</label>
+                                    <div class="col-sm-10">
+                                        <input type="checkbox" class="form-control" id="status" name="status" placeholder="status" value="{{ old('status') }}" checked>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="form-group row">
+                                    <label class="col-md-auto">{{ __('messages.status') }}</label>
+                                    <div class="col-sm-10">
+                                        <input type="checkbox" class="form-control" id="status" name="status" placeholder="status" value="{{ old('status') }}">
+                                    </div>
+                                </div>
+                            @endif
+                                
+                        @endif                            
 
                         <div class="form-group row">
                             <div class="col-sm-10">

@@ -27,28 +27,53 @@
             @foreach ($data['reviews'] as $reviews)
             <br/>
             <div class="card">
+                @if (Auth::user()->getRole()==="Administrador")                    
                     <div class="card-body"> 
                         <div class="row">                            
                             <div class="col align-self-start"><strong>{{ __('messages.userID') }}:</strong> {{$reviews->getUserId()}} </div>
                             <div class="col align-self-start"><strong>{{ __('messages.comments') }}:</strong> {{$reviews->getComments()}} </div>
                             <div class="col align-self-start"><strong>{{ __('messages.rating') }}:</strong> {{$reviews->getRating()}} </div>
-                            @if ($reviews->getUserId() == Auth::Id())
-                                <div class="col align-self-end">
-                                    <div class="col-auto" >
-                                        <form method="POST" action="{{ route('reviews.delete',['id' => $reviews->getId()]) }}">
-                                            @csrf @method('DELETE')
-                                            <button class="btn btn-outline-danger" > {{ __('messages.delete') }} </button>
-                                        </form>
-                                    </div>     
-                                </div>
-                                <div class="col align-self-end">
-                                    <div class="col-auto" >
-                                        <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
-                                    </div>     
-                                </div>
-                            @endif
+                            <div class="col align-self-end">
+                                <div class="col-auto" >
+                                    <form method="POST" action="{{ route('reviews.delete',['id' => $reviews->getId()]) }}">
+                                        @csrf @method('DELETE')
+                                        <button class="btn btn-outline-danger" > {{ __('messages.delete') }} </button>
+                                    </form>
+                                </div>     
+                            </div>
+                            <div class="col align-self-end">
+                                <div class="col-auto" >
+                                    <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
+                                </div>     
+                            </div>
                         </div>
                     </div>
+                @else
+                    @if ($reviews->getStatus()===1)
+                        <div class="card-body"> 
+                            <div class="row">                            
+                                <div class="col align-self-start"><strong>{{ __('messages.userID') }}:</strong> {{$reviews->getUserId()}} </div>
+                                <div class="col align-self-start"><strong>{{ __('messages.comments') }}:</strong> {{$reviews->getComments()}} </div>
+                                <div class="col align-self-start"><strong>{{ __('messages.rating') }}:</strong> {{$reviews->getRating()}} </div>
+                                @if ($reviews->getUserId() === Auth::Id())
+                                    <div class="col align-self-end">
+                                        <div class="col-auto" >
+                                            <form method="POST" action="{{ route('reviews.delete',['id' => $reviews->getId()]) }}">
+                                                @csrf @method('DELETE')
+                                                <button class="btn btn-outline-danger" > {{ __('messages.delete') }} </button>
+                                            </form>
+                                        </div>     
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <div class="col-auto" >
+                                            <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
+                                        </div>     
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
+                @endif
                 </div>
             @endforeach
         </ul>

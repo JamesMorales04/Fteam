@@ -85,6 +85,8 @@ return [
     'productAmount' => 'Cantidad de producto',
     'productAvailability' => 'Disponibilidad del producto',
     'backIngredients' => 'Volver a Ingredientes',
+    'seeIngredients' => 'Ver todos los Ingredientes',
+    'createIngredients' => 'Crear Ingredientes',
 
     //Reviews
     'createReviews' => 'Crear una Review',

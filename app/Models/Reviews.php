@@ -19,6 +19,8 @@ class Reviews extends Model
 
     public static function validate(Request $request)
     {
+        $request['status'] = $request->has('status');
+
         $request->validate([
             'rating' => 'required|numeric|gt:0|max:5',
             'comments' => 'required',
@@ -44,7 +46,7 @@ class Reviews extends Model
 
     public function setRating($rating)
     {
-        $this->attributes['comments'] = $rating;
+        $this->attributes['rating'] = $rating;
     }
 
     public function getComments()
