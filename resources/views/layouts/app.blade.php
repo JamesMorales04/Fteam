@@ -52,6 +52,16 @@
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">Menu</a>
                     </li>
 
+                    @if (Auth::user()->getRole()=="Administrador")
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('Ingredients.show') }}">See Ingrediets</a>
+                        </li>
+
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('Ingredients.create') }}">Create Ingrediets</a>
+                        </li>
+                    @endif
+
                     <li class="nav-item mx-0 mx-lg-1"> 
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('shop.cart') }}">Carrito de compras</a>
                     </li>
