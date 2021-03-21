@@ -19,7 +19,7 @@
                             <div class="d-flex justify-content-between mt-3"> 
                                 <small class="col-sm">{{ $food[0] }}</small>
                                 <small class="col-sm">{{  __('messages.amount')}}: {{ $food[2] }}</small>
-                                <small class="col-sm"> {{  __('messages.foodType') }}: {{ $food[3] ? 'Si': 'No' }}</small>
+                                <small class="col-sm"> {{  __('messages.foodType') }}: {{ $food[3] ? __('messages.yes') : __('messages.no') }}</small>
                                 <small>{{ $food[1] }}</small> 
                             </div>
                             @endforeach

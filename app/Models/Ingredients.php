@@ -80,4 +80,14 @@ class Ingredients extends Model
     {
         $this->attributes['availability'] = $availability;
     }
+
+    public function food()
+    {
+        return $this->belongsTo(Food::class);
+    }
+    
+    public function orderedFood()
+    {
+        return $this->belongsTo(OrderedFood::class);
+    }
 }

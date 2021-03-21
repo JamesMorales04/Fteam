@@ -57,4 +57,10 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function orderedFood()
+    {
+        return $this->hasMany(OrderedFood::class);
+    }
+    
 }

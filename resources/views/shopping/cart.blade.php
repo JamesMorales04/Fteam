@@ -10,10 +10,10 @@
                 <div class="card-body">
                     <ul id="errors">
                         @foreach($data["foods"] as $food)
-                            <li>
+                            
                                 {{ __('messages.amount') }} {{$food[1]}} - {{ $food[0]->getName() }} : {{ $food[0]->getPrice() }}      
                                 {{ __('messages.foodType') }} {{$food[2] ? __('messages.yes') : __('messages.no')}}
-                            </li>
+                            
                         @endforeach
                     </ul>
                     <br />
