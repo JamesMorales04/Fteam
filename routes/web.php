@@ -87,6 +87,12 @@ Route::group(['prefix' => 'users','middleware' => ['login']], function () {
     Route::post('/updateSave', 'App\Http\Controllers\UserController@updateSave')->name('user.updateSave');
 });
 
+Route::group(['prefix' => 'admin','middleware' => ['login','admin']], function () {
+    Route::get('/panel', 'App\Http\Controllers\AdminController@show')->name('admin.panel');
+    Route::get('/showAll', 'App\Http\Controllers\OrderController@showAll')->name('order.showAll');
+    Route::get('/users/showAll', 'App\Http\Controllers\UserController@showAll')->name('user.showAll');
+});
+
 Route::group(['prefix' => 'orders','middleware' => ['login']], function () {
     Route::get('/showAll', 'App\Http\Controllers\OrderController@showAll')->name('order.showAll');
     Route::post('/save', 'App\Http\Controllers\OrderController@save')->name('order.save');
