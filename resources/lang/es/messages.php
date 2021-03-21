@@ -65,7 +65,6 @@ return [
     'askForIngredients' => 'Pedir ingredientes',
     'backFood' => 'Volver a Comida',
     'foodName' => 'Nombre de la Comida',
-
     'description' => 'Descripción',
     'status' => 'Estado',
     'available' => 'Disponible',
@@ -74,6 +73,7 @@ return [
     'recipe' => 'Receta',
     'topThree' => 'Top 3 de Comida',
     'best-selling' => 'Los tres productos más vendidos son',
+    'createFood' => 'Añadir comida',
 
     //Ingredientes
     'ingredients' => 'Ingredientes',

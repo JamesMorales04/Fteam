@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
     {
         Food::factory(10)->create();
         Ingredients::factory(10)->create();
-        OrderedFood::factory(10)->create();
         User::factory(10)->create();
         CreditCard::factory(10)->create();
         Order::factory(10)->create();

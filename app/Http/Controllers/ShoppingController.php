@@ -45,12 +45,12 @@ class ShoppingController extends Controller
 
     }
 
-    public function orderCart($id, $amount, &$data, &$total)
+    public function orderCart($id, $amount, &$data, &$total, $status)
     {
         if ($id) {
             $listFoodInCart = Food::findMany($id);
             foreach ($listFoodInCart as $food) {
-                array_push($data['foods'],[$food, $amount]);
+                array_push($data['foods'],[$food, $amount, $status]);
                 $total = ($total + $food->getPrice())*$amount;
             }
         }
@@ -70,8 +70,8 @@ class ShoppingController extends Controller
         $amount1 = $request->session()->get('amount1');
         $amount2 = $request->session()->get('amount2');
         
-        $this->orderCart($ids1,$amount1,$data,$total);
-        $this->orderCart($ids2,$amount2,$data,$total);
+        $this->orderCart($ids1,$amount1,$data,$total, false);
+        $this->orderCart($ids2,$amount2,$data,$total, true);
 
         $data['total'] = $total;
         
