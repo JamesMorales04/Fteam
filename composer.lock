@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-
-    "content-hash": "b4ad531a6f1f92398c88f71a3a3ac49d",
-
+    "content-hash": "bd06ba7b911fe43fbac3f1dace3c7d3d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,10 +59,6 @@
             "support": {
                 "issues": "https://github.com/asm89/stack-cors/issues",
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.3"
-<<<<<<< HEAD
-            },
-            "time": "2021-03-11T06:42:03+00:00"
-=======
             },
             "time": "2021-03-11T06:42:03+00:00"
         },
@@ -133,7 +127,6 @@
                 }
             ],
             "time": "2020-12-27T12:05:53+00:00"
->>>>>>> 0e4461ecf667bb12e16adcbb08267fad7df4972e
         },
         {
             "name": "brick/math",
