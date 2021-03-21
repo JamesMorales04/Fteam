@@ -35,6 +35,9 @@ return [
 
     'updateUser' => 'Actualizar Usuario',
     'userID' => 'ID de Usuario',
+    'showAllUsers'=>'Mostrar todos los usuarios',
+    'users'=>'Usuarios',
+
 
     // Tarjeta de Credito
 
@@ -93,5 +96,10 @@ return [
     'noOrders'=>'No existen ordenes para este usuario',
     'thanks'=>'Gracias por tu compra',
     'payment'=>'Productos a pagar',
+    'showAllOrders'=>'Mostrar todas las ordenes',
+
+    //Admin Panel
+    'adminPanel'=>'Panel de administrador',
+    'admin'=>'Administrador',
 
 ];

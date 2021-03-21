@@ -3,18 +3,18 @@
 @section('title', $data['user']->getName())
 
 @section('header')
-<div class="container d-flex align-items-center flex-column">
-    <!-- Masthead Heading-->
-    <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.profile') }} </h1>
-    <!-- Icon Divider-->
-    <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.profile') }} </h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.profile') }} </p>
     </div>
-    <!-- Masthead Subheading-->
-    <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.profile') }} </p>
-</div>
 @endsection
 
 @section('content')
@@ -30,20 +30,18 @@
                     <div class="card">
 
                         <div class="card-header">
-                        
+
                             <div class="row">
                                 <div class="col align-self-start"> {{ $data['user']->getName() }} </div>
-        
+
                                 <div class="col align-self-end">
-                                    <a class="float-right" href="{{ route('order.showAll')}}">
-                                        <button class="btn btn-outline-primary" >{{  __('messages.orders')  }}</button>
+                                    <a class="float-right" href="{{ route('order.showAll') }}">
+                                        <button class="btn btn-outline-primary">{{ __('messages.orders') }}</button>
                                     </a>
                                 </div>
                             </div>
-                        
-                        </div>
 
-                        
+                        </div>
 
                         <div class="card-body">
 
@@ -53,17 +51,16 @@
                             <b>{{ __('messages.creationDate') }}:</b> {{ $data['user']->getCreationDate() }}<br />
                             <b>{{ __('messages.role') }}:</b> {{ $data['user']->getRole() }}<br />
 
-
-
                             <br />
                             <a method="PUT" href="{{ route('user.update', ['id' => $data['user']->getID()]) }}"
                                 type="button" class="btn btn-outline-primary">{{ __('messages.edit') }}</a>
                             <a method="DELETE" href="{{ route('user.delete', ['id' => $data['user']->getID()]) }}"
                                 type="button" class="btn btn-outline-danger">{{ __('messages.delete') }}</a>
+                                
                         </div>
 
                     </div>
-                    
+
                     <div class="card">
 
                         <div class="card-header">{{ __('messages.creditCard') }}</div>
