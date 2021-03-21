@@ -131,7 +131,7 @@ class ShoppingController extends Controller
                 $orderedFood->setFoodId($food->getId());
                 $orderedFood->setOrderId($order->getId());
                 $orderedFood->save();
-                array_push($data['food'],[$food->getName(),$food->getPrice()]);
+                array_push($data['food'],[$food->getName(),$food->getPrice(),$amount,$status]);
                 $total = ($total + $food->getPrice())*$amount;
             }
             $order->setTotal($total);

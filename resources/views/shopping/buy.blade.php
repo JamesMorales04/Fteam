@@ -15,7 +15,12 @@
                                 <hr class="new1">
                             </div>
                             @foreach ($data['food'] as $food)
-                            <div class="d-flex justify-content-between"> <small>{{ $food[0] }}</small> <small>{{ $food[1] }}</small>
+                            
+                            <div class="d-flex justify-content-between mt-3"> 
+                                <small class="col-sm">{{ $food[0] }}</small>
+                                <small class="col-sm">{{  __('messages.amount')}}: {{ $food[2] }}</small>
+                                <small class="col-sm"> {{  __('messages.foodType') }}: {{ $food[3] ? 'Si': 'No' }}</small>
+                                <small>{{ $food[1] }}</small> 
                             </div>
                             @endforeach
                             <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">{{ __('messages.total') }}</span>

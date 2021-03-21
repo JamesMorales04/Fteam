@@ -14,6 +14,7 @@ return [
     'avaliable' => 'Avaliable',
     'id' => 'ID',
     'profile'=>'User Profile',
+    'download'=>'Download File',
 
     // Crud basico
 
@@ -101,6 +102,7 @@ return [
     'thanks'=>'Thanks for your purchase',
     'payment'=>'Products to pay',
     'showAllOrders'=>'Show all Orders',
+    'foodType'=>'Only Ingredients',
 
 
     //Admin Panel
