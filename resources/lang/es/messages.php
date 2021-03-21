@@ -52,11 +52,14 @@ return [
 
     //Carrito de compras
     'confirmation' => 'Compra realizada correctamente',
+    'AddCart' => 'Añadir al carrito',
 
     //Vista food
     'askForIngredients' => 'Pedir ingredientes',
     'backFood' => 'Volver a Comida',
     'foodName' => 'Nombre de la Comida',
+    'topThree' => 'Top 3 de Comida',
+    'best-selling' => 'Los tres productos más vendidos son',
 
     //Ingredientes
     'ingredients' => 'Ingredientes',

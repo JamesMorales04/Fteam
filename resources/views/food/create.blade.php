@@ -55,6 +55,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-md-auto">Ingredients</label>
+                            @foreach($data['ingredients'] as $ingredients)
+                            <div class="checkbox">
+                                <label>
+                                    <div class="col">
+                                        <input type="checkbox" name="ingredients[]" value="{{$ingredients->getId()}}">
+                                        {{$ingredients->getName()}}
+                                    </div>
+                                    
+                                </label>
+                            </div>
+                            @endforeach
+                        </div>
+
                         <div class="form-group row col-md-auto">
                             <input class="btn btn-primary" type="submit" value="Send" />
                         </div>
@@ -63,5 +78,5 @@
             </div>
         </div>
     </div>
-</div> </br>
+</div> <br/>
 @endsection

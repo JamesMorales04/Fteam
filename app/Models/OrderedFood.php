@@ -9,7 +9,7 @@ class OrderedFood extends Model
 {
     use HasFactory;
 
-    //attributes id, amount, foodName, food_id, order_id, subTotal, created_at, updated_at
+    //attributes id, amount, onlyIngredients, foodName, food_id, order_id, subTotal, created_at, updated_at
     protected $fillable = [
         'amount',
         'subTotal',
@@ -43,6 +43,16 @@ class OrderedFood extends Model
     public function setSubTotal($subTotal)
     {
         $this->attributes['subTotal'] = $subTotal;
+    }
+
+    public function getOnlyIngredients()
+    {
+        return $this->attributes['onlyIngredients'];
+    }
+
+    public function setOnlyIngredients($onlyIngredients)
+    {
+        $this->attributes['onlyIngredients'] = $onlyIngredients;
     }
 
     public function getFoodName()

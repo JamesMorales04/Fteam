@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Food list</h1>
-
+    <input style="align-self: left" type="submit" class="btn btn-outline-primary" value="{{ __('messages.topThree') }}" onclick= "location='{{ route('food.topThree') }}'">
     <ul>
         @foreach ($data as $food)
         <br/>
@@ -26,11 +26,11 @@
                     <b>food price:</b> {{$food->getPrice()}}<br />
                     <div class="row">
                         <div class="col-auto"> 
-                            <a href="{{ route('shop.add', ['id'=> $food->getId()]) }}"> Add to cart </a> 
+                            <a href="{{ route('shop.add', ['id'=> $food->getId()]) }}">{{  __('messages.AddCart')  }}  </a> 
                         </div>
 
                         <div class="col-auto"> 
-                            <a href="{{ route('shop.ingredients', ['id'=> $food->getId()]) }}">{{  __('messages.askForIngredients')  }}</a> 
+                            <a href="{{ route('shop.addAsIngresients', ['id'=> $food->getId()]) }}">{{  __('messages.askForIngredients')  }}</a> 
                         </div>
                         <div class="col align-self-end" >
                             <form class="float-right" method="PUT" action="{{ route('reviews.create',['id' => $food->getId()]) }}">
