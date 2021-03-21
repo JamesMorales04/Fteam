@@ -14,6 +14,7 @@ return [
     'avaliable' => 'Disponible',
     'id' => 'ID',
     'profile'=>'User Profile',
+    'download'=>'Descargar archivo',
 
     // Crud basico
     'add' => 'Añadir',
@@ -101,6 +102,7 @@ return [
     'thanks'=>'Gracias por tu compra',
     'payment'=>'Productos a pagar',
     'showAllOrders'=>'Mostrar todas las ordenes',
+    'foodType'=>'Por ingredientes',
 
     //Admin Panel
     'adminPanel'=>'Panel de administrador',
