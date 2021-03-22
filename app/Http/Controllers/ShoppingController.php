@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Payment;
 use App\Models\Food;
 use App\Models\Ingredients;
 use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Mail;
-use App\Mail\Payment;
 use Lang;
+use Mail;
 use PDF;
 
 class ShoppingController extends Controller
@@ -55,10 +55,8 @@ class ShoppingController extends Controller
         if ($id) {
             $listFoodInCart = Food::findMany($id);
             foreach ($listFoodInCart as $food) {
-
                 array_push($data['foods'], [$food, $amount[$food->getId()], $status]);
                 $total = ($total + $food->getPrice()) * $amount[$food->getId()];
-
             }
         }
     }
@@ -85,7 +83,7 @@ class ShoppingController extends Controller
 
     public function add(Request $request)
     {
-        if ($request['amount']== 0) {
+        if ($request['amount'] == 0) {
             return back();
         }
         $food = $request->session()->get('food1');
@@ -93,11 +91,11 @@ class ShoppingController extends Controller
         $request->session()->put('food1', $food);
 
         $amount = $request->session()->get('amount1');
-        
+
         if ($amount == null) {
             $amount[$request['id']] = 0;
         }
-        if (!array_key_exists($request['id'],$amount)) {
+        if (! array_key_exists($request['id'], $amount)) {
             $amount[$request['id']] = 0;
         }
 
@@ -109,10 +107,10 @@ class ShoppingController extends Controller
 
     public function addAsIngresients(Request $request)
     {
-        if ($request['amount']== 0) {
+        if ($request['amount'] == 0) {
             return back();
         }
-        
+
         $food = $request->session()->get('food2');
         $food[$request['id']] = [$request['id']];
         $request->session()->put('food2', $food);
@@ -122,7 +120,7 @@ class ShoppingController extends Controller
         if ($amount == null) {
             $amount[$request['id']] = 0;
         }
-        if (!array_key_exists($request['id'],$amount)) {
+        if (! array_key_exists($request['id'], $amount)) {
             $amount[$request['id']] = 0;
         }
 
@@ -161,7 +159,6 @@ class ShoppingController extends Controller
                 $orderedFood->save();
                 array_push($data['food'], [$food->getName(), $food->getPrice(), $amount[$food->getId()], $status]);
                 $total = ($total + $food->getPrice()) * $amount[$food->getId()];
-
             }
             $order->setTotal($total);
             $order->save();
@@ -179,7 +176,7 @@ class ShoppingController extends Controller
     {
         $data = []; //to be sent to the view
         $data['title'] = 'Buy';
-        $data['food'] = array();
+        $data['food'] = [];
 
         $order = new Order();
         $total = 0;

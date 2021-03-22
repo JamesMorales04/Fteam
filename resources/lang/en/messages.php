@@ -113,7 +113,6 @@ return [
     'subTotal' => 'Sub total',
     'orderedList' => 'Ordered list',
 
-
     //Admin Panel
     'adminPanel' => 'Admin panel',
     'admin' => 'Administrator',
