@@ -33,11 +33,7 @@
                 <ul class="navbar-nav ml-auto">
                     @guest
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">Menu</a>
-                    </li>
-                    
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('shop.cart') }}">Carrito de compras</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">{{ __('messages.foodMenu') }}</a>
                     </li>
 
                     <li class="nav-item mx-0 mx-lg-1">
@@ -49,11 +45,11 @@
                     </li>
                     @else
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">Menu</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">{{ __('messages.foodMenu') }}</a>
                     </li>
 
                     <li class="nav-item mx-0 mx-lg-1"> 
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('shop.cart') }}">Carrito de compras</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('shop.cart') }}">{{ __('messages.shoppingCart') }}</a>
                     </li>
 
                     @if ( Auth::user()->getRole()=== "Administrador" )

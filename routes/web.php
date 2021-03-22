@@ -22,16 +22,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
-// Route::group(['prefix' => 'ingredient','middleware' => ['admin','login']], function () {
-//     Route::get('/show', 'App\Http\Controllers\IngredientsController@showAll')->name('Ingredients.show');
-//     Route::get('/show/{id}', 'App\Http\Controllers\IngredientsController@showIngredient')->name('Ingredients.showI');
-//     Route::get('/create', 'App\Http\Controllers\IngredientsController@create')->name('Ingredients.create');
-//     Route::post('/save', 'App\Http\Controllers\IngredientsController@save')->name('Ingredients.save');
-//     Route::get('/ingredient/delete/{id}', 'App\Http\Controllers\IngredientsController@delete')->name('Ingredients.delete');
-//     Route::get('/update/{id}', 'App\Http\Controllers\IngredientsController@update')->name('Ingredients.update');
-//     Route::post('/saveupdate', 'App\Http\Controllers\IngredientsController@updateSave')->name('Ingredients.updateSave');
-// });
-
 Route::group(['prefix' => 'food','middleware' => ['login']], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
     Route::get('/show', 'App\Http\Controllers\FoodController@showAll')->name('food.showAll');

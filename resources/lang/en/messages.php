@@ -15,6 +15,8 @@ return [
     'id' => 'ID',
     'profile'=>'User Profile',
     'download'=>'Download File',
+    'foodMenu' => 'Food Menu',
+    'shoppingCart' => 'Shopping Cart',
 
     // Crud basico
 

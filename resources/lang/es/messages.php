@@ -15,6 +15,8 @@ return [
     'id' => 'ID',
     'profile'=>'User Profile',
     'download'=>'Descargar archivo',
+    'foodMenu' => 'Menú de comida',
+    'shoppingCart' => 'Carrito de compras',
 
     // Crud basico
     'add' => 'Añadir',
