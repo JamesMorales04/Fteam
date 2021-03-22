@@ -34,15 +34,15 @@
                         @else
                             <b>{{ __('messages.productAvailability') }}:</b> {{ __('messages.no') }} <br /><br />
                         @endif
-                        <center>
-                            <input type="submit" class="btn btn-outline-success"
+                        <div>
+                            <input type="submit" class="btn btn-outline-primary"
                                 value="{{ __('messages.backIngredients') }}"
                                 onclick="location='{{ route('Ingredients.show') }}'">
-                            <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}"
+                            <input type="submit" class="btn btn-outline-primary" value="{{ __('messages.edit') }}"
                                 onclick="location='{{ route('Ingredients.update', ['id' => $data['product']->getId()]) }}'">
                             <input type="submit" class="btn btn-outline-danger" value="{{ __('messages.delete') }}"
                                 onclick="location='{{ route('Ingredients.delete', ['id' => $data['product']->getId()]) }}'">
-                        </center>
+                        </div>
                     </div>
                 </div>
             </div>

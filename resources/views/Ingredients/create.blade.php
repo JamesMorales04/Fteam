@@ -55,14 +55,14 @@
                                         value="{{ old('amount') }}" />
                                 </div>
                             </div>
-                            <div class="col-md-auto">
+                            <div class="col-sm-2">
                                 <center><input class="btn btn-outline-primary" type="submit"
                                         value="{{ __('messages.send') }}" /></center>
                             </div>
                             <br \>
                         </form>
-                        <div class="col-md-auto">
-                            <center><input type="submit" class="btn btn-outline-danger"
+                        <div class="col-sm-2">
+                            <center><input type="submit" class="btn btn-outline-primary"
                                     value="{{ __('messages.backHome') }}"
                                     onclick="location='{{ route('home.index') }}'"></center>
                         </div>
