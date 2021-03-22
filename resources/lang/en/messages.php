@@ -42,6 +42,7 @@ return [
     'userID' => 'User ID',
     'showAllUsers' => 'Show all Users',
     'users' => 'Users',
+    'user' => 'User',
 
     // Tarjeta de Credito
     'createCreditCard' => 'Create a credit card',

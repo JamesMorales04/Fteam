@@ -41,6 +41,7 @@ return [
     'userID' => 'ID de Usuario',
     'showAllUsers' => 'Mostrar todos los usuarios',
     'users' => 'Usuarios',
+    'user' => 'Usuario',
 
     // Tarjeta de Credito
 

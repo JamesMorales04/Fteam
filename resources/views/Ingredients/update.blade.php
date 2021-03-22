@@ -79,8 +79,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-auto">
-                                <center><input class="btn btn-primary" type="submit" value="Send" /></center>
+                            <div class="col-2">
+                                <center><input class="btn btn-outline-primary" type="submit" value="Send" /></center>
                             </div>
                         </form>
                     </div>
