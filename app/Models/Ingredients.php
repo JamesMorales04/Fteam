@@ -85,7 +85,7 @@ class Ingredients extends Model
     {
         return $this->belongsTo(Food::class);
     }
-    
+
     public function orderedFood()
     {
         return $this->belongsTo(OrderedFood::class);

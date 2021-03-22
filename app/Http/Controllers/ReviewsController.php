@@ -61,7 +61,7 @@ class ReviewsController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
-        
+
         $reviews->setRating($request->get('rating'));
         $reviews->setComments($request->get('comments'));
         $reviews->setStatus($request->get('status'));

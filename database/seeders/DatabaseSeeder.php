@@ -6,7 +6,6 @@ use App\Models\CreditCard;
 use App\Models\Food;
 use App\Models\Ingredients;
 use App\Models\Order;
-use App\Models\OrderedFood;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

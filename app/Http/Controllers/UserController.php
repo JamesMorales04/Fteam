@@ -30,15 +30,15 @@ class UserController extends Controller
         return view('user.profile')->with('data', $data);
     }
 
+    public function showAll()
+    {
+        $data = [];
 
-    public function showAll(){
-
-        $data=[];
-
-        $data['users']= User::all();
+        $data['users'] = User::all();
 
         return view('user.showAll')->with('data', $data);
     }
+
     public function delete($id)
     {
         $data['card'] = CreditCard::where('user_id', $id)->delete();
@@ -87,6 +87,6 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('user.show', ['id'=>Auth::id()]);
+        return redirect()->route('user.show', ['id' => Auth::id()]);
     }
 }
