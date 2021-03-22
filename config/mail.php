@@ -77,7 +77,7 @@ return [
             'verify_peer' => false,
             'verify_peer_name' => false,
         ],
-    ]
+    ],
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
