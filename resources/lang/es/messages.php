@@ -13,6 +13,7 @@ return [
     'amount' => 'Cantidad',
     'avaliable' => 'Disponible',
     'id' => 'ID',
+    'list' => 'Lista',
     'profile'=>'User Profile',
     'download'=>'Descargar archivo',
     'foodMenu' => 'Menú de comida',
@@ -66,6 +67,7 @@ return [
     'askForIngredients' => 'Pedir ingredientes',
     'backFood' => 'Volver a Comida',
     'foodName' => 'Nombre de la Comida',
+    'foodId' => 'Id de la comida',
     'description' => 'Descripción',
     'status' => 'Estado',
     'available' => 'Disponible',
@@ -75,6 +77,7 @@ return [
     'topThree' => 'Top 3 de Comida',
     'best-selling' => 'Los tres productos más vendidos son',
     'createFood' => 'Añadir comida',
+    'updateFood' => 'Actializar receta',
 
     //Ingredientes
     'ingredients' => 'Ingredientes',
@@ -90,22 +93,25 @@ return [
     'createIngredients' => 'Crear Ingredientes',
 
     //Reviews
-    'createReviews' => 'Crear una Review',
+    'createReviews' => 'Hacer Review',
     'seeReviews' => 'Ver Reviews',
     'comments' => 'Comentarios',
     'reviews' => 'Reseñas de',
     'rating' => 'Puntuación',
+    'reviewAvg' => 'Calificacion promedio',
 
     //Orders
+    'orders'=>'Ordenes',
+    'order'=>'Orden',
+    'total'=>'Total',
+    'noOrders'=>'No existen ordenes para este usuario',
+    'thanks'=>'Gracias por tu compra',
+    'payment'=>'Productos a pagar',
+    'showAllOrders'=>'Mostrar todas las ordenes',
+    'foodType'=>'Por ingredientes',
+    'subTotal' => 'Sub total',
+    'orderedList' => 'Lista de ordenes',
 
-    'orders' => 'Ordenes',
-    'order' => 'Orden',
-    'total' => 'Total',
-    'noOrders' => 'No existen ordenes para este usuario',
-    'thanks' => 'Gracias por tu compra',
-    'payment' => 'Productos a pagar',
-    'showAllOrders' => 'Mostrar todas las ordenes',
-    'foodType' => 'Por ingredientes',
 
     //Admin Panel
     'adminPanel' => 'Panel de administrador',

@@ -17,10 +17,10 @@
             <div class="card">
                     <div class="card-header"> 
                         <div class="row">
-                            <div class="col align-self-start"> {{$food->getName()}} </div>
+                            <div class="col align-self-start"> {{$food[1]->getName()}}</div>
 
                             <div class="col align-self-end">
-                                <a class="float-right" href="{{ route('food.show',['id' => $food->getId()]) }}">
+                                <a class="float-right" href="{{ route('food.show',['id' => $food[1]->getId()]) }}">
                                     <button class="btn btn-outline-primary" >{{  __('messages.view')  }}</button>
                                 </a>
                             </div>
@@ -28,24 +28,69 @@
                     </div>
                     
                     <div class="card-body">
-                        <b>{{  __('messages.description')  }}:</b> {{$food->getDescription()}} <br />
-                        <b>{{  __('messages.status')  }}:</b> {{$food->getAvailability() ? __('messages.available') : __('messages.notAvailable')}} <br />
-                        <b>{{  __('messages.price')  }}:</b> {{$food->getPrice()}}<br />
+                        <b>{{  __('messages.description')  }}:</b> {{$food[1]->getDescription()}} <br />
+                        <b>{{  __('messages.status')  }}:</b> {{$food[1]->getAvailability() ? __('messages.available') : __('messages.notAvailable')}} <br />
+                        <b>{{  __('messages.reviewAvg')  }}:</b> {{ $food[0] }}<br />
+                        <b>{{  __('messages.price')  }}:</b> {{$food[1]->getPrice()}}<br />
                         <div class="row">
                             <div class="col-auto"> 
-                                <a href="{{ route('shop.add', ['id'=> $food->getId()]) }}">{{  __('messages.AddCart')  }}  </a> 
+                                <div class="row">
+                                    <form method="POST" action="{{ route('shop.add') }}">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" class="form-control" name="id"
+                                                    value="{{ $food[1]->getId() }}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row col-auto">
+                                            <div class="col-5">
+                                                <input class="form-control col" type="number" name="amount" value="0" id="{{ old('amount') }}" min="0">
+                                            </div>
+                                            <div class="form-group row col-md-auto">
+                                                <input class="btn btn-primary" type="submit" value="{{  __('messages.AddCart')  }}" />
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </form> 
+                                </div>
                             </div>
 
                             <div class="col-auto"> 
-                                <a href="{{ route('shop.addAsIngresients', ['id'=> $food->getId()]) }}">{{  __('messages.askForIngredients')  }}</a> 
+                                <div class="row">
+                                    <form method="POST" action="{{ route('shop.addAsIngresients') }}">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" class="form-control" name="id"
+                                                    value="{{ $food[1]->getId() }}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row col-auto">
+                                            <div class="col-5">
+                                                <input class="form-control" type="number" name="amount" value="0" id="{{ old('amount') }}" min="0">
+                                            </div>
+                                            <div class="form-group row col-md-auto">
+                                                <input class="btn btn-primary" type="submit" value="{{  __('messages.askForIngredients')  }}" />
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
                             </div>
+
                             <div class="col align-self-end" >
-                                <form class="float-right" method="PUT" action="{{ route('reviews.create',['id' => $food->getId()]) }}">
-                                    @csrf @method('PUT')
-                                    <button class="btn btn-outline-primary" > {{  __('messages.createReviews')  }}</button>
-                                </form>
                                 <div class="col-auto">
-                                    <a class="float-right" href="{{ route('reviews.show',['id' => $food->getId()]) }}">
+                                    <div class="float-left">
+                                        <form class="float-right" method="PUT" action="{{ route('reviews.create',['id' => $food[1]->getId()]) }}">
+                                            @csrf @method('PUT')
+                                            <button class="btn btn-outline-primary" > {{  __('messages.createReviews')  }}</button>
+                                        </form>
+                                    </div>
+
+                                    <a class="float-right" href="{{ route('reviews.show',['id' => $food[1]->getId()]) }}">
                                         <button class="btn btn-outline-primary" >{{  __('messages.seeReviews')  }}</button>
                                     </a>
                                 </div>
@@ -53,33 +98,77 @@
                         </div>
                     </div>
                 </div>
-            @elseif($food->getAvailability())
+            @elseif($food[1]->getAvailability())
             <br/>
             <div class="card">
                     <div class="card-header"> 
                         <div class="row">
-                            <div class="col align-self-start"> {{$food->getName()}} </div>
+                            <div class="col align-self-start"> {{$food[1]->getName()}} </div>
                         </div>
                     </div>
                     
                     <div class="card-body">
-                        <b>{{  __('messages.description')  }}:</b> {{$food->getDescription()}} <br />
-                        <b>{{  __('messages.price')  }}:</b> {{$food->getPrice()}}<br />
+                        <b>{{  __('messages.description')  }}:</b> {{$food[1]->getDescription()}} <br />
+                        <b>{{  __('messages.price')  }}:</b> {{$food[1]->getPrice()}}<br />
                         <div class="row">
                             <div class="col-auto"> 
-                                <a href="{{ route('shop.add', ['id'=> $food->getId()]) }}">{{  __('messages.AddCart')  }}  </a> 
+                                <div class="row">
+                                    <form method="POST" action="{{ route('shop.add') }}">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" class="form-control" name="id"
+                                                    value="{{ $food[1]->getId() }}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row col-auto">
+                                            <div class="col-5">
+                                                <input class="form-control col" type="number" name="amount" value="0" id="{{ old('amount') }}" min="0">
+                                            </div>
+                                            <div class="form-group row col-md-auto">
+                                                <input class="btn btn-primary" type="submit" value="{{  __('messages.AddCart')  }}" />
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </form> 
+                                </div>
                             </div>
 
                             <div class="col-auto"> 
-                                <a href="{{ route('shop.addAsIngresients', ['id'=> $food->getId()]) }}">{{  __('messages.askForIngredients')  }}</a> 
+                                <div class="row">
+                                    <form method="POST" action="{{ route('shop.addAsIngresients') }}">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" class="form-control" name="id"
+                                                    value="{{ $food[1]->getId() }}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row col-auto">
+                                            <div class="col-5">
+                                                <input class="form-control" type="number" name="amount" value="0" id="{{ old('amount') }}" min="0">
+                                            </div>
+                                            <div class="form-group row col-md-auto">
+                                                <input class="btn btn-primary" type="submit" value="{{  __('messages.askForIngredients')  }}" />
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
                             </div>
+
                             <div class="col align-self-end" >
-                                <form class="float-right" method="PUT" action="{{ route('reviews.create',['id' => $food->getId()]) }}">
-                                    @csrf @method('PUT')
-                                    <button class="btn btn-outline-primary" > {{  __('messages.createReviews')  }}</button>
-                                </form>
                                 <div class="col-auto">
-                                    <a class="float-right" href="{{ route('reviews.show',['id' => $food->getId()]) }}">
+                                    <div class="float-left">
+                                        <form class="float-right" method="PUT" action="{{ route('reviews.create',['id' => $food[1]->getId()]) }}">
+                                            @csrf @method('PUT')
+                                            <button class="btn btn-outline-primary" > {{  __('messages.createReviews')  }}</button>
+                                        </form>
+                                    </div>
+
+                                    <a class="float-right" href="{{ route('reviews.show',['id' => $food[1]->getId()]) }}">
                                         <button class="btn btn-outline-primary" >{{  __('messages.seeReviews')  }}</button>
                                     </a>
                                 </div>

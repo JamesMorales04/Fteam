@@ -13,6 +13,7 @@ return [
     'amount' => 'Amount',
     'avaliable' => 'Avaliable',
     'id' => 'ID',
+    'list' => 'List',
     'profile'=>'User Profile',
     'download'=>'Download File',
     'foodMenu' => 'Food Menu',
@@ -66,6 +67,7 @@ return [
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
     'foodName' => 'Food Name',
+    'foodId' => 'Food Id',
     'description' => 'Description',
     'status' => 'Status',
     'available' => 'Available',
@@ -75,6 +77,7 @@ return [
     'topThree' => 'Top three food',
     'best-selling' => 'The three best-selling products are',
     'createFood' => 'Create food',
+    'updateFood' => 'Uddate food',
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -90,21 +93,25 @@ return [
     'createIngredients' => 'Create Ingredients',
 
     //Reviews
-    'createReviews' => 'Create Reviews',
+    'createReviews' => 'Review',
     'seeReviews' => 'See Reviews',
     'comments' => 'Comments',
     'reviews' => 'Reviews of',
     'rating' => 'Rating',
+    'reviewAvg' => 'Review avg',
 
     //Orders
-    'orders' => 'Orders',
-    'order' => 'Order',
-    'total' => 'Total',
-    'noOrders' => 'There are no orders for this user',
-    'thanks' => 'Thanks for your purchase',
-    'payment' => 'Products to pay',
-    'showAllOrders' => 'Show all Orders',
-    'foodType' => 'Only Ingredients',
+    'orders'=>'Orders',
+    'order'=>'Order',
+    'total'=>'Total',
+    'noOrders'=>'There are no orders for this user',
+    'thanks'=>'Thanks for your purchase',
+    'payment'=>'Products to pay',
+    'showAllOrders'=>'Show all Orders',
+    'foodType'=>'Only Ingredients',
+    'subTotal' => 'Sub total',
+    'orderedList' => 'Ordered list',
+
 
     //Admin Panel
     'adminPanel' => 'Admin panel',

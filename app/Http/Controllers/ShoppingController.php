@@ -55,8 +55,10 @@ class ShoppingController extends Controller
         if ($id) {
             $listFoodInCart = Food::findMany($id);
             foreach ($listFoodInCart as $food) {
-                array_push($data['foods'], [$food, $amount, $status]);
-                $total = ($total + $food->getPrice()) * $amount;
+
+                array_push($data['foods'], [$food, $amount[$food->getId()], $status]);
+                $total = ($total + $food->getPrice()) * $amount[$food->getId()];
+
             }
         }
     }
@@ -81,27 +83,50 @@ class ShoppingController extends Controller
         return view('shopping.cart')->with('data', $data);
     }
 
-    public function add($id, Request $request)
+    public function add(Request $request)
     {
+        if ($request['amount']== 0) {
+            return back();
+        }
         $food = $request->session()->get('food1');
-        $food[$id] = $id;
+        $food[$request['id']] = $request['id'];
         $request->session()->put('food1', $food);
 
         $amount = $request->session()->get('amount1');
-        $amount = $amount + 1;
+        
+        if ($amount == null) {
+            $amount[$request['id']] = 0;
+        }
+        if (!array_key_exists($request['id'],$amount)) {
+            $amount[$request['id']] = 0;
+        }
+
+        $amount[$request['id']] = $amount[$request['id']] + $request['amount'];
         $request->session()->put('amount1', $amount);
 
         return back()->with('success', Lang::get('messages.addToCart'));
     }
 
-    public function addAsIngresients($id, Request $request)
+    public function addAsIngresients(Request $request)
     {
+        if ($request['amount']== 0) {
+            return back();
+        }
+        
         $food = $request->session()->get('food2');
-        $food[$id] = $id;
+        $food[$request['id']] = [$request['id']];
         $request->session()->put('food2', $food);
 
         $amount = $request->session()->get('amount2');
-        $amount = $amount + 1;
+
+        if ($amount == null) {
+            $amount[$request['id']] = 0;
+        }
+        if (!array_key_exists($request['id'],$amount)) {
+            $amount[$request['id']] = 0;
+        }
+
+        $amount[$request['id']] = $amount[$request['id']] + $request['amount'];
         $request->session()->put('amount2', $amount);
 
         return back()->with('success', Lang::get('messages.addToCart'));
@@ -127,15 +152,16 @@ class ShoppingController extends Controller
 
             foreach ($listFoodInCart as $food) {
                 $orderedFood = new OrderedFood();
-                $orderedFood->setAmount($amount);
-                $orderedFood->setSubTotal($food->getPrice() * $amount);
+                $orderedFood->setAmount($amount[$food->getId()]);
+                $orderedFood->setSubTotal($food->getPrice() * $amount[$food->getId()]);
                 $orderedFood->setOnlyIngredients($status);
                 $orderedFood->setFoodName($food->getName());
                 $orderedFood->setFoodId($food->getId());
                 $orderedFood->setOrderId($order->getId());
                 $orderedFood->save();
-                array_push($data['food'], [$food->getName(), $food->getPrice(), $amount, $status]);
-                $total = ($total + $food->getPrice()) * $amount;
+                array_push($data['food'], [$food->getName(), $food->getPrice(), $amount[$food->getId()], $status]);
+                $total = ($total + $food->getPrice()) * $amount[$food->getId()];
+
             }
             $order->setTotal($total);
             $order->save();
@@ -153,7 +179,8 @@ class ShoppingController extends Controller
     {
         $data = []; //to be sent to the view
         $data['title'] = 'Buy';
-        $data['food'] = [];
+        $data['food'] = array();
+
         $order = new Order();
         $total = 0;
         $ids1 = $request->session()->get('food1');

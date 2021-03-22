@@ -11,19 +11,18 @@
                 </div>
 
                 <div class="card-body">
-                    <form role="form" method="POST" action="{{ route('shop.addIngredient') }}">
-
-                        <b>
-                            <div class="col-auto">
-
-                                {{ Form::select('ingredient[]', $data['name'], $data['name'], ['multiple' => 'true']) }}
-                            </div> <br />
-                        </b>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-8">
-                                <input type="text" class="form-control" placeholder="Enter name" name="name"
-                                    value="{{ old('name') }}" />
+                    <form role="form" method="POST" action="{{ route('shop.addIngredient') }}"> 
+                            <b>
+                                <div class="col-auto">
+                                    
+                                    {{ Form::select('ingredient[]', $data['name'], $data['name'], ['multiple' => 'true']) }}
+                                </div> <br />
+                            </b>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">{{  __('messages.name')  }}</label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control"  placeholder="Enter name" name="name" value="{{ old('name') }}" />
+                                </div>
                             </div>
                         </div>
 

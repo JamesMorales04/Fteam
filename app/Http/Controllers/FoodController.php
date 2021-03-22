@@ -20,11 +20,30 @@ class FoodController extends Controller
         return view('food.show')->with('data', $data);
     }
 
+    function array_combine_($keys, $values)
+    {
+        $result = array();
+        foreach ($keys as $i => $k) {
+            $result[$k][] = $values[$i];
+        }
+
+        return    $result;
+    }
+
     public function showAll()
     {
-        $data = Food::orderBy('id', 'DESC')->get();
+        $data['food'] = Food::orderBy('id')->get();
+        $prom = [];
+        foreach ($data['food'] as $food) {
+            $prom[$food->getId()] = [Reviews::where('food_id', $food->getId())->avg('rating'), $food];  
+            if ($prom[$food->getId()][0] == null) {
+                $prom[$food->getId()][0] = 0;
+            }
+            
+        }
 
-        return view('food.showAll')->with('data', $data);
+
+        return view('food.showAll')->with('data', $prom);
     }
 
     public function create()
