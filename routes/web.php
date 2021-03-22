@@ -33,12 +33,12 @@ Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('home.in
 // });
 
 Route::group(['prefix' => 'food','middleware' => ['login']], function () {
-    Route::get('/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
     Route::get('/show', 'App\Http\Controllers\FoodController@showAll')->name('food.showAll');
     Route::get('/topThree', 'App\Http\Controllers\OrderedFoodController@topThree')->name('food.topThree');
 });
 
 Route::group(['prefix' => 'food','middleware' => ['login','admin']], function () {
+    Route::get('/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
     Route::get('/create', 'App\Http\Controllers\foodController@create')->name('food.create');
     Route::get('/update/{id}', 'App\Http\Controllers\FoodController@update')->name('food.update');
     Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
@@ -67,13 +67,13 @@ Route::group(['prefix' => 'orderedfood','middleware' => ['login']], function () 
 });
 
 Route::group(['prefix' => 'shop','middleware' => ['login']], function () {
-    Route::get('/add/{id}', 'App\Http\Controllers\ShoppingController@add')->name('shop.add');
+    Route::post('/add', 'App\Http\Controllers\ShoppingController@add')->name('shop.add');
     Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name('shop.removeAll');
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
     Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
     Route::get('/pdf', 'App\Http\Controllers\ShoppingController@createPdf')->name('shop.pdf');
-    Route::get('/addAsIngresients/{id}', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
+    Route::post('/addAsIngresients', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
 });
 

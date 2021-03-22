@@ -20,7 +20,7 @@
                                 </div> <br />
                             </b>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Name</label>
+                                <label class="col-sm-2 col-form-label">{{  __('messages.name')  }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control"  placeholder="Enter name" name="name" value="{{ old('name') }}" />
                                 </div>
