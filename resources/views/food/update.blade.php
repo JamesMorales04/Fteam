@@ -38,7 +38,7 @@
                                 <div class="col-8">
                                     <textarea cols="40" name="description" class="form-control" spellcheck="true"
                                         value="{{ old('description') }}">{{ $data['food']->getDescription() }}
-                                                </textarea>
+                                                            </textarea>
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <div class="col">
-                                                
+
                                                 @if (in_array($ingredient->getId(), $data['item']))
                                                     <input type="checkbox" name="ingredients[]"
                                                         value="{{ $ingredient->getId() }}" checked>

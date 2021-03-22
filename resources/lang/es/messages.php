@@ -38,9 +38,8 @@ return [
 
     'updateUser' => 'Actualizar Usuario',
     'userID' => 'ID de Usuario',
-    'showAllUsers'=>'Mostrar todos los usuarios',
-    'users'=>'Usuarios',
-
+    'showAllUsers' => 'Mostrar todos los usuarios',
+    'users' => 'Usuarios',
 
     // Tarjeta de Credito
 
@@ -99,17 +98,17 @@ return [
 
     //Orders
 
-    'orders'=>'Ordenes',
-    'order'=>'Orden',
-    'total'=>'Total',
-    'noOrders'=>'No existen ordenes para este usuario',
-    'thanks'=>'Gracias por tu compra',
-    'payment'=>'Productos a pagar',
-    'showAllOrders'=>'Mostrar todas las ordenes',
-    'foodType'=>'Por ingredientes',
+    'orders' => 'Ordenes',
+    'order' => 'Orden',
+    'total' => 'Total',
+    'noOrders' => 'No existen ordenes para este usuario',
+    'thanks' => 'Gracias por tu compra',
+    'payment' => 'Productos a pagar',
+    'showAllOrders' => 'Mostrar todas las ordenes',
+    'foodType' => 'Por ingredientes',
 
     //Admin Panel
-    'adminPanel'=>'Panel de administrador',
-    'admin'=>'Administrador',
+    'adminPanel' => 'Panel de administrador',
+    'admin' => 'Administrador',
 
 ];

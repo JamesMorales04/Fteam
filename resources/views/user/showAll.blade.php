@@ -37,7 +37,7 @@
                                 <b>{{ __('messages.password') }}:</b> {{ $user->getPassword() }}<br />
                                 <b>{{ __('messages.creationDate') }}:</b> {{ $user->getCreationDate() }}<br />
                                 <b>{{ __('messages.role') }}:</b> {{ $user->getRole() }}<br />
-                                
+
                             </div>
                         </div><br />
 

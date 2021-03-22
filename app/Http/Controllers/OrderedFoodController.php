@@ -29,9 +29,9 @@ class OrderedFoodController extends Controller
         return view('orderedFood.showAll')->with('data', $data);
     }
 
-    function array_combine_($keys, $values)
+    public function array_combine_($keys, $values)
     {
-        $result = array();
+        $result = [];
         foreach ($keys as $i => $k) {
             $result[$k][] = $values[$i];
         }
@@ -47,9 +47,9 @@ class OrderedFoodController extends Controller
         $valores = $this->array_combine_($foodName, $amount);
         asort($valores);
         $res = array_slice($valores, -3, 3, true);
-        $valores = array_reverse ($res,true);
+        $valores = array_reverse($res, true);
         $valores = array_keys($valores);
+
         return view('food.topThree')->with('data', $valores);
     }
-    
 }

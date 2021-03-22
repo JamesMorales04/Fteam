@@ -56,7 +56,7 @@
                                 type="button" class="btn btn-outline-primary">{{ __('messages.edit') }}</a>
                             <a method="DELETE" href="{{ route('user.delete', ['id' => $data['user']->getID()]) }}"
                                 type="button" class="btn btn-outline-danger">{{ __('messages.delete') }}</a>
-                                
+
                         </div>
 
                     </div>
