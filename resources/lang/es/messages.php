@@ -13,8 +13,10 @@ return [
     'amount' => 'Cantidad',
     'avaliable' => 'Disponible',
     'id' => 'ID',
-    'profile' => 'User Profile',
-    'download' => 'Descargar archivo',
+    'profile'=>'User Profile',
+    'download'=>'Descargar archivo',
+    'foodMenu' => 'Menú de comida',
+    'shoppingCart' => 'Carrito de compras',
 
     // Crud basico
     'add' => 'Añadir',

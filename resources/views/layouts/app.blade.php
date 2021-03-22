@@ -36,62 +36,49 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     @guest
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('food.showAll') }}">Menu</a>
-                        </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">{{ __('messages.foodMenu') }}</a>
+                    </li>
 
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('shop.cart') }}">Carrito de compras</a>
-                        </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
 
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
                     @else
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('food.showAll') }}">{{ __('messages.foodMenu') }}</a>
+                    </li>
+
+                    <li class="nav-item mx-0 mx-lg-1"> 
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('shop.cart') }}">{{ __('messages.shoppingCart') }}</a>
+                    </li>
+
+                    @if ( Auth::user()->getRole()=== "Administrador" )
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('food.showAll') }}">Menu</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.panel') }}">{{ __('messages.adminPanel') }}</a>
                         </li>
+                    @endif
+                    
 
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('shop.cart') }}">Carrito de compras</a>
-                        </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.show',['id' => Auth::id()]) }}">{{ __('messages.profile') }}</a>
+                    </li>
 
-                        @if (Auth::user()->getRole() === 'Administrador')
-                            <li class="nav-item mx-0 mx-lg-1">
-                                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                    href="{{ route('admin.panel') }}">{{ __('messages.adminPanel') }}</a>
-                            </li>
-                        @endif
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    </li>
 
-
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('user.show', ['id' => Auth::id()]) }}">{{ __('messages.profile') }}</a>
-                        </li>
-
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        </li>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                     @endguest
                 </ul>
             </div>
-    </nav>
+        </nav>
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
         @yield('header')
