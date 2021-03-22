@@ -51,14 +51,42 @@
                                 </div>
                             @else
                                 <div class="form-group row">
-                                    <label class="col-md-auto">{{ __('messages.status') }}</label>
-                                    <div class="col-sm-10">
+                                    <label class="col-sm-2">{{ __('messages.status') }}</label>
+                                    <div class="col-sm-3">
                                         <input type="checkbox" class="form-control" id="status" name="status" placeholder="status" value="{{ old('status') }}">
                                     </div>
                                 </div>
                             @endif
-                                
-                        @endif                            
+                        @endif    
+                        
+                        <div>
+                            <div class="form-group row">
+                                <label for='rating' class="col-2">{{ __('messages.rating') }}</label>
+                            </div>
+                            <div id="rating" name='rating' class="rate col-md-auto">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3">{{ __('messages.comments') }}</label>
+                            <div class="col-8">
+                                <textarea cols="40" name="comments" class="form-control" spellcheck="true" value="{{ old('comments') }}" >{{ $data->getComments() }}</textarea>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class="col-sm-10">
@@ -71,36 +99,16 @@
                                 <input type="hidden" class="form-control" id="food_id" name="food_id" placeholder="food_id" value="{{ $data->getFoodId() }}" readonly>
                             </div>
                         </div>
-
-                        <div class="rate">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label for="star1" title="text">1 star</label>
-                        </div>
-
                         <div class="form-group row">
-                            <label class="col-md-auto">{{ __('messages.comments') }}</label>
-                            <div class="col-8">
-                                <textarea cols="40" name="comments" class="form-control" spellcheck="true" value="{{ old('comments') }}" >{{ $data->getComments() }}</textarea>
+                            <div class="col-2">
+                                <input class="btn btn-outline-primary" type="submit" value="{{ __('messages.send') }}" />
                             </div>
                         </div>
-
-                        <br />
-
-                        <div>
-                            <center><input class="btn btn-outline-success" type="submit" value="{{ __('messages.send') }}" /></center>
-                        </div>
                     </form>
-                    <br />
-                    <div>
-                        <center><input type="submit" class="btn btn-outline-danger" value="{{ __('messages.backFood') }}" onclick= "location='{{ route('food.showAll') }}'"></center>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <input type="submit" class="btn btn-outline-primary" value="{{ __('messages.backFood') }}" onclick= "location='{{ route('food.showAll') }}'">
+                        </div>
                     </div>
                 </center>
                 </div>
