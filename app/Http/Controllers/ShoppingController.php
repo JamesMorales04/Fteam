@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\Payment;
 use Lang;
 use PDF;
 
@@ -33,6 +35,8 @@ class ShoppingController extends Controller
     {
         $data = $request->get('data');
         set_time_limit(300);
+
+        Mail::to(Auth::user()->getEmail())->send(new Payment($data));
 
         $pdf = PDF::loadView('shopping.pdf', $data);
 
