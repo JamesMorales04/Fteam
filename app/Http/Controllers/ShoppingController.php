@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\Payment;
 use Lang;
 use PDF;
 
@@ -21,7 +23,7 @@ class ShoppingController extends Controller
         $ingredients = Ingredients::findMany($food['ingredients']);
 
         $data['ingredient'] = $ingredients;
-        $data['name'] = array();
+        $data['name'] = [];
         foreach ($ingredients as $ingredient) {
             array_push($data['name'], $ingredient->getName());
         }
@@ -29,15 +31,18 @@ class ShoppingController extends Controller
         return view('shopping.ingredient')->with('data', $data);
     }
 
-
     public function createPdf(Request $request)
     {
         $data = $request->get('data');
         set_time_limit(300);
 
+        Mail::to(Auth::user()->getEmail())->send(new Payment($data));
+
         $pdf = PDF::loadView('shopping.pdf', $data);
+
         return $pdf->download('payment.pdf');
     }
+
     public function addIngredient(Request $request)
     {
         dd($request);
@@ -50,8 +55,10 @@ class ShoppingController extends Controller
         if ($id) {
             $listFoodInCart = Food::findMany($id);
             foreach ($listFoodInCart as $food) {
+
                 array_push($data['foods'], [$food, $amount[$food->getId()], $status]);
                 $total = ($total + $food->getPrice()) * $amount[$food->getId()];
+
             }
         }
     }
@@ -60,7 +67,7 @@ class ShoppingController extends Controller
     {
         $data = []; //to be sent to the view
         $data['title'] = 'Store food';
-        $data['foods'] = array();
+        $data['foods'] = [];
         $listFoodInCart = [];
         $total = 0;
         $ids1 = $request->session()->get('food1');
@@ -154,12 +161,15 @@ class ShoppingController extends Controller
                 $orderedFood->save();
                 array_push($data['food'], [$food->getName(), $food->getPrice(), $amount[$food->getId()], $status]);
                 $total = ($total + $food->getPrice()) * $amount[$food->getId()];
+
             }
             $order->setTotal($total);
             $order->save();
         }
+
         return 0;
     }
+
     public function cosa()
     {
         return 0;
@@ -170,6 +180,7 @@ class ShoppingController extends Controller
         $data = []; //to be sent to the view
         $data['title'] = 'Buy';
         $data['food'] = array();
+
         $order = new Order();
         $total = 0;
         $ids1 = $request->session()->get('food1');
@@ -186,6 +197,6 @@ class ShoppingController extends Controller
         $request->session()->forget('amount1');
         $request->session()->forget('amount2');
 
-        return view('shopping.buy')->with("data", $data);
+        return view('shopping.buy')->with('data', $data);
     }
 }

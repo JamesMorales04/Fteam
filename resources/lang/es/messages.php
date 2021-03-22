@@ -16,6 +16,8 @@ return [
     'list' => 'Lista',
     'profile'=>'User Profile',
     'download'=>'Descargar archivo',
+    'foodMenu' => 'Menú de comida',
+    'shoppingCart' => 'Carrito de compras',
 
     // Crud basico
     'add' => 'Añadir',
@@ -37,9 +39,8 @@ return [
 
     'updateUser' => 'Actualizar Usuario',
     'userID' => 'ID de Usuario',
-    'showAllUsers'=>'Mostrar todos los usuarios',
-    'users'=>'Usuarios',
-
+    'showAllUsers' => 'Mostrar todos los usuarios',
+    'users' => 'Usuarios',
 
     // Tarjeta de Credito
 
@@ -100,7 +101,6 @@ return [
     'reviewAvg' => 'Calificacion promedio',
 
     //Orders
-
     'orders'=>'Ordenes',
     'order'=>'Orden',
     'total'=>'Total',
@@ -112,8 +112,9 @@ return [
     'subTotal' => 'Sub total',
     'orderedList' => 'Lista de ordenes',
 
+
     //Admin Panel
-    'adminPanel'=>'Panel de administrador',
-    'admin'=>'Administrador',
+    'adminPanel' => 'Panel de administrador',
+    'admin' => 'Administrador',
 
 ];

@@ -11,8 +11,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form role="form" method="POST" action="{{ route('shop.addIngredient') }}">
-                        
+                    <form role="form" method="POST" action="{{ route('shop.addIngredient') }}"> 
                             <b>
                                 <div class="col-auto">
                                     
@@ -25,6 +24,7 @@
                                     <input type="text" class="form-control"  placeholder="Enter name" name="name" value="{{ old('name') }}" />
                                 </div>
                             </div>
+                        </div>
 
                         <div class="form-group row col-md-auto">
                             <input class="btn btn-primary" type="submit" value="{{ __('messages.AddCart') }}" />

@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"> {{ __('messages.shoppingCart') }}</div>
-
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"> {{ __('messages.shoppingCart') }}</div>
                 <div class="card-body">
                     <ul id="errors">
                         @foreach($data["foods"] as $food)
@@ -29,15 +28,15 @@
                             @endif
                         </div>
 
-                        <div class="col-auto" >
-                            <a href="{{ route('shop.removeAll') }}">
-                                <button class="btn btn-outline-danger" > {{ __('messages.removeAll') }} </button>
-                            </a>
+                            <div class="col-auto">
+                                <a href="{{ route('shop.removeAll') }}">
+                                    <button class="btn btn-outline-danger"> {{ __('messages.removeAll') }} </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

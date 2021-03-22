@@ -6,7 +6,6 @@ use App\Models\Food;
 use App\Models\Ingredients;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
@@ -61,9 +60,8 @@ class FoodController extends Controller
         try {
             $food = Food::findOrFail($id);
             $data['food'] = $food;
-            $data['item']= $food['ingredients'];
+            $data['item'] = $food['ingredients'];
             $data['ingredients'] = Ingredients::All();
-
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
@@ -75,11 +73,11 @@ class FoodController extends Controller
     {
         Food::validate($request);
 
-        $ingredient = array();
+        $ingredient = [];
         foreach ($request['ingredients'] as $key) {
-            array_push($ingredient, (int)$key);
+            array_push($ingredient, (int) $key);
         }
-        $request['ingredients']=$ingredient;
+        $request['ingredients'] = $ingredient;
 
         // dd($request);
         try {
@@ -87,7 +85,7 @@ class FoodController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
-        
+
         $food->setName($request->get('name'));
         $food->setDescription($request->get('description'));
         $food->setAvailability($request->get('availability'));
@@ -102,14 +100,13 @@ class FoodController extends Controller
 
     public function save(Request $request)
     {
-        
         Food::validate($request);
-        
-        $ingredient = array();
+
+        $ingredient = [];
         foreach ($request['ingredients'] as $key) {
-            array_push($ingredient, (int)$key);
+            array_push($ingredient, (int) $key);
         }
-        $request['ingredients']=$ingredient;
+        $request['ingredients'] = $ingredient;
 
         Food::create($request->only(['name', 'description', 'availability', 'recipe', 'price', 'ingredients']));
 
@@ -119,7 +116,7 @@ class FoodController extends Controller
     public function delete($foodID)
     {
         $data['reviews'] = Reviews::where('food_id', $foodID)->delete();
-        
+
         Food::destroy($foodID);
 
         $data = Food::orderBy('id', 'DESC')->get();

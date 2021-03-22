@@ -35,7 +35,7 @@ class Food extends Model
             'availability' => 'required',
             'recipe' => 'required',
             'price' => 'required|numeric|gt:0',
-            'ingredients'=> 'required',
+            'ingredients' => 'required',
         ]);
     }
 
@@ -109,7 +109,8 @@ class Food extends Model
         $this->attributes['ingredients'] = $ingredients;
     }
 
-    public function reviews(){
+    public function reviews()
+    {
         return $this->hasMany(Reviews::class);
     }
 
@@ -122,5 +123,4 @@ class Food extends Model
     {
         return $this->belongsTo(OrderedFood::class);
     }
-    
 }

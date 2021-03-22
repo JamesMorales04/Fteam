@@ -38,7 +38,8 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.showAllUsers') }}</label> </strong><br />
+                                    <strong><label class="col-ld-8 ">{{ __('messages.showAllUsers') }}</label>
+                                    </strong><br />
                                     <a method="GET" href="{{ route('user.showAll') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('messages.users') }}</a><br /><br />
                                 </div>
@@ -47,7 +48,8 @@
                             <br />
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.showAllOrders') }}</label> </strong><br />
+                                    <strong><label class="col-ld-8 ">{{ __('messages.showAllOrders') }}</label>
+                                    </strong><br />
                                     <a method="GET" href="{{ route('order.showAll') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('messages.orders') }}</a><br /><br />
                                 </div>
@@ -56,30 +58,33 @@
                             <br />
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.seeIngredients') }}</label> </strong><br />
+                                    <strong><label class="col-ld-8 ">{{ __('messages.seeIngredients') }}</label>
+                                    </strong><br />
                                     <a method="GET" href="{{ route('Ingredients.show') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('messages.view') }}</a><br /><br />
                                 </div>
                             </div>
                             <br />
-                            <div class="col-md-2">
-                                <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.createIngredients') }}</label> </strong><br />
-                                    <a method="GET" href="{{ route('Ingredients.create') }}" type="button"
-                                        class="btn btn-outline-primary">{{ __('messages.create') }}</a><br /><br />
-                                </div>
-                            </div>                            
                         </div>
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.createFood') }}</label> </strong><br />
-                                    <a class="float-right" href="{{ route('food.create')}}">
-                                    <button class="btn btn-outline-primary" >{{  __('messages.create')  }}</button>
-                                </a>
+                                    <strong><label class="col-ld-8 ">{{ __('messages.createFood') }}</label>
+                                    </strong><br />
+                                    <a class="float-right" href="{{ route('food.create') }}">
+                                        <button class="btn btn-outline-primary">{{ __('messages.create') }}</button>
+                                    </a>
                                 </div>
                             </div>
-                        </div><br/>
+                            <div class="col-md-2">
+                                <div class="inner">
+                                    <strong><label class="col-ld-8 ">{{ __('messages.createIngredients') }}</label>
+                                    </strong><br />
+                                    <a method="GET" href="{{ route('Ingredients.create') }}" type="button"
+                                        class="btn btn-outline-primary">{{ __('messages.create') }}</a><br /><br />
+                                </div>
+                            </div>
+                        </div><br />
 
                         <strong><label class="col-ld-8 ">{{ __('messages.return') }}</label></strong><br />
                         <a method="GET" href="{{ redirect()->back()->getTargetUrl() }}" type="button"

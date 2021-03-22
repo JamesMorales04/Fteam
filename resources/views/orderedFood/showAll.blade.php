@@ -17,8 +17,7 @@
                     <b>{{  __('messages.amount')  }}:</b> {{$orderedFood->getAmount()}} <br />
                     <b>{{  __('messages.subTotal')  }}:</b> {{$orderedFood->getSubTotal()}} <br />
                 </div>
-            </div>
-        @endforeach
-    </ul>
-</div>
+            @endforeach
+        </ul>
+    </div>
 @endsection

@@ -16,6 +16,8 @@ return [
     'list' => 'List',
     'profile'=>'User Profile',
     'download'=>'Download File',
+    'foodMenu' => 'Food Menu',
+    'shoppingCart' => 'Shopping Cart',
 
     // Crud basico
 
@@ -38,8 +40,8 @@ return [
 
     'updateUser' => 'Update user',
     'userID' => 'User ID',
-    'showAllUsers'=>'Show all Users',
-    'users'=>'Users',
+    'showAllUsers' => 'Show all Users',
+    'users' => 'Users',
 
     // Tarjeta de Credito
     'createCreditCard' => 'Create a credit card',
@@ -61,7 +63,6 @@ return [
     'removeAll' => 'Remove all',
     'buy' => 'Buy',
 
-
     //Food
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
@@ -77,7 +78,6 @@ return [
     'best-selling' => 'The three best-selling products are',
     'createFood' => 'Create food',
     'updateFood' => 'Uddate food',
-
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -114,6 +114,6 @@ return [
 
 
     //Admin Panel
-    'adminPanel'=>'Admin panel',
-    'admin'=>'Administrator',
+    'adminPanel' => 'Admin panel',
+    'admin' => 'Administrator',
 ];
