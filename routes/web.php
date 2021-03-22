@@ -29,10 +29,10 @@ Route::group(['prefix' => 'food', 'middleware' => ['login']], function () {
 
 Route::group(['prefix' => 'food', 'middleware' => ['login', 'admin']], function () {
     Route::get('/show/{id}', 'App\Http\Controllers\FoodController@show')->name('food.show');
-    Route::get('/create', 'App\Http\Controllers\foodController@create')->name('food.create');
+    Route::get('/create', 'App\Http\Controllers\FoodController@create')->name('food.create');
     Route::get('/update/{id}', 'App\Http\Controllers\FoodController@update')->name('food.update');
-    Route::post('/save', 'App\Http\Controllers\foodController@save')->name('food.save');
-    Route::post('/saveupdate', 'App\Http\Controllers\foodController@updateSave')->name('food.updateSave');
+    Route::post('/save', 'App\Http\Controllers\FoodController@save')->name('food.save');
+    Route::post('/saveupdate', 'App\Http\Controllers\FoodController@updateSave')->name('food.updateSave');
     Route::delete('/delete/{id}', 'App\Http\Controllers\FoodController@delete')->name('food.delete');
 });
 
