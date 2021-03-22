@@ -16,10 +16,10 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check()){
+        if (auth()->check()) {
             return $next($request);
         }
-        return redirect('/');
 
+        return redirect('/');
     }
 }

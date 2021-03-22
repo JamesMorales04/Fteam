@@ -13,8 +13,8 @@ return [
     'amount' => 'Amount',
     'avaliable' => 'Avaliable',
     'id' => 'ID',
-    'profile'=>'User Profile',
-    'download'=>'Download File',
+    'profile' => 'User Profile',
+    'download' => 'Download File',
 
     // Crud basico
 
@@ -37,8 +37,8 @@ return [
 
     'updateUser' => 'Update user',
     'userID' => 'User ID',
-    'showAllUsers'=>'Show all Users',
-    'users'=>'Users',
+    'showAllUsers' => 'Show all Users',
+    'users' => 'Users',
 
     // Tarjeta de Credito
     'createCreditCard' => 'Create a credit card',
@@ -60,7 +60,6 @@ return [
     'removeAll' => 'Remove all',
     'buy' => 'Buy',
 
-
     //Food
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
@@ -74,7 +73,6 @@ return [
     'topThree' => 'Top three food',
     'best-selling' => 'The three best-selling products are',
     'createFood' => 'Create food',
-
 
     //Ingredientes
     'ingredients' => 'Ingredients',
@@ -97,17 +95,16 @@ return [
     'rating' => 'Rating',
 
     //Orders
-    'orders'=>'Orders',
-    'order'=>'Order',
-    'total'=>'Total',
-    'noOrders'=>'There are no orders for this user',
-    'thanks'=>'Thanks for your purchase',
-    'payment'=>'Products to pay',
-    'showAllOrders'=>'Show all Orders',
-    'foodType'=>'Only Ingredients',
-
+    'orders' => 'Orders',
+    'order' => 'Order',
+    'total' => 'Total',
+    'noOrders' => 'There are no orders for this user',
+    'thanks' => 'Thanks for your purchase',
+    'payment' => 'Products to pay',
+    'showAllOrders' => 'Show all Orders',
+    'foodType' => 'Only Ingredients',
 
     //Admin Panel
-    'adminPanel'=>'Admin panel',
-    'admin'=>'Administrator',
+    'adminPanel' => 'Admin panel',
+    'admin' => 'Administrator',
 ];

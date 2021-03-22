@@ -11,25 +11,22 @@ class OrderController extends Controller
 {
     public function showAll()
     {
-        if(Auth::user()->getRole()==='Administrador'){
+        if (Auth::user()->getRole() === 'Administrador') {
             $order['orders'] = Order::all();
 
             foreach ($order['orders'] as $orderAux) {
                 $order[$orderAux->getId()] = OrderedFood::where('order_id', $orderAux->getId())->get();
             }
-        }else{
+        } else {
             $order['orders'] = Order::where('user_id', Auth::id())->get();
 
             foreach ($order['orders'] as $orderAux) {
                 $order[$orderAux->getId()] = OrderedFood::where('order_id', $orderAux->getId())->get();
             }
         }
-        
 
         return view('order.showAll')->with('orders', $order);
     }
-
-    
 
     public function save(Request $request)
     {

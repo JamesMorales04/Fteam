@@ -84,6 +84,5 @@ class IngredientsController extends Controller
         $ingredients->save();
 
         return redirect()->route('Ingredients.showI', [$ingredients->getId()]);
-
     }
 }
