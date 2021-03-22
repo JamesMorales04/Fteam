@@ -37,13 +37,13 @@
                                 <div class="col-auto" >
                                     <form method="POST" action="{{ route('reviews.delete',['id' => $reviews->getId()]) }}">
                                         @csrf @method('DELETE')
-                                        <button class="btn btn-outline-danger" > {{ __('messages.delete') }} </button>
+                                        <button class="btn btn-outline-primary" > {{ __('messages.delete') }} </button>
                                     </form>
                                 </div>     
                             </div>
                             <div class="col align-self-end">
                                 <div class="col-auto" >
-                                    <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
+                                    <input type="submit" class="btn btn-outline-primary" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
                                 </div>     
                             </div>
                         </div>
@@ -60,18 +60,41 @@
                                         <div class="col-auto" >
                                             <form method="POST" action="{{ route('reviews.delete',['id' => $reviews->getId()]) }}">
                                                 @csrf @method('DELETE')
-                                                <button class="btn btn-outline-danger" > {{ __('messages.delete') }} </button>
+                                                <button class="btn btn-outline-primary" > {{ __('messages.delete') }} </button>
                                             </form>
                                         </div>     
                                     </div>
                                     <div class="col align-self-end">
                                         <div class="col-auto" >
-                                            <input type="submit" class="btn btn-outline-success" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
+                                            <input type="submit" class="btn btn-outline-primary" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
                                         </div>     
                                     </div>
                                 @endif
                             </div>
                         </div>
+                    @else
+                        @if ($reviews->getUserId() === Auth::Id())
+                            <div class="card-body"> 
+                                <div class="row">                            
+                                    <div class="col align-self-start"><strong>{{ __('messages.userID') }}:</strong> {{$reviews->getUserId()}} </div>
+                                    <div class="col align-self-start"><strong>{{ __('messages.comments') }}:</strong> {{$reviews->getComments()}} </div>
+                                    <div class="col align-self-start"><strong>{{ __('messages.rating') }}:</strong> {{$reviews->getRating()}} </div>
+                                    <div class="col align-self-end">
+                                        <div class="col-auto" >
+                                            <form method="POST" action="{{ route('reviews.delete',['id' => $reviews->getId()]) }}">
+                                                @csrf @method('DELETE')
+                                                <button class="btn btn-outline-primary" > {{ __('messages.delete') }} </button>
+                                            </form>
+                                        </div>     
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <div class="col-auto" >
+                                            <input type="submit" class="btn btn-outline-primary" value="{{ __('messages.edit') }}" onclick= "location='{{ route('reviews.update',['id' => $reviews->getId()]) }}'">
+                                        </div>     
+                                    </div>
+                                </div>
+                            </div>
+                        @endif   
                     @endif
                 @endif
                 </div>
