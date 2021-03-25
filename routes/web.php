@@ -22,7 +22,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
-Route::group(['prefix' => 'food', 'middleware' => ['login']], function () {
+Route::group(['prefix' => 'food'], function () {
     Route::get('/show', 'App\Http\Controllers\FoodController@showAll')->name('food.showAll');
     Route::get('/topThree', 'App\Http\Controllers\OrderedFoodController@topThree')->name('food.topThree');
 });

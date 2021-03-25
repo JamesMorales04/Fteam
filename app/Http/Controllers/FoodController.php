@@ -6,6 +6,7 @@ use App\Models\Food;
 use App\Models\Ingredients;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
@@ -22,6 +23,10 @@ class FoodController extends Controller
 
     public function showAll()
     {
+        $user ="";
+        if (Auth::user() != null) {
+            $user = Auth::user()->getRole();
+        }
         $data['food'] = Food::orderBy('id')->get();
         $prom = [];
         foreach ($data['food'] as $food) {
@@ -31,7 +36,7 @@ class FoodController extends Controller
             }
         }
 
-        return view('food.showAll')->with('data', $prom);
+        return view('food.showAll')->with('data', $prom)->with('user', $user);
     }
 
     public function create()
