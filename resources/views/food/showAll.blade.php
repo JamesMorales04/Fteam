@@ -12,7 +12,7 @@
 
     <ul>
         @foreach ($data as $food)
-            @if (Auth::user()->getRole()==='Administrador')
+            @if ($user ==='Administrador')
             <br/>
             <div class="card">
                     <div class="card-header"> 
