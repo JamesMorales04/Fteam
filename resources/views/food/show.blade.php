@@ -42,7 +42,8 @@
                             </div>
 
                             <div class="col-auto">
-                                <form method="POST" action="{{ route('food.delete', ['id' => $data['food']->getId()]) }}">
+                                <form method="POST"
+                                    action="{{ route('food.delete', ['id' => $data['food']->getId()]) }}">
                                     @csrf @method('DELETE')
                                     <button class="btn btn-outline-danger"> {{ __('messages.delete') }} </button>
                                 </form>

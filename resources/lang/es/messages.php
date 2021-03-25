@@ -7,6 +7,8 @@ return [
     'email' => 'Correo',
     'address' => 'Direccion',
     'password' => 'Contraseña',
+    'confirmPassword' => 'Confirmar contraseña',
+    'rememberMe' => 'Recordarme',
     'creationDate' => 'Fecha de creacion',
     'role' => 'Rol',
     'price' => 'Precio',
@@ -14,10 +16,11 @@ return [
     'avaliable' => 'Disponible',
     'id' => 'ID',
     'list' => 'Lista',
-    'profile'=>'User Profile',
-    'download'=>'Descargar archivo',
-    'foodMenu' => 'Menú de comida',
+    'profile' => 'Perfil',
+    'download' => 'Descargar archivo',
+    'foodMenu' => 'Menú',
     'shoppingCart' => 'Carrito de compras',
+    'forgotPassword' => '¿Olvido la contraseña?',
 
     // Crud basico
     'add' => 'Añadir',
@@ -102,19 +105,38 @@ return [
     'reviewAvg' => 'Calificacion promedio',
 
     //Orders
-    'orders'=>'Ordenes',
-    'order'=>'Orden',
-    'total'=>'Total',
-    'noOrders'=>'No existen ordenes para este usuario',
-    'thanks'=>'Gracias por tu compra',
-    'payment'=>'Productos a pagar',
-    'showAllOrders'=>'Mostrar todas las ordenes',
-    'foodType'=>'Por ingredientes',
+    'orders' => 'Ordenes',
+    'order' => 'Orden',
+    'total' => 'Total',
+    'noOrders' => 'No existen ordenes para este usuario',
+    'thanks' => 'Gracias por tu compra',
+    'payment' => 'Productos a pagar',
+    'showAllOrders' => 'Mostrar todas las ordenes',
+    'foodType' => 'Por ingredientes',
     'subTotal' => 'Sub total',
     'orderedList' => 'Lista de ordenes',
 
     //Admin Panel
     'adminPanel' => 'Panel de administrador',
     'admin' => 'Administrador',
+
+    //home
+    'home' => 'Inicio',
+    'subMenu' => 'Categorias',
+
+    //navbar
+
+    'logout' => 'Cerrar sesion',
+    'login' => 'Iniciar sesion',
+    'register' => 'Registro',
+
+    //mail
+
+    'sendEmail' => 'Enviar email',
+
+    //about
+
+    'about' => 'Descripción',
+    'descriptionApp' => 'Aplicación de venta de comidas de manera digital, la cual permitirá al usuario escoger si prefiere la comida cocinada o los ingredientes para prepararla. Al momento de seleccionar comida preparada el usuario podrá elegir los elementos que desee que contenga y la cantidad, si se elige otra opción de comprar los ingredientes, el usuario podrá seleccionar la cantidad de cada uno de los ingredientes, el número de personas para las que se desea el plato y por último se mostrará la receta a seguir para cocinar el producto.',
 
 ];

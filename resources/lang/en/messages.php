@@ -7,6 +7,8 @@ return [
     'email' => 'Email',
     'address' => 'Address',
     'password' => 'Password',
+    'confirmPassword' => 'Confirm password',
+    'rememberMe' => 'Remember me',
     'creationDate' => 'Creation Date',
     'role' => 'Role',
     'price' => 'Price',
@@ -14,10 +16,11 @@ return [
     'avaliable' => 'Avaliable',
     'id' => 'ID',
     'list' => 'List',
-    'profile'=>'User Profile',
-    'download'=>'Download File',
-    'foodMenu' => 'Food Menu',
+    'profile' => 'User Profile',
+    'download' => 'Download File',
+    'foodMenu' => 'Menu',
     'shoppingCart' => 'Shopping Cart',
+    'forgotPassword' => 'Forgot your password?',
 
     // Crud basico
 
@@ -102,18 +105,38 @@ return [
     'reviewAvg' => 'Review avg',
 
     //Orders
-    'orders'=>'Orders',
-    'order'=>'Order',
-    'total'=>'Total',
-    'noOrders'=>'There are no orders for this user',
-    'thanks'=>'Thanks for your purchase',
-    'payment'=>'Products to pay',
-    'showAllOrders'=>'Show all Orders',
-    'foodType'=>'Only Ingredients',
+    'orders' => 'Orders',
+    'order' => 'Order',
+    'total' => 'Total',
+    'noOrders' => 'There are no orders for this user',
+    'thanks' => 'Thanks for your purchase',
+    'payment' => 'Products to pay',
+    'showAllOrders' => 'Show all Orders',
+    'foodType' => 'Only Ingredients',
     'subTotal' => 'Sub total',
     'orderedList' => 'Ordered list',
 
     //Admin Panel
     'adminPanel' => 'Admin panel',
     'admin' => 'Administrator',
+
+    //home
+
+    'home' => 'Home',
+    'subMenu' => 'Sub Menu',
+
+    //navbar
+
+    'logout' => 'Logout',
+    'login' => 'Login',
+    'register' => 'Register',
+
+    //mail
+
+    'sendEmail' => 'Send Email',
+
+    //about
+
+    'about' => 'About',
+    'descriptionApp' => 'Application for selling meals digitally, which will allow the user to choose whether he/she prefers cooked food or the ingredients to prepare it. When selecting prepared food the user will be able to choose the elements he/she wants it to contain and the quantity, if another option of buying the ingredients is chosen, the user will be able to choose the quantity of each of the ingredients, the number of people for whom the dish is desired and finally the recipe to be followed to cook the product will be shown.',
 ];

@@ -36,13 +36,21 @@ class ShoppingController extends Controller
         $data = $request->get('data');
         set_time_limit(300);
 
-        Mail::to(Auth::user()->getEmail())->send(new Payment($data));
-
-	    view()->share($data);
+        view()->share($data);
 
         $pdf = PDF::loadView('shopping.pdf');
 
         return $pdf->download('payment.pdf');
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $data = $request->get('data');
+        set_time_limit(300);
+
+        Mail::to(Auth::user()->getEmail())->send(new Payment($data));
+
+        return view('home.index');
     }
 
     public function addIngredient(Request $request)
