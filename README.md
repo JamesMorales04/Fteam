@@ -23,3 +23,4 @@ Guia de despliegue con docker
 11. exit
 12. docker-compose exec app php artisan migrate
 
+sudo service docker start
