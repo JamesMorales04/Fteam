@@ -23,7 +23,7 @@ class FoodController extends Controller
 
     public function showAll()
     {
-        $user ="";
+        $user = '';
         if (Auth::user() != null) {
             $user = Auth::user()->getRole();
         }

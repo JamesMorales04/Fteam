@@ -14,7 +14,7 @@
         <!-- Masthead Subheading-->
         <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.menu') }}</p>
     </div>
-@endsection   
+@endsection
 
 @section('content')
     <div class="container">
@@ -29,41 +29,41 @@
         <input style="align-self: left" type="submit" class="btn btn-outline-primary"
             value="{{ __('messages.topThree') }}" onclick="location='{{ route('food.topThree') }}'">
 
-         <input style="align-self: left" type="submit" class="btn btn-outline-primary" value="{{ __('messages.topThree') }}" onclick= "location='{{ route('food.topThree') }}'">
+        <ul>
+            @foreach ($data as $food)
+                @if ($user === 'Administrador')
+                    <br />
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col align-self-start"> {{ $food[1]->getName() }}</div>
 
-    <ul>
-        @foreach ($data as $food)
-            @if ($user ==='Administrador')
-            <br/>
-            <div class="card">
-                    <div class="card-header"> 
-                        <div class="row">
-                            <div class="col align-self-start"> {{$food[1]->getName()}}</div>
-
-                            <div class="col align-self-end">
-                                <a class="float-right" href="{{ route('food.show',['id' => $food[1]->getId()]) }}">
-                                    <button class="btn btn-outline-primary" >{{  __('messages.view')  }}</button>
-                                </a>
+                                <div class="col align-self-end">
+                                    <a class="float-right" href="{{ route('food.show', ['id' => $food[1]->getId()]) }}">
+                                        <button class="btn btn-outline-primary">{{ __('messages.view') }}</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="card-body">
-                        <b>{{  __('messages.description')  }}:</b> {{$food[1]->getDescription()}} <br />
-                        <b>{{  __('messages.status')  }}:</b> {{$food[1]->getAvailability() ? __('messages.available') : __('messages.notAvailable')}} <br />
-                        <b>{{  __('messages.reviewAvg')  }}:</b> {{ $food[0] }}<br />
-                        <b>{{  __('messages.price')  }}:</b> {{$food[1]->getPrice()}}<br />
-                        <div class="row">
-                            <div class="col-auto"> 
-                                <div class="row">
-                                    <form method="POST" action="{{ route('shop.add') }}">
-                                        @csrf
-                                        <div class="form-group row">
-                                            <div class="col-8">
-                                                <input type="hidden" class="form-control" name="id"
-                                                    value="{{ $food[1]->getId() }}" />
+
+                        <div class="card-body">
+                            <b>{{ __('messages.description') }}:</b> {{ $food[1]->getDescription() }} <br />
+                            <b>{{ __('messages.status') }}:</b>
+                            {{ $food[1]->getAvailability() ? __('messages.available') : __('messages.notAvailable') }}
+                            <br />
+                            <b>{{ __('messages.reviewAvg') }}:</b> {{ $food[0] }}<br />
+                            <b>{{ __('messages.price') }}:</b> {{ $food[1]->getPrice() }}<br />
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="row">
+                                        <form method="POST" action="{{ route('shop.add') }}">
+                                            @csrf
+                                            <div class="form-group row">
+                                                <div class="col-8">
+                                                    <input type="hidden" class="form-control" name="id"
+                                                        value="{{ $food[1]->getId() }}" />
+                                                </div>
                                             </div>
-                                        </div>
 
 
                                             <div class="form-group row col-auto">
