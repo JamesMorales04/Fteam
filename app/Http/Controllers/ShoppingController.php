@@ -50,15 +50,8 @@ class ShoppingController extends Controller
 
         Mail::to(Auth::user()->getEmail())->send(new Payment($data));
 
-        return view('home.index');
     }
 
-    public function addIngredient(Request $request)
-    {
-        dd($request);
-
-        return view('shopping.cart');
-    }
 
     public function orderCart($id, $amount, &$data, &$total, $status)
     {
@@ -76,7 +69,6 @@ class ShoppingController extends Controller
         $data = []; //to be sent to the view
         $data['title'] = 'Store food';
         $data['foods'] = [];
-        $listFoodInCart = [];
         $total = 0;
         $ids1 = $request->session()->get('food1');
         $ids2 = $request->session()->get('food2');
@@ -174,11 +166,6 @@ class ShoppingController extends Controller
             $order->save();
         }
 
-        return 0;
-    }
-
-    public function cosa()
-    {
         return 0;
     }
 

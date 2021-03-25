@@ -72,7 +72,6 @@ class FoodController extends Controller
         }
         $request['ingredients'] = $ingredient;
 
-        // dd($request);
         try {
             $food = Food::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {

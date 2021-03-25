@@ -67,7 +67,6 @@ class ReviewsController extends Controller
         $reviews->setStatus($request->get('status'));
 
         $reviews->save();
-        // dd($reviews);
 
         return redirect()->route('reviews.show', [$reviews->getFoodId()]);
     }
