@@ -5,14 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('messages.register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -28,7 +29,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -43,7 +44,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">Direccion</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{ __('messages.address') }}</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="address" name="address"
                                         value="{{ old('address') }}" required>
@@ -53,7 +54,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -70,7 +71,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.confirmPassword') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -79,13 +80,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">Rol</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{ __('messages.role') }}</label>
 
                                 <div class="col-md-6">
                                     <select class="custom-select mr-sm-2" id="role" name="role" required>
 
-                                        <option value="Administrador">Administrador</option>
-                                        <option value="Usuario">Usuario</option>
+                                        <option value="Administrador">{{ __('messages.admin') }}</option>
+                                        <option value="Usuario">{{ __('messages.user') }}</option>
                                     </select>
                                 </div>
 
@@ -94,7 +95,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('messages.register') }}
                                     </button>
                                 </div>
                             </div>

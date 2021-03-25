@@ -54,7 +54,7 @@
                                 <div class="col-8">
                                     <textarea type="number" name="price" class="form-control" spellcheck="true"
                                         value="{{ old('price') }}">{{ $data->getPrice() }}
-                                </textarea>
+                                    </textarea>
                                 </div>
                             </div>
 

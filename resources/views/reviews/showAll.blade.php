@@ -92,13 +92,16 @@
                                         <div class="row">
                                             <div class="col align-self-start">
                                                 <strong>{{ __('messages.userID') }}:</strong>
-                                                {{ $reviews->getUserId() }} </div>
+                                                {{ $reviews->getUserId() }}
+                                            </div>
                                             <div class="col align-self-start">
                                                 <strong>{{ __('messages.comments') }}:</strong>
-                                                {{ $reviews->getComments() }} </div>
+                                                {{ $reviews->getComments() }}
+                                            </div>
                                             <div class="col align-self-start">
                                                 <strong>{{ __('messages.rating') }}:</strong>
-                                                {{ $reviews->getRating() }} </div>
+                                                {{ $reviews->getRating() }}
+                                            </div>
                                             <div class="col align-self-end">
                                                 <div class="col-auto">
                                                     <form method="POST"

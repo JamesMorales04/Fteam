@@ -32,7 +32,8 @@
                             <div class="col align-self-start"><strong>{{ __('messages.productAmount') }}:</strong>
                                 {{ $ingredients->getAmount() }} </div>
                             <div class="col align-self-end">
-                                <a class="float-right" href="{{ route('Ingredients.show') }}/{{ $ingredients->getId() }}">
+                                <a class="float-right"
+                                    href="{{ route('Ingredients.show') }}/{{ $ingredients->getId() }}">
                                     <button class="btn btn-outline-primary">{{ __('messages.view') }}</button>
                                 </a>
                             </div>

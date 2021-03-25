@@ -62,6 +62,7 @@ Route::group(['prefix' => 'shop', 'middleware' => ['login']], function () {
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
     Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
     Route::get('/pdf', 'App\Http\Controllers\ShoppingController@createPdf')->name('shop.pdf');
+    Route::get('/mail', 'App\Http\Controllers\ShoppingController@sendEmail')->name('shop.email');
     Route::post('/addAsIngresients', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
 });

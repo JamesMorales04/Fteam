@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">{{  __('messages.updateFood')  }}</div>
+                    <div class="card-header">{{ __('messages.updateFood') }}</div>
                     <div class="card-body">
                         @if ($errors->any())
                             <ul id="errors">
@@ -26,7 +26,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{  __('messages.name')  }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control" placeholder="Enter name" name="name"
                                         value="{{ $data['food']->getName() }}" />
@@ -34,16 +34,17 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{  __('messages.add')  }} {{  __('messages.description')  }}</label>
+                                <label class="col-md-auto">{{ __('messages.add') }}
+                                    {{ __('messages.description') }}</label>
                                 <div class="col-8">
                                     <textarea cols="40" name="description" class="form-control" spellcheck="true"
                                         value="{{ old('description') }}">{{ $data['food']->getDescription() }}
-                                                            </textarea>
+                                                                </textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{  __('messages.avaliable')  }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('messages.avaliable') }}</label>
                                 <div class="col-sm-10 col col-lg-2">
                                     @if ($data['food']->getAvailability())
                                         <input type="checkbox" class="col-sm-100" name="availability"
@@ -56,7 +57,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{  __('messages.add')  }}  {{  __('messages.recipe')  }} </label>
+                                <label class="col-md-auto">{{ __('messages.add') }} {{ __('messages.recipe') }}
+                                </label>
                                 <div class="col-8">
                                     <textarea cols="40" name="recipe" class="form-control" spellcheck="true"
                                         value="{{ old('recipe') }}">{{ $data['food']->getRecipe() }}</textarea>
@@ -64,7 +66,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{  __('messages.add')  }} {{  __('messages.price')  }}</label>
+                                <label class="col-md-auto">{{ __('messages.add') }}
+                                    {{ __('messages.price') }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control" placeholder="Enter price" name="price"
                                         value="{{ $data['food']->getPrice() }}" />
@@ -72,7 +75,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{  __('messages.add')  }} {{  __('messages.ingredients')  }}</label>
+                                <label class="col-md-auto">{{ __('messages.add') }}
+                                    {{ __('messages.ingredients') }}</label>
                                 @foreach ($data['ingredients'] as $ingredient)
 
                                     <div class="checkbox">
