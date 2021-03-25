@@ -4,12 +4,12 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-        @include('util.message')
-            <div class="card">
-                <div class="card-header">{{  __('messages.createFood')  }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                @include('util.message')
+                <div class="card">
+                    <div class="card-header">{{ __('messages.createFood') }}</div>
                     <div class="card-body">
                         @if ($errors->any())
                             <ul id="errors">
