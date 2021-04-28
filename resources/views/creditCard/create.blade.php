@@ -4,7 +4,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.creditCard') }} </h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('creditCard.creditCard') }} </h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -12,7 +12,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.creditCard') }} </p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('creditCard.creditCard') }} </p>
     </div>
 @endsection
 @section('content')
@@ -24,7 +24,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">
-                        <strong>{{ __('messages.creditCard') }}</strong>
+                        <strong>{{ __('creditCard.creditCard') }}</strong>
                     </div>
                     @if ($errors->any())
                         <ul id="errors">
@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="name">{{ __('messages.name') }}</label>
+                                        <label for="name">{{ __('general.name') }}</label>
                                         <input class="form-control" id="name" type="text" placeholder="Enter your name"
                                             name="cardName" value="{{ old('cardName') }}" required>
                                     </div>
@@ -55,7 +55,7 @@
 
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="ccnumber">{{ __('messages.cardNumber') }}</label>
+                                        <label for="ccnumber">{{ __('creditCard.cardNumber') }}</label>
                                         <div class="input-group">
                                             <input class="form-control" type="text" pattern="[0-9]*" inputmode="numeric"
                                                 name="cardNumber" placeholder="0000 0000 0000 0000"
@@ -71,7 +71,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-4">
-                                    <label for="ccmonth">{{ __('messages.month') }}</label>
+                                    <label for="ccmonth">{{ __('general.month') }}</label>
                                     <select class="form-control" id="expirationMonth" name="expirationMonth" required>
                                         <option>1</option>
                                         <option>2</option>
@@ -88,7 +88,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-4">
-                                    <label for="ccyear">{{ __('messages.year') }}</label>
+                                    <label for="ccyear">{{ __('general.year') }}</label>
                                     <select class="form-control" id="expirationYear" name="expirationYear" required>
                                         <option>2014</option>
                                         <option>2015</option>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label for="cvv">{{ __('messages.cvv') }}</label>
+                                        <label for="cvv">{{ __('creditCard.cvv') }}</label>
                                         <input class="form-control" id="securityCode" type="text" placeholder="123"
                                             name="securityCode" value="{{ old('securityCode') }}" required>
                                     </div>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="form-group">
-                                <input type="submit" value={{ __('messages.send') }} name="submit"
+                                <input type="submit" value={{ __('general.send') }} name="submit"
                                     class="btn btn-primary" />
                             </div>
                         </div>

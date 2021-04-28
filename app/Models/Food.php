@@ -114,7 +114,7 @@ class Food extends Model
         return $this->hasMany(Reviews::class);
     }
 
-    public function Ingredients()
+    public function ingredients()
     {
         return $this->hasMany(Ingredients::class);
     }

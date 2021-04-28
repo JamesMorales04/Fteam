@@ -30,7 +30,8 @@ class ReviewsController extends Controller
     public function save(Request $request)
     {
         Reviews::validate($request);
-        Reviews::create($request->only(['id', 'rating', 'comments', 'status', 'user_id', 'food_id', 'created_at', 'updated_at']));
+        Reviews::create($request->only(['id', 'rating', 'comments', 'status',
+        'user_id', 'food_id', 'created_at', 'updated_at']));
 
         return back()->with('success', 'Item created successfully!');
     }

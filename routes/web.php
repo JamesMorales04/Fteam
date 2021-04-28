@@ -90,6 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['login', 'admin']], function
 
 Route::group(['prefix' => 'orders', 'middleware' => ['login']], function () {
     Route::get('/showAll', 'App\Http\Controllers\OrderController@showAll')->name('order.showAll');
+    Route::get('/showAllAdmin', 'App\Http\Controllers\OrderController@showAllAdmin')->name('order.showAllAdmin');
     Route::post('/save', 'App\Http\Controllers\OrderController@save')->name('order.save');
 });
 

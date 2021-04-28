@@ -49,9 +49,7 @@ class ShoppingController extends Controller
         set_time_limit(300);
 
         Mail::to(Auth::user()->getEmail())->send(new Payment($data));
-
     }
-
 
     public function orderCart($id, $amount, &$data, &$total, $status)
     {

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', __('messages.adminPanel'))
+@section('title', __('admin.adminPanel'))
 
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.admin') }} </h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('admin.admin') }} </h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -13,7 +13,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.admin') }} </p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('admin.admin') }} </p>
     </div>
 @endsection
 
@@ -30,7 +30,7 @@
 
                     <div class="card-header">
                         <div class="row">
-                            <div class="col align-self-start"> {{ __('messages.adminPanel') }} </div>
+                            <div class="col align-self-start"> {{ __('admin.adminPanel') }} </div>
                         </div>
                     </div>
 
@@ -38,20 +38,20 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.showAllUsers') }}</label>
+                                    <strong><label class="col-ld-8 ">{{ __('user.showAllUsers') }}</label>
                                     </strong><br />
                                     <a method="GET" href="{{ route('user.showAll') }}" type="button"
-                                        class="btn btn-outline-primary">{{ __('messages.users') }}</a><br /><br />
+                                        class="btn btn-outline-primary">{{ __('user.users') }}</a><br /><br />
                                 </div>
                             </div>
 
                             <br />
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.showAllOrders') }}</label>
+                                    <strong><label class="col-ld-8 ">{{ __('order.showAllOrders') }}</label>
                                     </strong><br />
-                                    <a method="GET" href="{{ route('order.showAll') }}" type="button"
-                                        class="btn btn-outline-primary">{{ __('messages.orders') }}</a><br /><br />
+                                    <a method="GET" href="{{ route('order.showAllAdmin') }}" type="button"
+                                        class="btn btn-outline-primary">{{ __('order.orders') }}</a><br /><br />
                                 </div>
 
                             </div>
@@ -61,7 +61,7 @@
                                     <strong><label class="col-ld-8 ">{{ __('messages.seeIngredients') }}</label>
                                     </strong><br />
                                     <a method="GET" href="{{ route('Ingredients.show') }}" type="button"
-                                        class="btn btn-outline-primary">{{ __('messages.view') }}</a><br /><br />
+                                        class="btn btn-outline-primary">{{ __('general.view') }}</a><br /><br />
                                 </div>
                             </div>
                             <br />
@@ -72,7 +72,7 @@
                                     <strong><label class="col-ld-8 ">{{ __('messages.createFood') }}</label>
                                     </strong><br />
                                     <a class="float-right" href="{{ route('food.create') }}">
-                                        <button class="btn btn-outline-primary">{{ __('messages.create') }}</button>
+                                        <button class="btn btn-outline-primary">{{ __('general.create') }}</button>
                                     </a>
                                 </div>
                             </div>
@@ -81,14 +81,14 @@
                                     <strong><label class="col-ld-8 ">{{ __('messages.createIngredients') }}</label>
                                     </strong><br />
                                     <a method="GET" href="{{ route('Ingredients.create') }}" type="button"
-                                        class="btn btn-outline-primary">{{ __('messages.create') }}</a><br /><br />
+                                        class="btn btn-outline-primary">{{ __('general.create') }}</a><br /><br />
                                 </div>
                             </div>
                         </div><br />
 
-                        <strong><label class="col-ld-8 ">{{ __('messages.return') }}</label></strong><br />
+                        <strong><label class="col-ld-8 ">{{ __('general.return') }}</label></strong><br />
                         <a method="GET" href="{{ redirect()->back()->getTargetUrl() }}" type="button"
-                            class="btn btn-outline-primary">{{ __('messages.return') }}</a><br /><br />
+                            class="btn btn-outline-primary">{{ __('general.return') }}</a><br /><br />
 
                     </div>
 

@@ -7,7 +7,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.creditCard') }} </h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('creditCard.creditCard') }} </h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -15,7 +15,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.creditCard') }} </p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('creditCard.creditCard') }} </p>
     </div>
 @endsection
 
@@ -31,15 +31,15 @@
 
                 <div class="card-body">
 
-                    <b>{{ __('messages.cardName') }}:</b> {{ $creditCard->getCardName() }}<br />
-                    <b>{{ __('messages.cardNumber') }}:</b> {{ $creditCard->getCardNumber() }}<br />
-                    <b>{{ __('messages.creationDate') }}:</b> {{ $creditCard->getRegisterDate() }}<br />
+                    <b>{{ __('creditCard.cardName') }}:</b> {{ $creditCard->getCardName() }}<br />
+                    <b>{{ __('creditCard.cardNumber') }}:</b> {{ $creditCard->getCardNumber() }}<br />
+                    <b>{{ __('general.creationDate') }}:</b> {{ $creditCard->getRegisterDate() }}<br />
                     <br />
 
                     <a method="GET" href="{{ route('creditCard.update', ['id' => $creditCard->getId()]) }}"
-                        type="button" class="btn btn-outline-primary">{{ __('messages.edit') }}</a>
+                        type="button" class="btn btn-outline-primary">{{ __('general.edit') }}</a>
                     <a method="POST" href="{{ route('creditCard.delete', ['id' => $creditCard->getId()]) }}"
-                        type="button" class="btn btn-outline-danger">{{ __('messages.delete') }}</a>
+                        type="button" class="btn btn-outline-danger">{{ __('general.delete') }}</a>
                 </div>
 
             </div>

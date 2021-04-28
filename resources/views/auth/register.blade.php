@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('messages.register') }}</div>
+                    <div class="card-header">{{ __('general.register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -13,7 +13,7 @@
 
                             <div class="form-group row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.name') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('general.name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -29,7 +29,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.email') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('general.email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">{{ __('messages.address') }}</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{ __('general.address') }}</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="address" name="address"
                                         value="{{ old('address') }}" required>
@@ -54,7 +54,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('general.password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -71,7 +71,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('messages.confirmPassword') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('general.confirmPassword') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -80,13 +80,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">{{ __('messages.role') }}</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{ __('general.role') }}</label>
 
                                 <div class="col-md-6">
                                     <select class="custom-select mr-sm-2" id="role" name="role" required>
 
-                                        <option value="Administrador">{{ __('messages.admin') }}</option>
-                                        <option value="Usuario">{{ __('messages.user') }}</option>
+                                        <option value="Administrador">{{ __('admin.admin') }}</option>
+                                        <option value="Usuario">{{ __('user.user') }}</option>
                                     </select>
                                 </div>
 
@@ -95,7 +95,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('messages.register') }}
+                                        {{ __('general.register') }}
                                     </button>
                                 </div>
                             </div>
