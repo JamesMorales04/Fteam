@@ -20,7 +20,7 @@ class UserController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        $data['card'] = CreditCard::where('user_id', $id)->get();
+        $data['card'] = $data['user']->CreditCard;
 
         $data['prueba'] = [];
         foreach ($data['card'] as $cards) {

@@ -25,53 +25,53 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">{{ __('messages.home') }}</a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">{{ __('general.home') }}</a>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     @guest
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('food.showAll') }}">{{ __('messages.foodMenu') }}</a>
+                                href="{{ route('food.showAll') }}">{{ __('general.foodMenu') }}</a>
                         </li>
 
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                                href="{{ route('login') }}">{{ __('general.login') }}</a>
                         </li>
 
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('register') }}">{{ __('messages.register') }}</a>
+                                href="{{ route('register') }}">{{ __('general.register') }}</a>
                         </li>
                     @else
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('food.showAll') }}">{{ __('messages.foodMenu') }}</a>
+                                href="{{ route('food.showAll') }}">{{ __('general.foodMenu') }}</a>
                         </li>
 
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('shop.cart') }}">{{ __('messages.shoppingCart') }}</a>
+                                href="{{ route('shop.cart') }}">{{ __('general.shoppingCart') }}</a>
                         </li>
 
                         @if (Auth::user()->getRole() === 'Administrador')
                             <li class="nav-item mx-0 mx-lg-1">
                                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                    href="{{ route('admin.panel') }}">{{ __('messages.adminPanel') }}</a>
+                                    href="{{ route('admin.panel') }}">{{ __('admin.adminPanel') }}</a>
                             </li>
                         @endif
 
 
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="{{ route('user.show', ['id' => Auth::id()]) }}">{{ __('messages.profile') }}</a>
+                                href="{{ route('user.show', ['id' => Auth::id()]) }}">{{ __('general.profile') }}</a>
                         </li>
 
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">{{ __('messages.logout') }}</a>
+                            document.getElementById('logout-form').submit();">{{ __('general.logout') }}</a>
                         </li>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

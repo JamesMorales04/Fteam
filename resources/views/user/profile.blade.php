@@ -5,7 +5,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.profile') }} </h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('user.profile') }} </h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -13,7 +13,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.profile') }} </p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('user.profile') }} </p>
     </div>
 @endsection
 
@@ -36,7 +36,7 @@
 
                                 <div class="col align-self-end">
                                     <a class="float-right" href="{{ route('order.showAll') }}">
-                                        <button class="btn btn-outline-primary">{{ __('messages.orders') }}</button>
+                                        <button class="btn btn-outline-primary">{{ __('order.orders') }}</button>
                                     </a>
                                 </div>
                             </div>
@@ -45,17 +45,17 @@
 
                         <div class="card-body">
 
-                            <b>{{ __('messages.email') }}:</b> {{ $data['user']->getEmail() }}<br />
-                            <b>{{ __('messages.address') }}:</b> {{ $data['user']->getAddress() }}<br />
-                            <b>{{ __('messages.password') }}:</b> {{ $data['user']->getPassword() }}<br />
-                            <b>{{ __('messages.creationDate') }}:</b> {{ $data['user']->getCreationDate() }}<br />
-                            <b>{{ __('messages.role') }}:</b> {{ $data['user']->getRole() }}<br />
+                            <b>{{ __('general.email') }}:</b> {{ $data['user']->getEmail() }}<br />
+                            <b>{{ __('general.address') }}:</b> {{ $data['user']->getAddress() }}<br />
+                            <b>{{ __('general.password') }}:</b> {{ $data['user']->getPassword() }}<br />
+                            <b>{{ __('general.creationDate') }}:</b> {{ $data['user']->getCreationDate() }}<br />
+                            <b>{{ __('general.role') }}:</b> {{ $data['user']->getRole() }}<br />
 
                             <br />
                             <a method="PUT" href="{{ route('user.update', ['id' => $data['user']->getID()]) }}"
-                                type="button" class="btn btn-outline-primary">{{ __('messages.edit') }}</a>
+                                type="button" class="btn btn-outline-primary">{{ __('general.edit') }}</a>
                             <a method="DELETE" href="{{ route('user.delete', ['id' => $data['user']->getID()]) }}"
-                                type="button" class="btn btn-outline-danger">{{ __('messages.delete') }}</a>
+                                type="button" class="btn btn-outline-danger">{{ __('general.delete') }}</a>
 
                         </div>
 
@@ -63,29 +63,29 @@
 
                     <div class="card">
 
-                        <div class="card-header">{{ __('messages.creditCard') }}</div>
+                        <div class="card-header">{{ __('creditCard.creditCard') }}</div>
 
                         <div class="card-body">
 
                             @if (!$data['card'])
-                                <b>{{ __('messages.creditCard') }} </b>
+                                <b>{{ __('creditCard.creditCard') }} </b>
                                 <a method="GET" href="{{ route('creditCard.create') }}" type="button"
-                                    class="btn btn-outline-primary">{{ __('messages.add') }}</a>
+                                    class="btn btn-outline-primary">{{ __('general.add') }}</a>
 
                             @else
-                                <b>{{ __('messages.newCreditCard') }} </b><br />
+                                <b>{{ __('creditCard.newCreditCard') }} </b><br />
                                 <a method="GET" href="{{ route('creditCard.create') }}" type="button"
-                                    class="btn btn-outline-primary">{{ __('messages.add') }}</a><br /><br />
+                                    class="btn btn-outline-primary">{{ __('general.add') }}</a><br /><br />
 
                                 @foreach ($data['card'] as $card)
 
-                                    <b>{{ __('messages.creditCard') }} {{ $loop->index + 1 }}: </b><br />
+                                    <b>{{ __('creditCard.creditCard') }} {{ $loop->index + 1 }}: </b><br />
 
                                     <a method="GET" href="{{ route('creditCard.show', ['id' => $card->getID()]) }}"
-                                        type="button" class="btn btn-outline-primary">{{ __('messages.view') }}</a>
+                                        type="button" class="btn btn-outline-primary">{{ __('general.view') }}</a>
                                     <a method="GET" href="{{ route('creditCard.delete', ['id' => $card->getID()]) }}"
                                         type="button"
-                                        class="btn btn-outline-danger">{{ __('messages.delete') }}</a><br />
+                                        class="btn btn-outline-danger">{{ __('general.delete') }}</a><br />
 
                                 @endforeach
 
