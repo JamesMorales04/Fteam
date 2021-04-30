@@ -18,6 +18,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('createingredient') }}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -32,7 +33,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form method="POST" action="{{ route('Ingredients.save') }}">
+                        <form method="POST" action="{{ route('ingredients.save') }}">
                             @csrf
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
@@ -61,13 +62,14 @@
                             </div>
                             <br \>
                         </form>
-                        <div class="col-sm-2">
+                        {{-- <div class="col-sm-2">
                             <center><input type="submit" class="btn btn-outline-primary"
                                     value="{{ __('messages.backHome') }}"
                                     onclick="location='{{ route('home.index') }}'"></center>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
+                <br>
             </div>
         </div>
     </div>

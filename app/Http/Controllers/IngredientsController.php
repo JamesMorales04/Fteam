@@ -13,7 +13,7 @@ class IngredientsController extends Controller
         $ingredients = Ingredients::all();
         $data['ingredients'] = $ingredients;
 
-        return view('Ingredients.show')->with('data', $data);
+        return view('ingredients.show')->with('data', $data);
     }
 
     public function showIngredient($id)
@@ -24,7 +24,7 @@ class IngredientsController extends Controller
         $data['title'] = $product->getName();
         $data['product'] = $product;
 
-        return view('Ingredients.ingredient')->with('data', $data);
+        return view('ingredients.ingredient')->with('data', $data);
     }
 
     public function create()
@@ -32,7 +32,7 @@ class IngredientsController extends Controller
         $data = []; //to be sent to the view
         $data['title'] = 'Create Ingredient';
 
-        return view('Ingredients.create')->with('data', $data);
+        return view('ingredients.create')->with('data', $data);
     }
 
     public function save(Request $request)
@@ -52,7 +52,7 @@ class IngredientsController extends Controller
         $ingredients = Ingredients::all();
         $data['ingredients'] = $ingredients;
 
-        return view('Ingredients.show')->with('data', $data);
+        return view('ingredients.show')->with('data', $data);
     }
 
     public function update($id)
@@ -63,7 +63,7 @@ class IngredientsController extends Controller
             return back()->with('msg', 'Elemento no encontrado');
         }
 
-        return view('Ingredients.update')->with('data', $data);
+        return view('ingredients.update')->with('data', $data);
     }
 
     public function updateSave(Request $request)
@@ -83,6 +83,6 @@ class IngredientsController extends Controller
 
         $ingredients->save();
 
-        return redirect()->route('Ingredients.showI', [$ingredients->getId()]);
+        return redirect()->route('ingredients.showI', [$ingredients->getId()]);
     }
 }

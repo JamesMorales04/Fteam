@@ -18,6 +18,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('uingredient', $data) }}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -32,7 +33,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form role="form" method="POST" action="{{ route('Ingredients.updateSave') }}">
+                        <form role="form" method="POST" action="{{ route('ingredients.updateSave') }}">
                             @csrf
 
                             <div class="form-group row">
