@@ -18,6 +18,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('ureview', $data['food_id']) }}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -112,12 +113,12 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <div class="col-2">
                                     <input type="submit" class="btn btn-outline-primary"
                                         value="{{ __('messages.backFood') }}"
                                         onclick="location='{{ route('food.showAll') }}'">
-                                </div>
+                                </div> --}}
                             </div>
                         </center>
                     </div>

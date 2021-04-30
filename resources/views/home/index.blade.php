@@ -16,6 +16,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('home') }}
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
