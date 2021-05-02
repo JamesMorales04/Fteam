@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
@@ -19,7 +18,7 @@
         <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('general.update') }} </p>
     </div>
 @endsection
-
+{{ Breadcrumbs::render('edituser', $user) }}
 <div class="container">
 
     <div class="row justify-content-center">

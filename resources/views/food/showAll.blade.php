@@ -17,6 +17,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('menu') }}
     <div class="container">
         @include('util.message')
         <div class="row">

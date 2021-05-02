@@ -16,7 +16,7 @@
     </div>
 @endsection
 @section('content')
-
+    {{ Breadcrumbs::render('addcreditcard', $user) }}
     <div class="container">
 
         <div class="row justify-content-center">
@@ -122,6 +122,7 @@
                     </form>
 
                 </div>
+                <br>
             </div>
 
         </div>

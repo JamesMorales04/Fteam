@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    {{ Breadcrumbs::render('topthree') }}
     <div class="container">
         <h1>{{ __('messages.best-selling') }}</h1>
 

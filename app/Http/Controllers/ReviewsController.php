@@ -5,17 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewsController extends Controller
 {
     public function show($foodID)
     {
+        $user = '';
+        if (Auth::user() != null) {
+            $user = Auth::user()->getRole();
+        }
         $data = [];
         $food = Food::findOrFail($foodID);
+        $data['food_id']=$foodID;
         $data['title'] = $food->getName();
         $data['reviews'] = Reviews::where('food_id', 'LIKE', "%$foodID%")->get();
 
-        return view('reviews.showAll')->with('data', $data);
+        return view('reviews.showAll')->with('data', $data)->with('user', $user);
     }
 
     public function create($id)

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    {{ Breadcrumbs::render('updatefood', $data['food']) }}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

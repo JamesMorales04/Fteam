@@ -18,6 +18,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('reviews', $data['food_id']) }}
     <div class="container">
         <div class="card">
             <div class="card-header">
@@ -27,7 +28,7 @@
                 @foreach ($data['reviews'] as $reviews)
                     <br />
                     <div class="card">
-                        @if (Auth::user()->getRole() === 'Administrador')
+                        @if ($user === 'Administrador')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col align-self-start"><strong>{{ __('messages.userID') }}:</strong>

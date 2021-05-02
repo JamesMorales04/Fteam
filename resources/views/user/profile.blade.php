@@ -18,7 +18,8 @@
 @endsection
 
 @section('content')
-
+    {{ Breadcrumbs::render('userprofile', $data['user']) }}
+    {{-- {{$data['user']}} --}}
     <div class="container">
 
         <div class="row justify-content-center">
@@ -96,6 +97,7 @@
                     </div>
 
                 </div>
+                <br>
             </div>
 
         </div>

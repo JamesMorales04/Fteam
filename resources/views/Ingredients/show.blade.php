@@ -18,6 +18,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('showingredients') }}
     <div class="container">
         <h1>{{ __('messages.ingredients') }}</h1>
 
@@ -33,7 +34,7 @@
                                 {{ $ingredients->getAmount() }} </div>
                             <div class="col align-self-end">
                                 <a class="float-right"
-                                    href="{{ route('Ingredients.show') }}/{{ $ingredients->getId() }}">
+                                    href="{{ route('ingredients.show') }}/{{ $ingredients->getId() }}">
                                     <button class="btn btn-outline-primary">{{ __('messages.view') }}</button>
                                 </a>
                             </div>
