@@ -30,8 +30,6 @@ class UserController extends Controller
         return view('user.profile')->with('data', $data);
     }
 
-    
-
     public function delete($id)
     {
         $data['card'] = CreditCard::where('user_id', $id)->delete();
