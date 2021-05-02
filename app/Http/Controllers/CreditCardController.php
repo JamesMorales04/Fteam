@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CreditCard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class CreditCardController extends Controller
 {
@@ -15,8 +16,13 @@ class CreditCardController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
+        try {
+            $user = User::findOrFail(Auth::id());
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
 
-        return view('creditCard.show')->with('creditCard', $creditCard);
+        return view('creditCard.show')->with('creditCard', $creditCard)->with('user', $user);
     }
 
     public function save(Request $request)
@@ -30,11 +36,16 @@ class CreditCardController extends Controller
 
     public function create()
     {
+        try {
+            $user = User::findOrFail(Auth::id());
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
         $data = [];
 
         $data['title'] = 'Create Credit Card';
 
-        return view('creditCard.create')->with('data', $data);
+        return view('creditCard.create')->with('data', $data)->with('user', $user);
     }
 
     public function update($id)
@@ -44,8 +55,13 @@ class CreditCardController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', 'Elemento no encontrado');
         }
+        try {
+            $user = User::findOrFail(Auth::id());
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', 'Elemento no encontrado');
+        }
 
-        return view('creditCard.update')->with('creditCard', $creditCard);
+        return view('creditCard.update')->with('creditCard', $creditCard)->with('user', $user);
     }
 
     public function updateSave(Request $request)

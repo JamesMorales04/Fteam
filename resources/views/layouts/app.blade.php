@@ -90,7 +90,10 @@
 
 
     <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-white">
+    <br>
+    <br>
+    <br>
+    <div class="copyright py-4 text-center text-white fixed-bottom">
         <div class="container"><small>Copyright © Fteam 2021</small></div>
     </div>
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->

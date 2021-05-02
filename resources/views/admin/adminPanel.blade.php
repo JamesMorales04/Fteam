@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-
+    {{ Breadcrumbs::render('adminpanel') }}
     <div class="container">
 
         <div class="row justify-content-center">
@@ -60,7 +60,7 @@
                                 <div class="inner">
                                     <strong><label class="col-ld-8 ">{{ __('messages.seeIngredients') }}</label>
                                     </strong><br />
-                                    <a method="GET" href="{{ route('Ingredients.show') }}" type="button"
+                                    <a method="GET" href="{{ route('ingredients.show') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('general.view') }}</a><br /><br />
                                 </div>
                             </div>
@@ -80,20 +80,20 @@
                                 <div class="inner">
                                     <strong><label class="col-ld-8 ">{{ __('messages.createIngredients') }}</label>
                                     </strong><br />
-                                    <a method="GET" href="{{ route('Ingredients.create') }}" type="button"
+                                    <a method="GET" href="{{ route('ingredients.create') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('general.create') }}</a><br /><br />
                                 </div>
                             </div>
                         </div><br />
 
-                        <strong><label class="col-ld-8 ">{{ __('general.return') }}</label></strong><br />
+                        {{-- <strong><label class="col-ld-8 ">{{ __('general.return') }}</label></strong><br />
                         <a method="GET" href="{{ redirect()->back()->getTargetUrl() }}" type="button"
-                            class="btn btn-outline-primary">{{ __('general.return') }}</a><br /><br />
+                            class="btn btn-outline-primary">{{ __('general.return') }}</a><br /><br /> --}}
 
                     </div>
-
+                    
                 </div>
-
+                <br>
             </div>
 
         </div>
