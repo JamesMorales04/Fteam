@@ -40,7 +40,7 @@
                                 <div class="inner">
                                     <strong><label class="col-ld-8 ">{{ __('user.showAllUsers') }}</label>
                                     </strong><br />
-                                    <a method="GET" href="{{ route('user.showAll') }}" type="button"
+                                    <a method="GET" href="{{ route('admin.showAllUsers') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('user.users') }}</a><br /><br />
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="inner">
                                     <strong><label class="col-ld-8 ">{{ __('order.showAllOrders') }}</label>
                                     </strong><br />
-                                    <a method="GET" href="{{ route('order.showAllAdmin') }}" type="button"
+                                    <a method="GET" href="{{ route('admin.showAllOrders') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('order.orders') }}</a><br /><br />
                                 </div>
 

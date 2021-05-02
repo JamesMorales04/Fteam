@@ -29,7 +29,7 @@ class CreditCardController extends Controller
     {
         CreditCard::validate($request);
         CreditCard::create($request->only(['cardName', 'securityCode', 'expirationMonth',
-        'expirationYear', 'cardNumber', 'user_id']));
+        'expirationYear', 'cardNumber', 'user_id', ]));
 
         return redirect()->route('user.show', ['id' => Auth::id()]);
     }

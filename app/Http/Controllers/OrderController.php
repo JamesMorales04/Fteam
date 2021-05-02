@@ -19,17 +19,6 @@ class OrderController extends Controller
         return view('order.showAll')->with('orders', $order);
     }
 
-    public function showAllAdmin()
-    {
-        $order['orders'] = Order::All();
-
-        foreach ($order['orders'] as $orderAux) {
-            $order[$orderAux->getId()] = $orderAux->OrderedFood;
-        }
-
-        return view('order.showAll')->with('orders', $order);
-    }
-
     public function save(Request $request)
     {
         Order::validate($request);
