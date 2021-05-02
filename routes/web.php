@@ -75,10 +75,10 @@ Route::group(['prefix' => 'users', 'middleware' => ['login']], function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['login', 'admin']], function () {
+    
     Route::get('/panel', 'App\Http\Controllers\AdminController@show')->name('admin.panel');
-    Route::get('/showAll', 'App\Http\Controllers\OrderController@showAll')->name('order.showAll');
-    Route::get('/users/showAll', 'App\Http\Controllers\UserController@showAll')->name('user.showAll');
-
+    Route::get('/showAll', 'App\Http\Controllers\AdminController@showAllOrdersAdmin')->name('admin.showAllOrders');
+    Route::get('/users/showAll', 'App\Http\Controllers\AdminController@showAllUsersAdmin')->name('admin.showAllUsers');
     Route::get('/ingredient/show', 'App\Http\Controllers\IngredientsController@showAll')->name('Ingredients.show');
     Route::get('/ingredient/show/{id}', 'App\Http\Controllers\IngredientsController@showIngredient')->name('Ingredients.showI');
     Route::get('/ingredient/create', 'App\Http\Controllers\IngredientsController@create')->name('Ingredients.create');
@@ -86,6 +86,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['login', 'admin']], function
     Route::get('/ingredient/ingredient/delete/{id}', 'App\Http\Controllers\IngredientsController@delete')->name('Ingredients.delete');
     Route::get('/ingredient/update/{id}', 'App\Http\Controllers\IngredientsController@update')->name('Ingredients.update');
     Route::post('/ingredient/saveupdate', 'App\Http\Controllers\IngredientsController@updateSave')->name('Ingredients.updateSave');
+
 });
 
 Route::group(['prefix' => 'orders', 'middleware' => ['login']], function () {

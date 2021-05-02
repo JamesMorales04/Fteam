@@ -29,15 +29,18 @@
                                     class="font-weight-bold">{{ __('messages.total') }}</span>
                                 <span class="font-weight-bold theme-color">{{ $data['total'] }}</span>
                             </div>
+                            
+
 
                             <div class="text-center mt-5"><button type="button" class="btn btn-outline-primary"
                                     onclick="window.location='{{ route('shop.email', ['data' => $data]) }}'">{{ __('messages.sendEmail') }}</button>
 
-                                <div class="text-center mt-5"><button type="button" class="btn btn-outline-primary"
-                                        onclick="window.location='{{ route('shop.pdf', ['data' => $data]) }}'">{{ __('messages.download') }}</button>
-                                </div>
-
                             </div>
+
+                            <div class="text-center mt-5"><button type="button" class="btn btn-outline-primary"
+                                        onclick="window.print()">{{ __('messages.download') }}</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
