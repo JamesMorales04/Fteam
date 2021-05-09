@@ -39,12 +39,20 @@ class ReviewsController extends Controller
         Reviews::create($request->only(['id', 'rating', 'comments', 'status',
         'user_id', 'food_id', 'created_at', 'updated_at']));
 
-        return back()->with('success', 'Item created successfully!');
+        return back()->with('success', __('general.itemCreated')); 
     }
 
     public function delete($id)
     {
-        Reviews::where('id', $id)->delete();
+        // Reviews::where('id', $id)->delete();
+        try {
+            $reviews = Reviews::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', __('general.notFound'));
+        }
+        
+        $reviews->setDeleted(true);
+        $reviews->save();
 
         return back();
     }
@@ -54,7 +62,7 @@ class ReviewsController extends Controller
         try {
             $data = Reviews::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
 
         return view('reviews.update')->with('data', $data);
@@ -66,9 +74,8 @@ class ReviewsController extends Controller
         try {
             $reviews = Reviews::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
-
         $reviews->setRating($request->get('rating'));
         $reviews->setComments($request->get('comments'));
         $reviews->setStatus($request->get('status'));

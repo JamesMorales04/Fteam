@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class Reviews extends Model
 {
-    //attributes id, rating, comments, status, user_id, food_id, created_at, updated_at
+    //attributes id, rating, comments, status, deleted, user_id, food_id, created_at, updated_at
     protected $fillable = [
         'id',
         'status',
+        'deleted',
         'rating',
         'comments',
         'user_id',
@@ -67,6 +68,16 @@ class Reviews extends Model
     public function setStatus($stat)
     {
         $this->attributes['status'] = $stat;
+    }
+
+    public function getDeleted()
+    {
+        return $this->attributes['deleted'];
+    }
+
+    public function setDeleted($deleted)
+    {
+        $this->attributes['deleted'] = $deleted;
     }
 
     public function getFoodId()

@@ -30,7 +30,7 @@ class IngredientsController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
-        $data['title'] = 'Create Ingredient';
+        $data['title'] = __('general.createIngredient');
 
         return view('ingredients.create')->with('data', $data);
     }
@@ -41,12 +41,20 @@ class IngredientsController extends Controller
 
         Ingredients::create($request->only(['id', 'name', 'price', 'amount', 'availability']));
 
-        return back()->with('success', 'Item created successfully!');
+        return back()->with('success', __('general.itemCreated'));
     }
 
     public function delete($id)
     {
-        Ingredients::where('id', $id)->delete();
+        // Ingredients::where('id', $id)->delete();
+        try {
+            $ingredient = Ingredients::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return back()->with('msg', __('general.notFound'));
+        }
+        
+        $ingredient->setDeleted(true);
+        $ingredient->save();
 
         $data = []; //to be sent to the view
         $ingredients = Ingredients::all();
@@ -60,7 +68,7 @@ class IngredientsController extends Controller
         try {
             $data = Ingredients::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
 
         return view('ingredients.update')->with('data', $data);

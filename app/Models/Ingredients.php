@@ -11,13 +11,14 @@ class Ingredients extends Model
 {
     use HasFactory;
 
-    //attributes id, name, price, amount, availability
+    //attributes id, name, price, amount, availability, deleted
     public $timestamps = false;
     protected $fillable = [
         'name',
         'price',
         'amount',
         'availability',
+        'deleted',
     ];
 
     public static function validate(Request $request)
@@ -79,6 +80,16 @@ class Ingredients extends Model
     public function setAvailability($availability)
     {
         $this->attributes['availability'] = $availability;
+    }
+
+    public function getDeleted()
+    {
+        return $this->attributes['deleted'];
+    }
+
+    public function setDeleted($deleted)
+    {
+        $this->attributes['deleted'] = $deleted;
     }
 
     public function food()

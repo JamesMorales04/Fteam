@@ -24,23 +24,25 @@
 
         <ul>
             @foreach ($data['ingredients'] as $ingredients)
-                <br />
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col align-self-start"><strong>{{ __('messages.productName') }}:</strong>
-                                {{ $ingredients->getName() }} </div>
-                            <div class="col align-self-start"><strong>{{ __('messages.productAmount') }}:</strong>
-                                {{ $ingredients->getAmount() }} </div>
-                            <div class="col align-self-end">
-                                <a class="float-right"
-                                    href="{{ route('ingredients.show') }}/{{ $ingredients->getId() }}">
-                                    <button class="btn btn-outline-primary">{{ __('messages.view') }}</button>
-                                </a>
+                @if ($ingredients->getDeleted() === 0)   
+                    <br />
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col align-self-start"><strong>{{ __('messages.productName') }}:</strong>
+                                    {{ $ingredients->getName() }} </div>
+                                <div class="col align-self-start"><strong>{{ __('messages.productAmount') }}:</strong>
+                                    {{ $ingredients->getAmount() }} </div>
+                                <div class="col align-self-end">
+                                    <a class="float-right"
+                                        href="{{ route('ingredients.show') }}/{{ $ingredients->getId() }}">
+                                        <button class="btn btn-outline-primary">{{ __('general.view') }}</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </ul>
     </div>
