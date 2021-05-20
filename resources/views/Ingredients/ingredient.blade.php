@@ -31,17 +31,17 @@
                         <b>{{ __('messages.productPrice') }}:</b> {{ $data['product']->getPrice() }}<br />
                         <b>{{ __('messages.productAmount') }}:</b> {{ $data['product']->getAmount() }}<br />
                         @if ($data['product']->getAvailability() == 1)
-                            <b>{{ __('messages.productAvailability') }}:</b> {{ __('messages.yes') }} <br /><br />
+                            <b>{{ __('messages.productAvailability') }}:</b> {{ __('general.yes') }} <br /><br />
                         @else
-                            <b>{{ __('messages.productAvailability') }}:</b> {{ __('messages.no') }} <br /><br />
+                            <b>{{ __('messages.productAvailability') }}:</b> {{ __('general.no') }} <br /><br />
                         @endif
                         <div>
                             {{-- <input type="submit" class="btn btn-outline-primary"
                                 value="{{ __('messages.backIngredients') }}"
                                 onclick="location='{{ route('ingredients.show') }}'"> --}}
-                            <input type="submit" class="btn btn-outline-primary" value="{{ __('messages.edit') }}"
+                            <input type="submit" class="btn btn-outline-primary" value="{{ __('general.edit') }}"
                                 onclick="location='{{ route('ingredients.update', ['id' => $data['product']->getId()]) }}'">
-                            <input type="submit" class="btn btn-outline-danger" value="{{ __('messages.delete') }}"
+                            <input type="submit" class="btn btn-outline-danger" value="{{ __('general.delete') }}"
                                 onclick="location='{{ route('ingredients.delete', ['id' => $data['product']->getId()]) }}'">
                         </div>
                     </div>

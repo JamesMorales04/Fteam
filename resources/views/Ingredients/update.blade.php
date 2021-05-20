@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="col-2">
-                                <center><input class="btn btn-outline-primary" type="submit" value="Send" /></center>
+                                <center><input class="btn btn-outline-primary" type="submit" value="{{ __('general.send') }}" /></center>
                             </div>
                         </form>
                     </div>

@@ -109,7 +109,7 @@
                                 <div class="form-group row">
                                     <div class="col-2">
                                         <input class="btn btn-outline-primary" type="submit"
-                                            value="{{ __('messages.send') }}" />
+                                            value="{{ __('general.send') }}" />
                                     </div>
                                 </div>
                             </form>

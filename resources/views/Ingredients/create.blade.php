@@ -5,7 +5,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.create') }}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('general.createIngredient') }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -13,7 +13,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.create') }}</p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('general.createIngredient') }}</p>
     </div>
 @endsection
 
@@ -36,7 +36,7 @@
                         <form method="POST" action="{{ route('ingredients.save') }}">
                             @csrf
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('general.name') }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control" placeholder="Enter the name of the ingredient"
                                         name="name" value="{{ old('name') }}" />
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.amount') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('general.amount') }}</label>
                                 <div class="col-8">
                                     <input type="number" class="form-control" placeholder="Enter amount" name="amount"
                                         value="{{ old('amount') }}" />
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <center><input class="btn btn-outline-primary" type="submit"
-                                        value="{{ __('messages.send') }}" /></center>
+                                        value="{{ __('general.send') }}" /></center>
                             </div>
                             <br \>
                         </form>

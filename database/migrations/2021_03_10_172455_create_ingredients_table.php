@@ -19,6 +19,7 @@ class CreateIngredientsTable extends Migration
             $table->integer('amount');
             $table->integer('price');
             $table->boolean('availability')->default('0');
+            $table->boolean('deleted')->default('0');
         });
     }
 

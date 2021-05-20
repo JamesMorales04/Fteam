@@ -9,12 +9,60 @@ use App\Models\Order;
 use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Srmklive\PayPal\Services\ExpressCheckout;
 use Lang;
 use Mail;
 use PDF;
 
 class ShoppingController extends Controller
 {
+    public function payment(Request $request)
+    {
+        $provider = new ExpressCheckout;
+
+        $data = [];
+        $cart = $this->cart($request);
+
+        $data['items'] = [
+            [
+                'name' => 'codechief.org',
+                'price' => $cart["data"]["total"],
+                'desc'  => 'Description goes herem',
+                'qty' => 1
+            ]
+        ];
+
+        $data['invoice_id'] = 1;
+        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['return_url'] = route('payment.success',$request);  
+        $data['cancel_url'] = route('payment.cancel');
+        $data['total'] = $cart["data"]["total"];
+
+        $response = $provider->setExpressCheckout($data); 
+  
+        return redirect($response['paypal_link']);
+    }
+   
+    public function cancel()
+    {
+        dd('Sorry you payment is canceled');
+    }
+  
+    public function success(Request $request)
+    {
+        $provider = new ExpressCheckout;
+        $response = $provider->getExpressCheckoutDetails($request->token);
+  
+        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            $buy = $this->buy($request);
+            // dd($buy->data);
+            return view('shopping.buy')->with('data', $buy->data);
+            // dd('Your payment was successful. You can create success page here.');
+        }
+  
+        dd('Something is wrong.');
+    }
+
     public function ingredients($id, Request $request)
     {
         $data = [];
@@ -77,6 +125,8 @@ class ShoppingController extends Controller
         $this->orderCart($ids2, $amount2, $data, $total, true);
 
         $data['total'] = $total;
+
+        // dd($data);
 
         return view('shopping.cart')->with('data', $data);
     }

@@ -31,26 +31,28 @@
                         @if ($user === 'Administrador')
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col align-self-start"><strong>{{ __('messages.userID') }}:</strong>
+                                    <div class="col align-self-start"><strong>{{ __('general.userID') }}:</strong>
                                         {{ $reviews->getUserId() }} </div>
-                                    <div class="col align-self-start"><strong>{{ __('messages.comments') }}:</strong>
+                                    <div class="col align-self-start"><strong>{{ __('general.comments') }}:</strong>
                                         {{ $reviews->getComments() }} </div>
-                                    <div class="col align-self-start"><strong>{{ __('messages.rating') }}:</strong>
+                                    <div class="col align-self-start"><strong>{{ __('general.rating') }}:</strong>
                                         {{ $reviews->getRating() }} </div>
                                     <div class="col align-self-end">
-                                        <div class="col-auto">
-                                            <form method="POST"
-                                                action="{{ route('reviews.delete', ['id' => $reviews->getId()]) }}">
-                                                @csrf @method('DELETE')
-                                                <button class="btn btn-outline-primary"> {{ __('messages.delete') }}
-                                                </button>
-                                            </form>
-                                        </div>
+                                        @if ($reviews->getDeleted() === 0)
+                                            <div class="col-auto">
+                                                <form method="POST"
+                                                    action="{{ route('reviews.delete', ['id' => $reviews->getId()]) }}">
+                                                    @csrf @method('DELETE')
+                                                    <button class="btn btn-outline-primary"> {{ __('general.delete') }}
+                                                    </button>
+                                                </form>
+                                            </div>                                        
+                                        @endif
                                     </div>
                                     <div class="col align-self-end">
                                         <div class="col-auto">
                                             <input type="submit" class="btn btn-outline-primary"
-                                                value="{{ __('messages.edit') }}"
+                                                value="{{ __('general.edit') }}"
                                                 onclick="location='{{ route('reviews.update', ['id' => $reviews->getId()]) }}'">
                                         </div>
                                     </div>
@@ -58,49 +60,51 @@
                             </div>
                         @else
                             @if ($reviews->getStatus() === 1)
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col align-self-start"><strong>{{ __('messages.userID') }}:</strong>
-                                            {{ $reviews->getUserId() }} </div>
-                                        <div class="col align-self-start"><strong>{{ __('messages.comments') }}:</strong>
-                                            {{ $reviews->getComments() }} </div>
-                                        <div class="col align-self-start"><strong>{{ __('messages.rating') }}:</strong>
-                                            {{ $reviews->getRating() }} </div>
-                                        @if ($reviews->getUserId() === Auth::Id())
-                                            <div class="col align-self-end">
-                                                <div class="col-auto">
-                                                    <form method="POST"
-                                                        action="{{ route('reviews.delete', ['id' => $reviews->getId()]) }}">
-                                                        @csrf @method('DELETE')
-                                                        <button class="btn btn-outline-primary">
-                                                            {{ __('messages.delete') }} </button>
-                                                    </form>
+                                @if ($reviews->getDeleted() === 0)
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col align-self-start"><strong>{{ __('general.userID') }}:</strong>
+                                                {{ $reviews->getUserId() }} </div>
+                                            <div class="col align-self-start"><strong>{{ __('general.comments') }}:</strong>
+                                                {{ $reviews->getComments() }} </div>
+                                            <div class="col align-self-start"><strong>{{ __('general.rating') }}:</strong>
+                                                {{ $reviews->getRating() }} </div>
+                                            @if ($reviews->getUserId() === Auth::Id())
+                                                <div class="col align-self-end">
+                                                    <div class="col-auto">
+                                                        <form method="POST"
+                                                            action="{{ route('reviews.delete', ['id' => $reviews->getId()]) }}">
+                                                            @csrf @method('DELETE')
+                                                            <button class="btn btn-outline-primary">
+                                                                {{ __('general.delete') }} </button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col align-self-end">
-                                                <div class="col-auto">
-                                                    <input type="submit" class="btn btn-outline-primary"
-                                                        value="{{ __('messages.edit') }}"
-                                                        onclick="location='{{ route('reviews.update', ['id' => $reviews->getId()]) }}'">
+                                                <div class="col align-self-end">
+                                                    <div class="col-auto">
+                                                        <input type="submit" class="btn btn-outline-primary"
+                                                            value="{{ __('general.edit') }}"
+                                                            onclick="location='{{ route('reviews.update', ['id' => $reviews->getId()]) }}'">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        @endif
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             @else
                                 @if ($reviews->getUserId() === Auth::Id())
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col align-self-start">
-                                                <strong>{{ __('messages.userID') }}:</strong>
+                                                <strong>{{ __('general.userID') }}:</strong>
                                                 {{ $reviews->getUserId() }}
                                             </div>
                                             <div class="col align-self-start">
-                                                <strong>{{ __('messages.comments') }}:</strong>
+                                                <strong>{{ __('general.comments') }}:</strong>
                                                 {{ $reviews->getComments() }}
                                             </div>
                                             <div class="col align-self-start">
-                                                <strong>{{ __('messages.rating') }}:</strong>
+                                                <strong>{{ __('general.rating') }}:</strong>
                                                 {{ $reviews->getRating() }}
                                             </div>
                                             <div class="col align-self-end">
@@ -109,14 +113,14 @@
                                                         action="{{ route('reviews.delete', ['id' => $reviews->getId()]) }}">
                                                         @csrf @method('DELETE')
                                                         <button class="btn btn-outline-primary">
-                                                            {{ __('messages.delete') }} </button>
+                                                            {{ __('general.delete') }} </button>
                                                     </form>
                                                 </div>
                                             </div>
                                             <div class="col align-self-end">
                                                 <div class="col-auto">
                                                     <input type="submit" class="btn btn-outline-primary"
-                                                        value="{{ __('messages.edit') }}"
+                                                        value="{{ __('general.edit') }}"
                                                         onclick="location='{{ route('reviews.update', ['id' => $reviews->getId()]) }}'">
                                                 </div>
                                             </div>

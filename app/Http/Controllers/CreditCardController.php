@@ -14,14 +14,14 @@ class CreditCardController extends Controller
         try {
             $creditCard = CreditCard::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
         try {
             $user = User::findOrFail(Auth::id());
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
-
+        
         return view('creditCard.show')->with('creditCard', $creditCard)->with('user', $user);
     }
 
@@ -39,7 +39,7 @@ class CreditCardController extends Controller
         try {
             $user = User::findOrFail(Auth::id());
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
         $data = [];
 
@@ -53,12 +53,12 @@ class CreditCardController extends Controller
         try {
             $creditCard = CreditCard::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
         try {
             $user = User::findOrFail(Auth::id());
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
 
         return view('creditCard.update')->with('creditCard', $creditCard)->with('user', $user);
@@ -69,7 +69,7 @@ class CreditCardController extends Controller
         try {
             $creditCard = CreditCard::findOrFail($request->get('cardId'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('general.notFound'));
         }
 
         $request['user_id'] = Auth::id();
