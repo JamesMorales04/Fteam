@@ -65,6 +65,10 @@ Route::group(['prefix' => 'shop', 'middleware' => ['login']], function () {
     Route::get('/mail', 'App\Http\Controllers\ShoppingController@sendEmail')->name('shop.email');
     Route::post('/addAsIngresients', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
+    //PayPal
+    Route::get('/payment', 'App\Http\Controllers\ShoppingController@payment')->name('payment');
+    Route::get('/cancel', 'App\Http\Controllers\ShoppingController@cancel')->name('payment.cancel');
+    Route::get('/payment/success', 'App\Http\Controllers\ShoppingController@success')->name('payment.success');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['login']], function () {
