@@ -9,20 +9,20 @@
                     <div>
                         <div>
                             <h5></h5>
-                            <h4>{{ __('messages.thanks') }}</h4> <span>{{ __('messages.payment') }}</span>
+                            <h4>{{ __('order.thanks') }}</h4> <span>{{ __('order.payment') }}</span>
                             <div>
                                 <hr>
                             </div>
                             @foreach ($food as $foodAux)
                                 <div>
                                     <small>{{ $foodAux[0] }}</small>
-                                    <small>{{ __('messages.amount') }}: {{ $foodAux[2] }}</small>
-                                    <small> {{ __('messages.foodType') }}:
-                                        {{ $foodAux[3] ? __('messages.yes') : __('messages.no') }}</small>
+                                    <small>{{ __('general.amount') }}: {{ $foodAux[2] }}</small>
+                                    <small> {{ __('order.foodType') }}:
+                                        {{ $foodAux[3] ? __('general.yes') : __('general.no') }}</small>
                                     <small>{{ $foodAux[1] }}</small>
                                 </div>
                             @endforeach
-                            <div> <span>{{ __('messages.total') }}</span>
+                            <div> <span>{{ __('order.total') }}</span>
                                 <span>{{ $total }}</span>
                             </div>
 

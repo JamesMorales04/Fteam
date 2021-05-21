@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\CreditCard;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class CreditCardController extends Controller
 {
@@ -21,7 +21,7 @@ class CreditCardController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', __('general.notFound'));
         }
-        
+
         return view('creditCard.show')->with('creditCard', $creditCard)->with('user', $user);
     }
 
