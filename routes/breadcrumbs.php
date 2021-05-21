@@ -5,7 +5,6 @@ Breadcrumbs::for('home', function ($trail) {
     $trail->push('Home', route('home'));
 });
 
-
 // Menu
 // Home > Menu
 Breadcrumbs::for('menu', function ($trail) {
@@ -43,7 +42,6 @@ Breadcrumbs::for('ureview', function ($trail, $reviews) {
     $trail->push('Update Review', route('reviews.update', $reviews));
 });
 
-
 // ShoppingCart
 // Home > ShoppingCart
 Breadcrumbs::for('shoppingcart', function ($trail) {
@@ -56,7 +54,6 @@ Breadcrumbs::for('buyshoppingcart', function ($trail) {
     $trail->parent('shoppingcart');
     $trail->push('Buy', route('shop.buy'));
 });
-
 
 // AdminPanel
 // Home > AdminPanel
@@ -71,7 +68,7 @@ Breadcrumbs::for('showallfood', function ($trail) {
     $trail->push(__('food.foods'), route('admin.showAllFood'));
 });
 
-// Home > Menu > [Food] 
+// Home > AdminPanel > showallfood > [Food] 
 Breadcrumbs::for('food', function ($trail, $food) {
     $trail->parent('showallfood');
     $trail->push($food->getName(), route('food.show', $food->getId()));
@@ -120,7 +117,6 @@ Breadcrumbs::for('createfood', function ($trail) {
     $trail->push('Create Food', route('food.create'));
 });
 
-
 // UserProfile
 // Home > [UserProfile]
 Breadcrumbs::for('userprofile', function ($trail, $user) {
@@ -137,17 +133,17 @@ Breadcrumbs::for('edituser', function ($trail, $user) {
 // Home > [UserProfile] > AddCreditCard
 Breadcrumbs::for('addcreditcard', function ($trail, $user) {
     $trail->parent('userprofile', $user);
-    $trail->push('Add Credit Card' , route('creditCard.create'));
+    $trail->push('Add Credit Card', route('creditCard.create'));
 });
 
 // Home > [UserProfile] > ShowCreditCard
 Breadcrumbs::for('showcreditcard', function ($trail, $user) {
     $trail->parent('userprofile', $user);
-    $trail->push('See Credit Card' , route('creditCard.show', $user->getId()));
+    $trail->push('See Credit Card', route('creditCard.show', $user->getId()));
 });
 
 // Home > [UserProfile] > ShowCreditCard
 Breadcrumbs::for('updatecreditcard', function ($trail, $user) {
     $trail->parent('showcreditcard', $user);
-    $trail->push('Update Credit Card' , route('creditCard.update', Auth::id()));
+    $trail->push('Update Credit Card', route('creditCard.update', Auth::id()));
 });

@@ -17,7 +17,7 @@ class ReviewsController extends Controller
         }
         $data = [];
         $food = Food::findOrFail($foodID);
-        $data['food_id']=$foodID;
+        $data['food_id'] = $foodID;
         $data['title'] = $food->getName();
         $data['reviews'] = Reviews::where('food_id', 'LIKE', "%$foodID%")->get();
 
@@ -39,7 +39,7 @@ class ReviewsController extends Controller
         Reviews::create($request->only(['id', 'rating', 'comments', 'status',
         'user_id', 'food_id', 'created_at', 'updated_at', ]));
 
-        return back()->with('success', __('general.itemCreated')); 
+        return back()->with('success', __('general.itemCreated'));
     }
 
     public function delete($id)
@@ -50,7 +50,7 @@ class ReviewsController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', __('general.notFound'));
         }
-        
+
         $reviews->setDeleted(true);
         $reviews->save();
 
