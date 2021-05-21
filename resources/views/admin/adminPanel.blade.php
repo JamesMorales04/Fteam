@@ -55,6 +55,18 @@
                                 </div>
 
                             </div>
+
+                            <br />
+                            <div class="col-md-2">
+                                <div class="inner">
+                                    <strong><label class="col-ld-8 ">{{ __('food.foods') }}</label>
+                                    </strong><br />
+                                    <a method="GET" href="{{ route('admin.showAllFood') }}" type="button"
+                                        class="btn btn-outline-primary">{{ __('general.view') }}</a><br /><br />
+                                </div>
+
+                            </div>
+
                             <br />
                             <div class="col-md-2">
                                 <div class="inner">
@@ -69,7 +81,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.createFood') }}</label>
+                                    <strong><label class="col-ld-8 ">{{ __('food.createFood') }}</label>
                                     </strong><br />
                                     <a class="float-right" href="{{ route('food.create') }}">
                                         <button class="btn btn-outline-primary">{{ __('general.create') }}</button>

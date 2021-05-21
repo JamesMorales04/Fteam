@@ -7722,6 +7722,7 @@
         },
         {
             "name": "psr/cache",
+
             "version": "3.0.0",
             "source": {
                 "type": "git",
@@ -7755,6 +7756,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
+
                     "homepage": "https://www.php-fig.org/"
                 }
             ],

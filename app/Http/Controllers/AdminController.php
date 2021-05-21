@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\User;
+use App\Models\Food;
+use App\Models\Reviews;
 
 class AdminController extends Controller
 {
@@ -30,5 +32,19 @@ class AdminController extends Controller
         $data['users'] = User::all();
 
         return view('admin.showAllUsers')->with('data', $data);
+    }
+
+    public function showAllFood()
+    {
+        $data['food'] = Food::orderBy('id')->get();
+        $prom = [];
+        foreach ($data['food'] as $food) {
+            $prom[$food->getId()] = [Reviews::where('food_id', $food->getId())->avg('rating'), $food];
+            if ($prom[$food->getId()][0] == null) {
+                $prom[$food->getId()][0] = 0;
+            }
+        }
+
+        return view('admin.showAllFood')->with('data', $prom);
     }
 }
