@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use Lang;
-use Mail;
-use PDF;
+use App\Interfaces\Billing;
+use App\Util\Bill;
 
 class ShoppingController extends Controller
 {
@@ -81,22 +81,14 @@ class ShoppingController extends Controller
 
     public function createPdf(Request $request)
     {
-        $data = $request->get('data');
-        set_time_limit(300);
-
-        view()->share($data);
-
-        $pdf = PDF::loadView('shopping.pdf');
-
-        return $pdf->download('payment.pdf');
+        $billInterface = app(Billing::class);
+        $billInterface->billPDF($request);
     }
 
     public function sendEmail(Request $request)
     {
-        $data = $request->get('data');
-        set_time_limit(300);
-
-        Mail::to(Auth::user()->getEmail())->send(new Payment($data));
+        $billInterface = app(Billing::class);
+        $billInterface->billMail($request);
     }
 
     public function orderCart($id, $amount, &$data, &$total, $status)

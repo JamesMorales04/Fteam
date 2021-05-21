@@ -21,7 +21,9 @@
         "laravel/ui": "^3.2",
         "laravelcollective/html": "^6.2",
         "paypal/rest-api-sdk-php": "^1.14",
-        "srmklive/paypal": "~1.0"
+        "srmklive/paypal": "~1.0",
+        "stichoza/google-translate-php": "^4.1",
+        "tio/laravel": "^1.16"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
