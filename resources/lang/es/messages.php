@@ -1,4 +1,5 @@
 <?php
+
 return [
     'confirmation'           => 'Compra exitosa',
     'AddCart'                => 'Añadir a la cesta',
@@ -36,5 +37,5 @@ return [
     'comments'               => 'comentarios',
     'reviews'                => 'Reseñas de',
     'rating'                 => 'Clasificación',
-    'reviewAvg'              => 'Promedio de calificación'
+    'reviewAvg'              => 'Promedio de calificación',
 ];

@@ -1,4 +1,5 @@
 <?php
+
 return [
     'confirmation'           => 'Purchase successful',
     'AddCart'                => 'Add to cart',
@@ -36,5 +37,5 @@ return [
     'comments'               => 'Comments',
     'reviews'                => 'Reviews of',
     'rating'                 => 'Rating',
-    'reviewAvg'              => 'Review avg'
+    'reviewAvg'              => 'Review avg',
 ];

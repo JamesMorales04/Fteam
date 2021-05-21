@@ -1,7 +1,6 @@
 <?php
 
 namespace Tests\Feature;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 use Tests\TestCase;
 
@@ -26,19 +25,15 @@ class UserTest extends TestCase
         $response->assertStatus(302);
     }
 
-
     public function testauthenticated_to_a_user()
     {
-
-
         $credentials = [
-            "email" => "jamesmoralesmoreno@gmail.com",
-            "password" => "12345678"
+            'email' => 'jamesmoralesmoreno@gmail.com',
+            'password' => '12345678',
         ];
 
         $response = $this->post('/login', $credentials);
-        
+
         $response->assertRedirect('/home');
-        
     }
 }

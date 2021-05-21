@@ -52,7 +52,7 @@ class IngredientsController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return back()->with('msg', __('general.notFound'));
         }
-        
+
         $ingredient->setDeleted(true);
         $ingredient->save();
 

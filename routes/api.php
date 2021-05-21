@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/foodAvailable', 'App\Http\Controllers\Api\stockFoodApi@index')->name("api.food.index");
+Route::get('/foodAvailable', 'App\Http\Controllers\Api\stockFoodApi@index')->name('api.food.index');

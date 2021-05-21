@@ -89,7 +89,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['login', 'admin']], function
     Route::get('/ingredient/ingredient/delete/{id}', 'App\Http\Controllers\IngredientsController@delete')->name('ingredients.delete');
     Route::get('/ingredient/update/{id}', 'App\Http\Controllers\IngredientsController@update')->name('ingredients.update');
     Route::post('/ingredient/saveupdate', 'App\Http\Controllers\IngredientsController@updateSave')->name('ingredients.updateSave');
-
 });
 
 Route::group(['prefix' => 'orders', 'middleware' => ['login']], function () {

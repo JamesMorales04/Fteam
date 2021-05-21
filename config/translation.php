@@ -13,5 +13,5 @@ return [
     'gettext_parse_paths' => ['app', 'resources'],
 
     /* Where the Gettext translations are stored */
-    'gettext_locales_path' => 'resources/lang/gettext'
+    'gettext_locales_path' => 'resources/lang/gettext',
 ];
