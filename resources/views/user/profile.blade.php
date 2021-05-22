@@ -48,6 +48,7 @@
 
                             <b>{{ __('general.email') }}:</b> {{ $data['user']->getEmail() }}<br />
                             <b>{{ __('general.address') }}:</b> {{ $data['user']->getAddress() }}<br />
+                            <b>{{ __('general.balance') }}:</b> {{ $data['user']->getBalance() }}<br />
                             <b>{{ __('general.password') }}:</b> {{ $data['user']->getPassword() }}<br />
                             <b>{{ __('general.creationDate') }}:</b> {{ $data['user']->getCreationDate() }}<br />
                             <b>{{ __('general.role') }}:</b> {{ $data['user']->getRole() }}<br />

@@ -26,19 +26,19 @@
                     <div class="card-header">{{ $data['food']->getName() }}</div>
 
                     <div class="card-body">
-                        <b>{{ __('messages.id') }}:</b> {{ $data['food']->getId() }}<br />
-                        <b>{{ __('messages.name') }}:</b> {{ $data['food']->getName() }}<br />
-                        <b>{{ __('messages.description') }}:</b> {{ $data['food']->getDescription() }} <br />
-                        <b>{{ __('messages.status') }}:</b>
+                        <b>{{ __('general.id') }}:</b> {{ $data['food']->getId() }}<br />
+                        <b>{{ __('general.name') }}:</b> {{ $data['food']->getName() }}<br />
+                        <b>{{ __('food.description') }}:</b> {{ $data['food']->getDescription() }} <br />
+                        <b>{{ __('food.status') }}:</b>
                         {{ $data['food']->getAvailability() ? 'Available' : 'Not available' }}<br />
-                        <b>{{ __('messages.recipe') }}:</b> {{ $data['food']->getRecipe() }}<br />
+                        <b>{{ __('food.recipe') }}:</b> {{ $data['food']->getRecipe() }}<br />
 
-                        <b>{{ __('messages.price') }}:</b> {{ $data['food']->getPrice() }}<br />
+                        <b>{{ __('general.price') }}:</b> {{ $data['food']->getPrice() }}<br />
 
                         <div class="row">
                             <div class="col-auto">
                                 <a method="GET" href="{{ route('food.update', ['id' => $data['food']->getId()]) }}">
-                                    <button class="btn btn-outline-primary"> {{ __('messages.edit') }} </button>
+                                    <button class="btn btn-outline-primary"> {{ __('general.edit') }} </button>
                                 </a>
                             </div>
 
@@ -46,7 +46,7 @@
                                 <form method="POST"
                                     action="{{ route('food.delete', ['id' => $data['food']->getId()]) }}">
                                     @csrf @method('DELETE')
-                                    <button class="btn btn-outline-danger"> {{ __('messages.delete') }} </button>
+                                    <button class="btn btn-outline-danger"> {{ __('general.delete') }} </button>
                                 </form>
                             </div>
                         </div>

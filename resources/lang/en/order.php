@@ -13,5 +13,6 @@ return [
     'foodType' => 'Only Ingredients',
     'subTotal' => 'Sub total',
     'orderedList' => 'Ordered list',
+    'orderCreated' => 'Order created successfully!',
 
 ];

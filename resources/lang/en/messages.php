@@ -59,14 +59,6 @@ return [
     // //Formulario
     // 'send' => 'Send',
 
-    //Carrito de compras
-    // 'confirmation' => 'Purchase successful',
-    //'AddCart' => 'Add to cart',
-    //'addToCart' => 'Item added correctly',
-    //'shoppingCart' => 'Shopping cart',
-    //'removeAll' => 'Remove all',
-    //'buy' => 'Buy',
-
     //Food
     // 'askForIngredients' => 'Only ingredients',
     // 'backFood' => 'Back to food',
@@ -83,29 +75,9 @@ return [
     // 'createFood' => 'Create food',
     // 'updateFood' => 'Uddate food',
 
-    'confirmation'           => 'Purchase successful',
-    'AddCart'                => 'Add to cart',
-    'addToCart'              => 'Item added correctly',
-    'shoppingCart'           => 'Shopping cart',
-    'removeAll'              => 'Remove all',
-    'buy'                    => 'Buy',
-    'askForIngredients'      => 'Only ingredients',
-    'backFood'               => 'Back to food',
-    'foodName'               => 'Food Name',
-    'foodId'                 => 'Food Id',
-    'description'            => 'Description',
-    'status'                 => 'Status',
-    'available'              => 'Available',
-    'notAvailable'           => 'Not available',
-    'menu'                   => 'Menu',
-    'recipe'                 => 'Recipe',
-    'topThree'               => 'Top three food',
-    'best-selling'           => 'The three best-selling products are',
-    'createFood'             => 'Create food',
-    'updateFood'             => 'Update food',
-
-    // //Ingredientes
+    
     'ingredients'            => 'Ingredients',
+    'itemNotFound'           => 'Item not found',
     'theseAreTheIngredients' => 'These are the ingredients available',
     'createIngredient'       => 'Create a Ingredient',
     'productID'              => 'Product ID',
@@ -122,4 +94,5 @@ return [
     'reviews'                => 'Reviews of',
     'rating'                 => 'Rating',
     'reviewAvg'              => 'Review avg',
+    'deleteElement'          => 'Element deleted successfully',
 ];

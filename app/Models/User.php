@@ -11,12 +11,13 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    //attributes id, name, email, created_at, updated_at, address. password, role
+    //attributes id, name, email, address, balance, password, role, created_at, updated_at
 
     protected $fillable = [
         'email',
         'name',
         'address',
+        'balance',
         'password',
         'role',
     ];
@@ -64,6 +65,16 @@ class User extends Authenticatable
     public function setAddress($address)
     {
         $this->attributes['address'] = $address;
+    }
+
+    public function getBalance()
+    {
+        return $this->attributes['balance'];
+    }
+
+    public function setBalance($balance)
+    {
+        $this->attributes['balance'] = $balance;
     }
 
     public function getEmail()

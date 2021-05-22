@@ -140,6 +140,7 @@
 
                         <div class="card-body">
                             <b>{{ __('food.description') }}:</b> {{ $food[1]->getDescription() }} <br />
+
                             <b>{{ __('food.price') }}:</b> {{ $food[1]->getPrice() }}<br />
                             <div class="row">
                                 <div class="col-auto">
@@ -160,7 +161,7 @@
                                                 </div>
                                                 <div class="form-group row col-md-auto">
                                                     <input class="btn btn-primary" type="submit"
-                                                        value="{{ __('food.AddCart') }}" />
+                                                        value="{{ __('cart.AddCart') }}" />
                                                 </div>
                                             </div>
 
