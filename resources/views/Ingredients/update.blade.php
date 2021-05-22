@@ -5,7 +5,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.create') }}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('general.update') }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -13,7 +13,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.create') }}</p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('general.update') }}</p>
     </div>
 @endsection
 
@@ -24,7 +24,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">{{ __('messages.createIngredient') }}</div>
+                    <div class="card-header">{{ __('ingredients.createIngredient') }}</div>
                     <div class="card-body">
                         @if ($errors->any())
                             <ul id="errors">
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.productName') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('ingredients.productName') }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control" placeholder="Enter name" name="name"
                                         value="{{ $data->getName() }}" />
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.productPrice') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('ingredients.productPrice') }}</label>
                                 <div class="col-8">
                                     <textarea type="number" name="price" class="form-control" spellcheck="true"
                                         value="{{ old('price') }}">{{ $data->getPrice() }}
@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.productAmount') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('ingredients.productAmount') }}</label>
                                 <div class="col-8">
                                     <textarea type="number" name="amount" class="form-control" spellcheck="true"
                                         value="{{ old('amount') }}">{{ $data->getAmount() }}</textarea>
@@ -68,7 +68,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.productAvailability') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('ingredients.productAvailability') }}</label>
                                 <div class="col-8">
                                     @if ($data->getAvailability())
                                         <input type="checkbox" class="col-sm-100" name="availability"

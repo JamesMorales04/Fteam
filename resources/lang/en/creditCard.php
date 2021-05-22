@@ -10,5 +10,7 @@ return [
     'expirationDate' => 'Expiration date',
     'cardNumber' => 'Credit card number',
     'cvv' => 'CVV/CVC',
-
+    'addCreditCard' => 'Add Credit Card',
+    'seeCreditCard' => 'See Credit Card',
+    'updateCreditCard' => 'Update Credit Card',
 ];

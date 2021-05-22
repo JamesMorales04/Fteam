@@ -22,7 +22,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <div class="col align-self-start"> {{ __('messages.reviews') }} {{ $data['title'] }} </div>
+                <div class="col align-self-start"> {{ __('reviews.reviews') }} {{ $data['title'] }} </div>
             </div>
             <ul>
                 @foreach ($data['reviews'] as $reviews)
@@ -31,11 +31,11 @@
                         @if ($user === 'Administrador')
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col align-self-start"><strong>{{ __('general.userID') }}:</strong>
+                                    <div class="col align-self-start"><strong>{{ __('user.userID') }}:</strong>
                                         {{ $reviews->getUserId() }} </div>
-                                    <div class="col align-self-start"><strong>{{ __('general.comments') }}:</strong>
+                                    <div class="col align-self-start"><strong>{{ __('reviews.comments') }}:</strong>
                                         {{ $reviews->getComments() }} </div>
-                                    <div class="col align-self-start"><strong>{{ __('general.rating') }}:</strong>
+                                    <div class="col align-self-start"><strong>{{ __('reviews.rating') }}:</strong>
                                         {{ $reviews->getRating() }} </div>
                                     <div class="col align-self-end">
                                         @if ($reviews->getDeleted() === 0)
@@ -63,11 +63,11 @@
                                 @if ($reviews->getDeleted() === 0)
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col align-self-start"><strong>{{ __('general.userID') }}:</strong>
+                                            <div class="col align-self-start"><strong>{{ __('user.userID') }}:</strong>
                                                 {{ $reviews->getUserId() }} </div>
-                                            <div class="col align-self-start"><strong>{{ __('general.comments') }}:</strong>
+                                            <div class="col align-self-start"><strong>{{ __('reviews.comments') }}:</strong>
                                                 {{ $reviews->getComments() }} </div>
-                                            <div class="col align-self-start"><strong>{{ __('general.rating') }}:</strong>
+                                            <div class="col align-self-start"><strong>{{ __('reviews.rating') }}:</strong>
                                                 {{ $reviews->getRating() }} </div>
                                             @if ($reviews->getUserId() === Auth::Id())
                                                 <div class="col align-self-end">
@@ -96,15 +96,15 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col align-self-start">
-                                                <strong>{{ __('general.userID') }}:</strong>
+                                                <strong>{{ __('user.userID') }}:</strong>
                                                 {{ $reviews->getUserId() }}
                                             </div>
                                             <div class="col align-self-start">
-                                                <strong>{{ __('general.comments') }}:</strong>
+                                                <strong>{{ __('reviews.comments') }}:</strong>
                                                 {{ $reviews->getComments() }}
                                             </div>
                                             <div class="col align-self-start">
-                                                <strong>{{ __('general.rating') }}:</strong>
+                                                <strong>{{ __('reviews.rating') }}:</strong>
                                                 {{ $reviews->getRating() }}
                                             </div>
                                             <div class="col align-self-end">

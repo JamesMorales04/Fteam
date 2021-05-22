@@ -66,6 +66,7 @@ return [
     'shoppingCart' => 'Shopping cart',
     'removeAll' => 'Remove all',
     'buy' => 'Buy',
+    'buyWithPayPal' => 'Buy with PayPal',
 
     //Food
     'askForIngredients' => 'Only ingredients',
@@ -83,26 +84,26 @@ return [
     'createFood' => 'Create food',
     'updateFood' => 'Uddate food',
 
-    //Ingredientes
-    'ingredients' => 'Ingredients',
-    'theseAreTheIngredients' => 'These are the ingredients available',
-    'createIngredient' => 'Create a Ingredient',
-    'productID' => 'Product ID',
-    'productName' => 'Product name',
-    'productPrice' => 'Product price',
-    'productAmount' => 'Product amount',
-    'productAvailability' => 'Product availability',
-    'backIngredients' => 'Back to Ingredients',
-    'seeIngredients' => 'See all Ingredients',
-    'createIngredients' => 'Create Ingredients',
+    // //Ingredientes
+    // 'ingredients' => 'Ingredients',
+    // 'theseAreTheIngredients' => 'These are the ingredients available',
+    // 'createIngredient' => 'Create a Ingredient',
+    // 'productID' => 'Product ID',
+    // 'productName' => 'Product name',
+    // 'productPrice' => 'Product price',
+    // 'productAmount' => 'Product amount',
+    // 'productAvailability' => 'Product availability',
+    // 'backIngredients' => 'Back to Ingredients',
+    // 'seeIngredients' => 'See all Ingredients',
+    // 'createIngredients' => 'Create Ingredients',
 
-    //Reviews
-    'createReviews' => 'Review',
-    'seeReviews' => 'See Reviews',
-    'comments' => 'Comments',
-    'reviews' => 'Reviews of',
-    'rating' => 'Rating',
-    'reviewAvg' => 'Review avg',
+    // //Reviews
+    // 'createReviews' => 'Review',
+    // 'seeReviews' => 'See Reviews',
+    // 'comments' => 'Comments',
+    // 'reviews' => 'Reviews of',
+    // 'rating' => 'Rating',
+    // 'reviewAvg' => 'Review avg',
 
     // //Orders
     // 'orders' => 'Orders',

@@ -16,7 +16,7 @@
     </div>
 @endsection
 @section('content')
-
+    {{ Breadcrumbs::render('showusers') }}
     <div class="container">
 
         <div class="row justify-content-center">

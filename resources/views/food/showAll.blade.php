@@ -4,7 +4,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.menu') }}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('food.menu') }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -12,7 +12,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.menu') }}</p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('food.menu') }}</p>
     </div>
 @endsection
 
@@ -22,13 +22,13 @@
         @include('util.message')
         <div class="row">
             <div class="col align-self-start">
-                <h1>{{ __('messages.menu') }}</h1>
+                <h1>{{ __('food.menu') }}</h1>
             </div>
 
 
         </div>
         <input style="align-self: left" type="submit" class="btn btn-outline-primary"
-            value="{{ __('messages.topThree') }}" onclick="location='{{ route('food.topThree') }}'">
+            value="{{ __('food.topThree') }}" onclick="location='{{ route('food.topThree') }}'">
 
         <ul>
             @foreach ($data as $food)
@@ -41,19 +41,19 @@
 
                                 <div class="col align-self-end">
                                     <a class="float-right" href="{{ route('food.show', ['id' => $food[1]->getId()]) }}">
-                                        <button class="btn btn-outline-primary">{{ __('messages.view') }}</button>
+                                        <button class="btn btn-outline-primary">{{ __('food.view') }}</button>
                                     </a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-body">
-                            <b>{{ __('messages.description') }}:</b> {{ $food[1]->getDescription() }} <br />
-                            <b>{{ __('messages.status') }}:</b>
-                            {{ $food[1]->getAvailability() ? __('messages.available') : __('messages.notAvailable') }}
+                            <b>{{ __('food.description') }}:</b> {{ $food[1]->getDescription() }} <br />
+                            <b>{{ __('food.status') }}:</b>
+                            {{ $food[1]->getAvailability() ? __('food.available') : __('food.notAvailable') }}
                             <br />
-                            <b>{{ __('messages.reviewAvg') }}:</b> {{ $food[0] }}<br />
-                            <b>{{ __('messages.price') }}:</b> {{ $food[1]->getPrice() }}<br />
+                            <b>{{ __('reviews.reviewAvg') }}:</b> {{ $food[0] }}<br />
+                            <b>{{ __('food.price') }}:</b> {{ $food[1]->getPrice() }}<br />
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="row">
@@ -74,7 +74,7 @@
                                                 </div>
                                                 <div class="form-group row col-md-auto">
                                                     <input class="btn btn-primary" type="submit"
-                                                        value="{{ __('messages.AddCart') }}" />
+                                                        value="{{ __('food.AddCart') }}" />
                                                 </div>
                                             </div>
 
@@ -101,7 +101,7 @@
                                                 </div>
                                                 <div class="form-group row col-md-auto">
                                                     <input class="btn btn-primary" type="submit"
-                                                        value="{{ __('messages.askForIngredients') }}" />
+                                                        value="{{ __('food.askForIngredients') }}" />
                                                 </div>
                                             </div>
                                         </form>
@@ -115,14 +115,14 @@
                                                 action="{{ route('reviews.create', ['id' => $food[1]->getId()]) }}">
                                                 @csrf @method('PUT')
                                                 <button class="btn btn-outline-primary">
-                                                    {{ __('messages.createReviews') }}</button>
+                                                    {{ __('reviews.createReviews') }}</button>
                                             </form>
                                         </div>
 
                                         <a class="float-right"
                                             href="{{ route('reviews.show', ['id' => $food[1]->getId()]) }}">
                                             <button
-                                                class="btn btn-outline-primary">{{ __('messages.seeReviews') }}</button>
+                                                class="btn btn-outline-primary">{{ __('reviews.seeReviews') }}</button>
                                         </a>
                                     </div>
                                 </div>
@@ -139,8 +139,8 @@
                         </div>
 
                         <div class="card-body">
-                            <b>{{ __('messages.description') }}:</b> {{ $food[1]->getDescription() }} <br />
-                            <b>{{ __('messages.price') }}:</b> {{ $food[1]->getPrice() }}<br />
+                            <b>{{ __('food.description') }}:</b> {{ $food[1]->getDescription() }} <br />
+                            <b>{{ __('food.price') }}:</b> {{ $food[1]->getPrice() }}<br />
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="row">
@@ -160,7 +160,7 @@
                                                 </div>
                                                 <div class="form-group row col-md-auto">
                                                     <input class="btn btn-primary" type="submit"
-                                                        value="{{ __('messages.AddCart') }}" />
+                                                        value="{{ __('food.AddCart') }}" />
                                                 </div>
                                             </div>
 
@@ -187,7 +187,7 @@
                                                 </div>
                                                 <div class="form-group row col-md-auto">
                                                     <input class="btn btn-primary" type="submit"
-                                                        value="{{ __('messages.askForIngredients') }}" />
+                                                        value="{{ __('food.askForIngredients') }}" />
                                                 </div>
                                             </div>
                                         </form>
@@ -201,14 +201,14 @@
                                                 action="{{ route('reviews.create', ['id' => $food[1]->getId()]) }}">
                                                 @csrf @method('PUT')
                                                 <button class="btn btn-outline-primary">
-                                                    {{ __('messages.createReviews') }}</button>
+                                                    {{ __('reviews.createReviews') }}</button>
                                             </form>
                                         </div>
 
                                         <a class="float-right"
                                             href="{{ route('reviews.show', ['id' => $food[1]->getId()]) }}">
                                             <button
-                                                class="btn btn-outline-primary">{{ __('messages.seeReviews') }}</button>
+                                                class="btn btn-outline-primary">{{ __('reviews.seeReviews') }}</button>
                                         </a>
                                     </div>
                                 </div>

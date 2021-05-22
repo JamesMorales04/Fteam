@@ -30,7 +30,7 @@ class IngredientsController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
-        $data['title'] = __('general.createIngredient');
+        $data['title'] = __('ingredients.createIngredient');
 
         return view('ingredients.create')->with('data', $data);
     }
