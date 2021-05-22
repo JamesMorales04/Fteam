@@ -51,7 +51,7 @@ class FoodController extends Controller
             $data['item'] = $food['ingredients'];
             $data['ingredients'] = Ingredients::All();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg',  __('general.notFound'));
         }
 
         return view('food.update')->with('data', $data);
@@ -70,7 +70,7 @@ class FoodController extends Controller
         try {
             $food = Food::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg',  __('general.notFound'));
         }
 
         $food->setName($request->get('name'));
@@ -97,7 +97,7 @@ class FoodController extends Controller
 
         Food::create($request->only(['name', 'description', 'availability', 'recipe', 'price', 'ingredients']));
 
-        return back()->with('success', 'Item created successfully!');
+        return back()->with('success',  __('general.itemCreated'));
     }
 
     public function delete($foodID)

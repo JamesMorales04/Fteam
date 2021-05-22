@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\Billing;
 use App\Mail\Payment;
+use App\Models\User;
 use App\Models\Food;
 use App\Models\Ingredients;
 use App\Models\Order;
@@ -107,13 +108,13 @@ class ShoppingController extends Controller
         $data['title'] = 'Store food';
         $data['foods'] = [];
         $total = 0;
-        $ids1 = $request->session()->get('food1');
-        $ids2 = $request->session()->get('food2');
-        $amount1 = $request->session()->get('amount1');
-        $amount2 = $request->session()->get('amount2');
+        $idsFood = $request->session()->get('completFood');
+        $idsIngredients = $request->session()->get('byIngredients');
+        $amountFood = $request->session()->get('amountFood');
+        $amountIngredients = $request->session()->get('amountIngredients');
 
-        $this->orderCart($ids1, $amount1, $data, $total, false);
-        $this->orderCart($ids2, $amount2, $data, $total, true);
+        $this->orderCart($idsFood, $amountFood, $data, $total, false);
+        $this->orderCart($idsIngredients, $amountIngredients, $data, $total, true);
 
         $data['total'] = $total;
 
@@ -127,11 +128,11 @@ class ShoppingController extends Controller
         if ($request['amount'] == 0) {
             return back();
         }
-        $food = $request->session()->get('food1');
+        $food = $request->session()->get('completFood');
         $food[$request['id']] = $request['id'];
-        $request->session()->put('food1', $food);
+        $request->session()->put('completFood', $food);
 
-        $amount = $request->session()->get('amount1');
+        $amount = $request->session()->get('amountFood');
 
         if ($amount == null) {
             $amount[$request['id']] = 0;
@@ -141,9 +142,9 @@ class ShoppingController extends Controller
         }
 
         $amount[$request['id']] = $amount[$request['id']] + $request['amount'];
-        $request->session()->put('amount1', $amount);
+        $request->session()->put('amountFood', $amount);
 
-        return back()->with('success', Lang::get('messages.addToCart'));
+        return back()->with('success', __('cart.addToCart'));
     }
 
     public function addAsIngresients(Request $request)
@@ -152,11 +153,11 @@ class ShoppingController extends Controller
             return back();
         }
 
-        $food = $request->session()->get('food2');
+        $food = $request->session()->get('byIngredients');
         $food[$request['id']] = [$request['id']];
-        $request->session()->put('food2', $food);
+        $request->session()->put('byIngredients', $food);
 
-        $amount = $request->session()->get('amount2');
+        $amount = $request->session()->get('amountIngredients');
 
         if ($amount == null) {
             $amount[$request['id']] = 0;
@@ -166,17 +167,56 @@ class ShoppingController extends Controller
         }
 
         $amount[$request['id']] = $amount[$request['id']] + $request['amount'];
-        $request->session()->put('amount2', $amount);
+        $request->session()->put('amountIngredients', $amount);
 
-        return back()->with('success', Lang::get('messages.addToCart'));
+        return back()->with('success', __('cart.addToCart'));
+    }
+
+    public function removeOne(Request $request)
+    {
+        if ($request['ingredients'] == 1) {
+            $food = $request->session()->get('byIngredients');
+            $amount = $request->session()->get('amountIngredients');
+        }
+        else {
+            $food = $request->session()->get('completFood');
+            $amount = $request->session()->get('amountFood');
+        }
+
+        if ($amount[$request['id']] > $request['amount']) {
+            
+            $amount[$request['id']] = $amount[$request['id']] - $request['amount'];
+    
+            if ($request['ingredients'] == 1) {
+                $request->session()->put('amountIngredients', $amount);
+            }
+            else {
+                $request->session()->put('amountFood', $amount);
+            }
+        }
+        else {
+            if ($request['ingredients'] == 1) {
+                unset($food[$request['id']]);
+                $request->session()->put('byIngredients', $food);
+                unset($amount[$request['id']]);
+                $request->session()->put('amountIngredients', $amount);
+            }
+            else {
+                unset($food[$request['id']]);
+                $request->session()->put('completFood', $food);
+                unset($amount[$request['id']]);
+                $request->session()->put('amountFood', $amount);
+            }
+        }
+        return back()->with('success', __('cart.addToCart'));
     }
 
     public function removeAll(Request $request)
     {
-        $request->session()->forget('food1');
-        $request->session()->forget('food2');
-        $request->session()->forget('amount1');
-        $request->session()->forget('amount2');
+        $request->session()->forget('completFood');
+        $request->session()->forget('byIngredients');
+        $request->session()->forget('amountFood');
+        $request->session()->forget('amountIngredients');
 
         return back();
     }
@@ -211,25 +251,53 @@ class ShoppingController extends Controller
     public function buy(Request $request)
     {
         $data = []; //to be sent to the view
-        $data['title'] = 'Buy';
         $data['food'] = [];
 
         $order = new Order();
         $total = 0;
-        $ids1 = $request->session()->get('food1');
-        $ids2 = $request->session()->get('food2');
-        $amount1 = $request->session()->get('amount1');
-        $amount2 = $request->session()->get('amount2');
+        $idsFood = $request->session()->get('completFood');
+        $idsIngredients = $request->session()->get('byIngredients');
+        $amountFood = $request->session()->get('amountFood');
+        $amountIngredients = $request->session()->get('amountIngredients');
 
-        $this->validation($ids1, $order, $amount1, $data, $total, false);
-        $this->validation($ids2, $order, $amount2, $data, $total, true);
+        if ($this->validateBalance($idsFood, $amountFood, $idsIngredients, $amountIngredients)) {
+            return back()->with('success', __('cart.insufficientBalance'));
+        }
+
+        $this->validation($idsFood, $order, $amountFood, $data, $total, false);
+        $this->validation($idsIngredients, $order, $amountIngredients, $data, $total, true);
 
         $data['total'] = $total;
-        $request->session()->forget('food2');
-        $request->session()->forget('food1');
-        $request->session()->forget('amount1');
-        $request->session()->forget('amount2');
+        $request->session()->forget('completFood');
+        $request->session()->forget('byIngredients');
+        $request->session()->forget('amountFood');
+        $request->session()->forget('amountIngredients');
 
         return view('shopping.buy')->with('data', $data);
     }
+
+    public function validateBalance($idsFood, $amountFood, $idsIngredients, $amountIngredients)
+    {
+        $user = User::findOrFail(Auth::Id());
+        $total = 0;
+        $listFoodInCart = Food::findMany($idsFood);
+        foreach ($listFoodInCart as $food) {
+            $total = ($total + $food->getPrice()) * $amountFood[$food->getId()];
+        }
+
+        $listFoodInCart = Food::findMany($idsIngredients);
+        foreach ($listFoodInCart as $food) {
+            $total = ($total + $food->getPrice()) * $amountIngredients[$food->getId()];
+        }
+        $balance = $user->getBalance();
+        if ($total <= $balance) {
+            $user->setBalance($balance - $total);
+            $user->save();
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
 }

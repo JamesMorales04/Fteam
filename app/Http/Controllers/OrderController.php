@@ -25,6 +25,6 @@ class OrderController extends Controller
 
         Order::create($request->only(['total', 'user_id']));
 
-        return back()->with('success', 'Order created successfully!');
+        return back()->with('success',  __('order.orderCreated'));
     }
 }

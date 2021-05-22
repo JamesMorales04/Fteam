@@ -6,6 +6,7 @@ return [
     'name' => 'Name',
     'email' => 'Email',
     'address' => 'Address',
+    'balance' => 'Balance',
     'password' => 'Password',
     'confirmPassword' => 'Confirm password',
     'rememberMe' => 'Remember me',
@@ -34,6 +35,7 @@ return [
     'backHome' => 'Back to Home',
     'yes' => 'Yes',
     'no'  => 'No',
+    'total' => 'Total',
 
     //Dates
 

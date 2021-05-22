@@ -4,7 +4,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.menu') }}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('food.menu') }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -12,7 +12,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.menu') }}</p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('food.menu') }}</p>
     </div>
 @endsection
 
@@ -22,7 +22,7 @@
         @include('util.message')
         <div class="row">
             <div class="col align-self-start">
-                <h1>{{ __('messages.menu') }}</h1>
+                <h1>{{ __('food.menu') }}</h1>
             </div>
 
 
@@ -47,12 +47,12 @@
                     </div>
 
                     <div class="card-body">
-                        <b>{{ __('messages.description') }}:</b> {{ $food[1]->getDescription() }} <br />
-                        <b>{{ __('messages.status') }}:</b>
-                        {{ $food[1]->getAvailability() ? __('messages.available') : __('messages.notAvailable') }}
+                        <b>{{ __('food.description') }}:</b> {{ $food[1]->getDescription() }} <br />
+                        <b>{{ __('food.status') }}:</b>
+                        {{ $food[1]->getAvailability() ? __('food.available') : __('food.notAvailable') }}
                         <br />
                         <b>{{ __('messages.reviewAvg') }}:</b> {{ $food[0] }}<br />
-                        <b>{{ __('messages.price') }}:</b> {{ $food[1]->getPrice() }}<br />
+                        <b>{{ __('general.price') }}:</b> {{ $food[1]->getPrice() }}<br />
                         <div class="row">
                             <div class="col-auto">
                                 <div class="row">
@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="form-group row col-md-auto">
                                                 <input class="btn btn-primary" type="submit"
-                                                    value="{{ __('messages.AddCart') }}" />
+                                                    value="{{ __('cart.AddCart') }}" />
                                             </div>
                                         </div>
 

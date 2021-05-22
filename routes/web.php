@@ -57,6 +57,7 @@ Route::group(['prefix' => 'orderedfood', 'middleware' => ['login']], function ()
 
 Route::group(['prefix' => 'shop', 'middleware' => ['login']], function () {
     Route::post('/add', 'App\Http\Controllers\ShoppingController@add')->name('shop.add');
+    Route::post('/remove', 'App\Http\Controllers\ShoppingController@removeOne')->name('shop.remove');
     Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name('shop.removeAll');
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');

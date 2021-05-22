@@ -17,7 +17,7 @@ class UserController extends Controller
         try {
             $data['user'] = User::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg',  __('messages.itemNotFound'));
         }
 
         $data['card'] = $data['user']->CreditCard;
@@ -45,7 +45,7 @@ class UserController extends Controller
 
         User::destroy($id);
 
-        return redirect()->route('home')->with('success', 'Elemento borrado exitosamente');
+        return redirect()->route('home')->with('success',  __('messages.deleteElement'));
     }
 
     public function update($id)
@@ -53,7 +53,7 @@ class UserController extends Controller
         try {
             $user = User::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('messages.itemNotFound'));
         }
 
         return view('user.update')->with('user', $user);
@@ -64,7 +64,7 @@ class UserController extends Controller
         try {
             $user = User::findOrFail($request->get('UserId'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg', 'Elemento no encontrado');
+            return back()->with('msg', __('messages.itemNotFound'));
         }
 
         $request['password'] = $user->getPassword();
