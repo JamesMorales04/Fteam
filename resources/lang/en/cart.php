@@ -11,5 +11,6 @@ return [
     'removeAll'              => 'Remove all',
     'remove'                 => 'Remove',
     'buy'                    => 'Buy',
+    'itemRemoved'            => 'Item removed',
 
 ];
