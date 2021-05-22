@@ -206,7 +206,7 @@ class ShoppingController extends Controller
                 $request->session()->put('amountFood', $amount);
             }
         }
-        return back()->with('success', __('cart.addToCart'));
+        return back()->with('success', __('cart.itemRemoved'));
     }
 
     public function removeAll(Request $request)
