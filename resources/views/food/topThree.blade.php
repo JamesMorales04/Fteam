@@ -3,7 +3,7 @@
 @section('content')
     {{ Breadcrumbs::render('topthree') }}
     <div class="container">
-        <h1>{{ __('messages.best-selling') }}</h1>
+        <h1>{{ __('food.best-selling') }}</h1>
 
         <ul>
             @foreach ($data as $food)

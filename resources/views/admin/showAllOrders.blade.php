@@ -16,7 +16,7 @@
     </div>
 @endsection
 @section('content')
-
+    {{ Breadcrumbs::render('showorders') }}
     <div class="container">
 
         <div class="row justify-content-center">

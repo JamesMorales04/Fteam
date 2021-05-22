@@ -55,12 +55,10 @@ class ShoppingController extends Controller
 
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
             $buy = $this->buy($request);
-            // dd($buy->data);
             return view('shopping.buy')->with('data', $buy->data);
-            // dd('Your payment was successful. You can create success page here.');
         }
-
-        dd('Something is wrong.');
+        $cart = $this->cart($request)->data;
+        return view('shopping.cart')->with('data', $cart);
     }
 
     public function ingredients($id, Request $request)
