@@ -21,6 +21,7 @@ return [
     'foodMenu' => 'Menu',
     'shoppingCart' => 'Shopping Cart',
     'forgotPassword' => 'Forgot your password?',
+    'oldPDF' => 'Descargar PDF con otro metodo',
 
     // Crud basico
 

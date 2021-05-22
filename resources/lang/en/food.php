@@ -3,6 +3,7 @@
 return [
 
     //Food
+    'foods' => 'Show all food',
     'askForIngredients' => 'Only ingredients',
     'backFood' => 'Back to food',
     'foodName' => 'Food Name',

@@ -5,18 +5,11 @@ Breadcrumbs::for('home', function ($trail) {
     $trail->push(__('general.home'), route('home'));
 });
 
-
 // Menu
 // Home > Menu
 Breadcrumbs::for('menu', function ($trail) {
     $trail->parent('home');
     $trail->push(__('food.menu'), route('food.showAll'));
-});
-
-// Home > Menu > [Food] 
-Breadcrumbs::for('food', function ($trail, $food) {
-    $trail->parent('menu');
-    $trail->push($food->getName(), route('food.show', $food->getId()));
 });
 
 // Home > Menu > [Food] > [EditFood]
@@ -49,7 +42,6 @@ Breadcrumbs::for('ureview', function ($trail, $reviews) {
     $trail->push(__('reviews.updateReviews'), route('reviews.update', $reviews));
 });
 
-
 // ShoppingCart
 // Home > ShoppingCart
 Breadcrumbs::for('shoppingcart', function ($trail) {
@@ -63,12 +55,23 @@ Breadcrumbs::for('buyshoppingcart', function ($trail) {
     $trail->push(__('shoppingCart.buy'), route('shop.buy'));
 });
 
-
 // AdminPanel
 // Home > AdminPanel
 Breadcrumbs::for('adminpanel', function ($trail) {
     $trail->parent('home');
     $trail->push(__('admin.adminPanel'), route('admin.panel'));
+});
+
+// Home > AdminPanel > showAllFood
+Breadcrumbs::for('showallfood', function ($trail) {
+    $trail->parent('adminpanel');
+    $trail->push(__('food.foods'), route('admin.showAllFood'));
+});
+
+// Home > AdminPanel > showallfood > [Food] 
+Breadcrumbs::for('food', function ($trail, $food) {
+    $trail->parent('showallfood');
+    $trail->push($food->getName(), route('food.show', $food->getId()));
 });
 
 // Home > AdminPanel > ShowUsers
@@ -112,7 +115,6 @@ Breadcrumbs::for('createfood', function ($trail) {
     $trail->parent('adminpanel');
     $trail->push(__('food.createFood'), route('food.create'));
 });
-
 
 // UserProfile
 // Home > [UserProfile]

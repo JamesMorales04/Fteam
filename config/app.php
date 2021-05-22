@@ -181,6 +181,9 @@ return [
         //PayPal
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 
+        //PDF
+        App\Providers\BillServiceProvider::class,
+
     ],
 
     /*
