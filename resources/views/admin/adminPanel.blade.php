@@ -70,7 +70,7 @@
                             <br />
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.seeIngredients') }}</label>
+                                    <strong><label class="col-ld-8 ">{{ __('ingredients.seeIngredients') }}</label>
                                     </strong><br />
                                     <a method="GET" href="{{ route('ingredients.show') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('general.view') }}</a><br /><br />
@@ -90,7 +90,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="inner">
-                                    <strong><label class="col-ld-8 ">{{ __('messages.createIngredients') }}</label>
+                                    <strong><label class="col-ld-8 ">{{ __('ingredients.createIngredients') }}</label>
                                     </strong><br />
                                     <a method="GET" href="{{ route('ingredients.create') }}" type="button"
                                         class="btn btn-outline-primary">{{ __('general.create') }}</a><br /><br />

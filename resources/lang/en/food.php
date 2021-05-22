@@ -18,4 +18,6 @@ return [
     'best-selling' => 'The three best-selling products are',
     'createFood' => 'Create food',
     'updateFood' => 'Uddate food',
+    'view' => 'View',
+
 ];

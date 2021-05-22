@@ -5,7 +5,7 @@
 @section('header')
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.ingredients') }}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{ __('ingredients.ingredients') }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -13,14 +13,14 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('messages.ingredients') }}</p>
+        <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('ingredients.ingredients') }}</p>
     </div>
 @endsection
 
 @section('content')
     {{ Breadcrumbs::render('showingredients') }}
     <div class="container">
-        <h1>{{ __('messages.ingredients') }}</h1>
+        <h1>{{ __('ingredients.ingredients') }}</h1>
 
         <ul>
             @foreach ($data['ingredients'] as $ingredients)
@@ -29,9 +29,9 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="row">
-                                <div class="col align-self-start"><strong>{{ __('messages.productName') }}:</strong>
+                                <div class="col align-self-start"><strong>{{ __('ingredients.productName') }}:</strong>
                                     {{ $ingredients->getName() }} </div>
-                                <div class="col align-self-start"><strong>{{ __('messages.productAmount') }}:</strong>
+                                <div class="col align-self-start"><strong>{{ __('ingredients.productAmount') }}:</strong>
                                     {{ $ingredients->getAmount() }} </div>
                                 <div class="col align-self-end">
                                     <a class="float-right"

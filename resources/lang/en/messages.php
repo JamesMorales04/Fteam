@@ -103,8 +103,9 @@ return [
     'best-selling'           => 'The three best-selling products are',
     'createFood'             => 'Create food',
     'updateFood'             => 'Update food',
-    'ingredients'            => 'Ingredients',
 
+    // //Ingredientes
+    'ingredients'            => 'Ingredients',
     'theseAreTheIngredients' => 'These are the ingredients available',
     'createIngredient'       => 'Create a Ingredient',
     'productID'              => 'Product ID',
