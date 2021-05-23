@@ -24,7 +24,6 @@ class ShoppingController extends Controller
         $request->session()->put('paypal', $paypal);
         $data = [];
         $cart = $this->cart($request);
-        // dd($cart);
         $request['data'] = $cart;
 
         $data['items'] = [
@@ -35,11 +34,11 @@ class ShoppingController extends Controller
                 'qty' => 1,
             ],
         ];
-        // dd($request);
+
         $data['invoice_id'] = 1;
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
         $data['return_url'] = route('payment.success', $request);
-        $data['cancel_url'] = route('payment.cancel');
+        $data['cancel_url'] = route('payment.cancel', $request);
         $data['total'] = $cart['data']['total'];
 
         $response = $provider->setExpressCheckout($data);
@@ -47,9 +46,10 @@ class ShoppingController extends Controller
         return redirect($response['paypal_link']);
     }
 
-    public function cancel()
+    public function cancel(Request $request)
     {
-        dd('Sorry you payment is canceled');
+        $cart = $this->cart($request)->data;
+        return view('shopping.cart')->with('data', $cart)->with('success', __('cart.insufficientBalance'));
     }
 
     public function success(Request $request)
@@ -58,13 +58,11 @@ class ShoppingController extends Controller
         $response = $provider->getExpressCheckoutDetails($request->token);
 
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            // dd($request);
             $buy = $this->buy($request);
-            // dd($buy);
             return view('shopping.buy')->with('data', $buy->data);
         }
         $cart = $this->cart($request)->data;
-        return view('shopping.cart')->with('data', $cart);
+        return view('shopping.cart')->with('data', $cart)->with('success', __('cart.insufficientBalance'));
     }
 
     public function createPdf(Request $request)
@@ -288,7 +286,6 @@ class ShoppingController extends Controller
         $amountFood = $request->session()->get('amountFood');
         $amountIngredients = $request->session()->get('amountIngredients');
         $paypal = $request->session()->get('paypal');
-        // dd($request);
 
         if ($paypal == null) {
             if ($this->validateBalance($idsFood, $amountFood, $idsIngredients, $amountIngredients)) {
@@ -307,7 +304,6 @@ class ShoppingController extends Controller
         $request->session()->forget('amountFood');
         $request->session()->forget('amountIngredients');
         $request->session()->forget('paypal');
-        // dd($data);
 
         return view('shopping.buy')->with('data', $data);
     }
