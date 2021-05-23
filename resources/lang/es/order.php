@@ -1,5 +1,4 @@
 <?php
-
 return [
     'orders'        => 'Pedidos',
     'order'         => 'Orden',
@@ -10,5 +9,5 @@ return [
     'showAllOrders' => 'Mostrar todos los pedidos',
     'foodType'      => 'Solo ingredientes',
     'subTotal'      => 'Subtotal',
-    'orderedList'   => 'Pedidos',
+    'orderedList'   => 'Pedidos'
 ];

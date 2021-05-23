@@ -108,3 +108,6 @@ Route::group(['prefix' => 'creditCards', 'middleware' => ['login']], function ()
     Route::get('/update/{id}', 'App\Http\Controllers\CreditCardController@update')->name('creditCard.update');
     Route::post('/updateSave', 'App\Http\Controllers\CreditCardController@updateSave')->name('creditCard.updateSave');
 });
+
+Route::get('/language/{locale}', 'App\Http\Controllers\LangController@change')->name('LangModify.change');
+

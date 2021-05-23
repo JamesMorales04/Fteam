@@ -10,11 +10,5 @@ return [
     'productAvailability'    => 'Disponibilidad de producto',
     'backIngredients'        => 'Volver a Ingredientes',
     'seeIngredients'         => 'Ver todos los ingredientes',
-    'createIngredients'      => 'Crear ingredientes',
-    'createReviews'          => 'Ver',
-    'seeReviews'             => 'Ver Reseñas',
-    'comments'               => 'comentarios',
-    'reviews'                => 'Reseñas de',
-    'rating'                 => 'Clasificación',
-    'reviewAvg'              => 'Promedio de calificación'
+    'createIngredients'      => 'Crear ingredientes'
 ];
