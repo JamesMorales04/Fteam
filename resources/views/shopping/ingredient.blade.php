@@ -40,7 +40,7 @@
                             @endforeach
                         </div>
                         <div class="form-group row col-md-auto">
-                            <input class="btn btn-primary" type="submit" value="Send" />
+                            <input class="btn btn-primary" type="submit" value= {{ __('general.send') }}/>
                         </div>
                     </form>
                 </div>

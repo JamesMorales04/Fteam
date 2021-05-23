@@ -23,6 +23,7 @@ return [
     'shoppingCart' => 'Shopping Cart',
     'forgotPassword' => 'Forgot your password?',
     'oldPDF' => 'Descargar PDF con otro metodo',
+    'description' => 'Description',
 
     // Crud basico
 
