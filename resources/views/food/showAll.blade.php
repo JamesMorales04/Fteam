@@ -42,8 +42,8 @@
                         </div>
 
                         <div class="card-body">
-                            <b>{{ __('food.description') }}:</b> {{ $food[1]->getDescription() }} <br />
-                            <b>{{ __('food.price') }}:</b> {{ $food[1]->getPrice() }}<br />
+                            <b>{{ __('general.description') }}:</b> {{ $food[1]->getDescription() }} <br />
+                            <b>{{ __('general.price') }}:</b> {{ $food[1]->getPrice() }}<br />
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="row">

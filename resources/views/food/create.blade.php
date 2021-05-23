@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">{{ __('messages.createFood') }}</div>
+                    <div class="card-header">{{ __('food.createFood') }}</div>
                     <div class="card-body">
                         @if ($errors->any())
                             <ul id="errors">
@@ -22,7 +22,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('general.name') }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control" placeholder="Enter name" name="name"
                                         value="{{ old('name') }}" />
@@ -30,8 +30,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }}
-                                    {{ __('messages.description') }}</label>
+                                <label class="col-md-auto">{{ __('general.add') }}
+                                    {{ __('general.description') }}</label>
                                 <div class="col-8">
                                     <textarea cols="40" name="description" class="form-control" spellcheck="true"
                                         value="{{ old('description') }}"></textarea>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.avaliable') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('general.avaliable') }}</label>
                                 <div class="col-sm-10 col col-lg-2">
                                     <input type="checkbox" class="col-sm-100" name="availability"
                                         value="{{ old('availability') }}">
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }} {{ __('messages.recipe') }}
+                                <label class="col-md-auto">{{ __('general.add') }} {{ __('food.recipe') }}
                                 </label>
                                 <div class="col-8">
                                     <textarea cols="40" name="recipe" class="form-control" spellcheck="true"
@@ -56,8 +56,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }}
-                                    {{ __('messages.price') }}</label>
+                                <label class="col-md-auto">{{ __('general.add') }}
+                                    {{ __('general.price') }}</label>
                                 <div class="col-8">
                                     <input type="text" class="form-control" placeholder="0000" name="price"
                                         value="{{ old('price') }}" />
@@ -65,8 +65,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }}
-                                    {{ __('messages.ingredients') }}</label>
+                                <label class="col-md-auto">{{ __('general.add') }}
+                                    {{ __('ingredients.ingredients') }}</label>
                                 @foreach ($data['ingredients'] as $ingredients)
                                     <div class="checkbox">
                                         <label>

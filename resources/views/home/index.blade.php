@@ -13,6 +13,15 @@
         <!-- Masthead Subheading-->
         <p class="masthead-subheading font-weight-light mb-0">Website - {{ __('general.home') }}</p>
     </div>
+    <div class="selectpicker" data-width="fit">
+        <a class="btn btn-outline-primary" href="{{ route('LangModify.change',['locale'=>'en']) }}">
+
+            <img class="img-fluid" src="{{ asset('/img/flag/en.png') }}" width="100" height="100" />
+        </a>
+        <a class="btn btn-outline-primary" href="{{ route('LangModify.change',['locale'=>'es']) }}">
+            <img class="img-fluid" src="{{ asset('/img/flag/es.png') }}" width="100" height="100" />
+        </a>
+        </div>
 @endsection
 
 @section('content')
@@ -20,6 +29,7 @@
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
+
             <!-- Portfolio Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">{{ __('general.subMenu') }}
             </h2>
