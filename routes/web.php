@@ -77,6 +77,8 @@ Route::group(['prefix' => 'users', 'middleware' => ['login']], function () {
     Route::get('/delete/{id}', 'App\Http\Controllers\UserController@delete')->name('user.delete');
     Route::get('/update/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
     Route::post('/updateSave', 'App\Http\Controllers\UserController@updateSave')->name('user.updateSave');
+    Route::get('/balance', 'App\Http\Controllers\UserController@balance')->name('user.balance');
+    Route::post('/AddBalance', 'App\Http\Controllers\UserController@addBalance')->name('user.addBalance');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['login', 'admin']], function () {
