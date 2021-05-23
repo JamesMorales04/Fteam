@@ -80,4 +80,18 @@ class UserController extends Controller
 
         return redirect()->route('user.show', ['id' => Auth::id()]);
     }
+
+    public function balance()
+    {
+        return view('user.addBalance');
+    }
+
+    public function addBalance(Request $request)
+    {
+        $user = User::findOrFail(Auth::Id());
+        $balance = $user->getBalance();
+        $user->setBalance($balance + $request['balance']);
+        $user->save();
+        return redirect()->route('user.show', ['id' => Auth::id()]);
+    }
 }
