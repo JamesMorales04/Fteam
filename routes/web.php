@@ -61,10 +61,10 @@ Route::group(['prefix' => 'shop', 'middleware' => ['login']], function () {
     Route::get('/removeAll', 'App\Http\Controllers\ShoppingController@removeAll')->name('shop.removeAll');
     Route::get('/cart', "App\Http\Controllers\ShoppingController@cart")->name('shop.cart');
     Route::get('/buy', "App\Http\Controllers\ShoppingController@buy")->name('shop.buy');
-    Route::get('/ingredients/{id}', "App\Http\Controllers\ShoppingController@ingredients")->name('shop.ingredients');
+    Route::post('/ingredients', "App\Http\Controllers\ShoppingController@modifyIngredients")->name('shop.modifyIngredients');
     Route::get('/pdf', 'App\Http\Controllers\ShoppingController@createPdf')->name('shop.pdf');
     Route::get('/mail', 'App\Http\Controllers\ShoppingController@sendEmail')->name('shop.email');
-    Route::post('/addAsIngresients', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
+    Route::post('/addAsIngredients', 'App\Http\Controllers\ShoppingController@addAsIngresients')->name('shop.addAsIngresients');
     Route::post('/addIngredient', 'App\Http\Controllers\ShoppingController@addIngredient')->name('shop.addIngredient');
     //PayPal
     Route::get('/payment', 'App\Http\Controllers\ShoppingController@payment')->name('payment');

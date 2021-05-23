@@ -61,22 +61,6 @@ class ShoppingController extends Controller
         return view('shopping.cart')->with('data', $cart);
     }
 
-    public function ingredients($id, Request $request)
-    {
-        $data = [];
-        $food = Food::findOrFail($id);
-        $data['food'] = $food;
-        $ingredients = Ingredients::findMany($food['ingredients']);
-
-        $data['ingredient'] = $ingredients;
-        $data['name'] = [];
-        foreach ($ingredients as $ingredient) {
-            array_push($data['name'], $ingredient->getName());
-        }
-
-        return view('shopping.ingredient')->with('data', $data);
-    }
-
     public function createPdf(Request $request)
     {
         $billInterface = app(Billing::class);
@@ -130,6 +114,10 @@ class ShoppingController extends Controller
         $food[$request['id']] = $request['id'];
         $request->session()->put('completFood', $food);
 
+        $ingredients = $request->session()->get('allIngredients');
+        $ingredients[$request['id']] = $request['ingredients'];
+        $request->session()->put('allIngredients', $ingredients);
+
         $amount = $request->session()->get('amountFood');
 
         if ($amount == null) {
@@ -145,8 +133,29 @@ class ShoppingController extends Controller
         return back()->with('success', __('cart.addToCart'));
     }
 
+    public function modifyIngredients(Request $request)
+    {
+        $ingredients = $request->session()->get('selecIngredients');
+        
+        $arr = [];
+        foreach ($request['ingredients'] as $key) {
+            array_push($arr, (int) $key);
+        }
+
+        $ingredients[$request['id']] = json_encode($arr);
+        $request->session()->put('selecIngredients', $ingredients);
+
+        return redirect()->route('food.showAll');
+    }
+
     public function addAsIngresients(Request $request)
     {
+        $data = [];
+        $food = Food::findOrFail($request['id']);
+        $data['food'] = $food;
+        $data['item'] = $food['ingredients'];
+        $data['ingredients'] = Ingredients::findMany($food['ingredients']);
+
         if ($request['amount'] == 0) {
             return back();
         }
@@ -154,6 +163,10 @@ class ShoppingController extends Controller
         $food = $request->session()->get('byIngredients');
         $food[$request['id']] = [$request['id']];
         $request->session()->put('byIngredients', $food);
+
+        $ingredients = $request->session()->get('selecIngredients');
+        $ingredients[$request['id']] = $request['ingredients'];
+        $request->session()->put('selecIngredients', $ingredients);
 
         $amount = $request->session()->get('amountIngredients');
 
@@ -167,7 +180,7 @@ class ShoppingController extends Controller
         $amount[$request['id']] = $amount[$request['id']] + $request['amount'];
         $request->session()->put('amountIngredients', $amount);
 
-        return back()->with('success', __('cart.addToCart'));
+        return view('shopping.ingredient')->with('data', $data);
     }
 
     public function removeOne(Request $request)
@@ -175,10 +188,12 @@ class ShoppingController extends Controller
         if ($request['ingredients'] == 1) {
             $food = $request->session()->get('byIngredients');
             $amount = $request->session()->get('amountIngredients');
+            $ingredients[$request['id']] = $request['selecIngredients'];
         }
         else {
             $food = $request->session()->get('completFood');
             $amount = $request->session()->get('amountFood');
+            $ingredients[$request['id']] = $request['ingredients'];
         }
 
         if ($amount[$request['id']] > $request['amount']) {
@@ -198,12 +213,16 @@ class ShoppingController extends Controller
                 $request->session()->put('byIngredients', $food);
                 unset($amount[$request['id']]);
                 $request->session()->put('amountIngredients', $amount);
+                unset($ingredients[$request['id']]);
+                $request->session()->put('selecIngredients', $ingredients);
             }
             else {
                 unset($food[$request['id']]);
                 $request->session()->put('completFood', $food);
                 unset($amount[$request['id']]);
                 $request->session()->put('amountFood', $amount);
+                unset($ingredients[$request['id']]);
+                $request->session()->put('ingredients', $ingredients);
             }
         }
         return back()->with('success', __('cart.itemRemoved'));
@@ -213,13 +232,15 @@ class ShoppingController extends Controller
     {
         $request->session()->forget('completFood');
         $request->session()->forget('byIngredients');
+        $request->session()->forget('allIngredients');
+        $request->session()->forget('selecIngredients');
         $request->session()->forget('amountFood');
         $request->session()->forget('amountIngredients');
 
         return back();
     }
 
-    public function validation($ids, &$order, $amount, &$data, &$total, $status)
+    public function validation($ids, &$order, $amount, &$data, &$total, $ingredients, $status)
     {
         if ($ids) {
             $order->setTotal(0);
@@ -232,6 +253,7 @@ class ShoppingController extends Controller
                 $orderedFood->setAmount($amount[$food->getId()]);
                 $orderedFood->setSubTotal($food->getPrice() * $amount[$food->getId()]);
                 $orderedFood->setOnlyIngredients($status);
+                $orderedFood->setIngredients($ingredients[$food->getId()]);
                 $orderedFood->setFoodName($food->getName());
                 $orderedFood->setFoodId($food->getId());
                 $orderedFood->setOrderId($order->getId());
@@ -255,6 +277,8 @@ class ShoppingController extends Controller
         $total = 0;
         $idsFood = $request->session()->get('completFood');
         $idsIngredients = $request->session()->get('byIngredients');
+        $allIngredients = $request->session()->get('allIngredients');
+        $selecIngredients = $request->session()->get('selecIngredients');
         $amountFood = $request->session()->get('amountFood');
         $amountIngredients = $request->session()->get('amountIngredients');
 
@@ -262,12 +286,14 @@ class ShoppingController extends Controller
             return back()->with('success', __('cart.insufficientBalance'));
         }
 
-        $this->validation($idsFood, $order, $amountFood, $data, $total, false);
-        $this->validation($idsIngredients, $order, $amountIngredients, $data, $total, true);
+        $this->validation($idsFood, $order, $amountFood, $data, $total, $allIngredients, false);
+        $this->validation($idsIngredients, $order, $amountIngredients, $data, $total, $selecIngredients, true);
 
         $data['total'] = $total;
         $request->session()->forget('completFood');
         $request->session()->forget('byIngredients');
+        $request->session()->forget('allIngredients');
+        $request->session()->forget('selecIngredients');
         $request->session()->forget('amountFood');
         $request->session()->forget('amountIngredients');
 

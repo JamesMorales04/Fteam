@@ -65,6 +65,12 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" class="form-control" name="ingredients"
+                                                    value="{{ $food[1]->getIngredients() }}" />
+                                            </div>
+                                        </div>
 
                                         <div class="form-group row col-auto">
                                             <div class="col-5">
@@ -76,8 +82,6 @@
                                                     value="{{ __('cart.AddCart') }}" />
                                             </div>
                                         </div>
-
-
                                     </form>
                                 </div>
                             </div>
@@ -90,6 +94,13 @@
                                             <div class="col-8">
                                                 <input type="hidden" class="form-control" name="id"
                                                     value="{{ $food[1]->getId() }}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" class="form-control" name="ingredients"
+                                                    value="{{ $food[1]->getIngredients() }}" />
                                             </div>
                                         </div>
 

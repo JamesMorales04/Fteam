@@ -77,7 +77,7 @@
 
                             <div class="form-group row">
                                 <label class="col-md-auto">{{ __('messages.add') }}
-                                    {{ __('messages.ingredients') }}</label>
+                                    {{ __('ingredients.ingredients') }}</label>
                                 @foreach ($data['ingredients'] as $ingredient)
 
                                     <div class="checkbox">
