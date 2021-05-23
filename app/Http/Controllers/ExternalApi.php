@@ -14,13 +14,7 @@ class ExternalApi extends Controller
 
         $response = file_get_contents($url);
         $externalData = json_decode($response);
-        
 
-        dd($externalData[0]->userId);
         return view('externalApi.showAllSeeds')->with('data', $externalData);
     }
-
-
-
-    
 }

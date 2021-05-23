@@ -38,6 +38,12 @@ Breadcrumbs::for('topthree', function ($trail) {
     $trail->push(__('food.topThree'), route('food.topThree'));
 });
 
+// Home > Menu > [OtherStores]
+Breadcrumbs::for('otherStores', function ($trail) {
+    $trail->parent('menu');
+    $trail->push(__('external.otherStores'), route('external.request'));
+});
+
 // Home > Menu > Only Ingredients
 Breadcrumbs::for('onlyIngredients', function ($trail) {
     $trail->parent('menu');
