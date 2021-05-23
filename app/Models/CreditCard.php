@@ -10,7 +10,7 @@ class CreditCard extends Model
 {
     use HasFactory;
 
-    //attributes id, cardName, securityCode, created_at, updated_at, expirationYear,expirationMonth, cardNumber
+    //attributes id, cardName, securityCode, user, created_at, updated_at, expirationYear,expirationMonth, cardNumber
 
     protected $fillable = [
         'cardName',
