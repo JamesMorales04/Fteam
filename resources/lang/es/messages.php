@@ -16,5 +16,7 @@ return [
     'comments'               => 'comentarios',
     'reviews'                => 'Reseñas de',
     'rating'                 => 'Clasificación',
-    'reviewAvg'              => 'Promedio de calificación'
+    'reviewAvg'              => 'Promedio de calificación',
+    'itemNotFound'           => 'Elemento no encontrado',
+    'deleteElement'          => 'Elemento eliminado correctamente'
 ];

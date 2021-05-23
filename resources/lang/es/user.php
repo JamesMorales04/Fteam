@@ -4,5 +4,6 @@ return [
     'userID'       => 'ID de Usuario',
     'showAllUsers' => 'Mostrar todos los usuarios',
     'users'        => 'Usuarios',
-    'user'         => 'Usuario'
+    'user'         => 'Usuario',
+    'profile'      => 'Perfil del usuario'
 ];
