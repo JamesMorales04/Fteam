@@ -112,4 +112,5 @@ Route::group(['prefix' => 'creditCards', 'middleware' => ['login']], function ()
 });
 
 Route::get('/language/{locale}', 'App\Http\Controllers\LangController@change')->name('LangModify.change');
+Route::get('/external', 'App\Http\Controllers\ExternalApi@requestApi')->name('external.request');
 
