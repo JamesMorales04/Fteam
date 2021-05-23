@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    {{ Breadcrumbs::render('onlyIngredients') }}
     <div class="container">
         <h1>Ingredient list</h1>
         <ul> <br />
