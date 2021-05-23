@@ -7,6 +7,20 @@ Breadcrumbs::for('home', function ($trail) {
 
 // Menu
 // Home > Menu
+Breadcrumbs::for('login', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__('general.login'), route('login'));
+});
+
+// Login
+// Home > Login
+Breadcrumbs::for('register', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__('general.register'), route('register'));
+});
+
+// Register
+// Home > Register
 Breadcrumbs::for('menu', function ($trail) {
     $trail->parent('home');
     $trail->push(__('food.menu'), route('food.showAll'));
@@ -22,6 +36,12 @@ Breadcrumbs::for('updatefood', function ($trail, $food) {
 Breadcrumbs::for('topthree', function ($trail) {
     $trail->parent('menu');
     $trail->push(__('food.topThree'), route('food.topThree'));
+});
+
+// Home > Menu > Only Ingredients
+Breadcrumbs::for('onlyIngredients', function ($trail) {
+    $trail->parent('menu');
+    $trail->push(__('food.askForIngredients'), route('shop.addAsIngresients'));
 });
 
 // Home > Menu > [Reviews]

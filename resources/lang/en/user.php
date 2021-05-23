@@ -9,5 +9,6 @@ return [
     'showAllUsers' => 'Show all Users',
     'users' => 'Users',
     'user' => 'User',
+    'profile' => 'User Profile',
 
 ];
