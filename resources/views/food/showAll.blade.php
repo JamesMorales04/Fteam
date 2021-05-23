@@ -29,6 +29,8 @@
         </div>
         <input style="align-self: left" type="submit" class="btn btn-outline-primary"
             value="{{ __('food.topThree') }}" onclick="location='{{ route('food.topThree') }}'">
+        <input style="align-self: left" type="submit" class="btn btn-outline-primary"
+        value="{{ __('external.otherStores') }}" onclick="location='{{ route('external.request') }}'">
 
         <ul>
             @foreach ($data as $food)

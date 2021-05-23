@@ -24,6 +24,7 @@ return [
     'forgotPassword' => 'Forgot your password?',
     'oldPDF' => 'Descargar PDF con otro metodo',
     'description' => 'Description',
+    'title' => 'Title',
 
     // Crud basico
 
