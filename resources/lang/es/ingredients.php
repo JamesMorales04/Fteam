@@ -1,6 +1,7 @@
 <?php
 return [
     'ingredients'            => 'Ingredientes',
+    'showIngredients'        => 'Mostrar todos los ingredientes',
     'theseAreTheIngredients' => 'Estos son los ingredientes disponibles',
     'createIngredient'       => 'Crea un ingrediente',
     'productID'              => 'ID del Producto',
@@ -11,12 +12,5 @@ return [
     'backIngredients'        => 'Volver a Ingredientes',
     'seeIngredients'         => 'Ver todos los ingredientes',
     'createIngredients'      => 'Crear ingredientes',
-    'createReviews'          => 'Ver',
-    'seeReviews'             => 'Ver Reseñas',
-    'comments'               => 'comentarios',
-    'reviews'                => 'Reseñas de',
-    'rating'                 => 'Clasificación',
-    'reviewAvg'              => 'Promedio de calificación',
-    'itemNotFound'           => 'Elemento no encontrado',
-    'deleteElement'          => 'Elemento eliminado correctamente'
+    'modifyIngredients'      => 'Modificar ingredientes'
 ];

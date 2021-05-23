@@ -12,5 +12,6 @@ return [
     'remove'                 => 'Remove',
     'buy'                    => 'Buy',
     'itemRemoved'            => 'Item removed',
+    'buyWithPaypal'          => 'Buy with Paypal',
 
 ];
