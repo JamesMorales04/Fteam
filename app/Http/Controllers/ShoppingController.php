@@ -19,9 +19,13 @@ class ShoppingController extends Controller
     public function payment(Request $request)
     {
         $provider = new ExpressCheckout;
-
+        $paypal = $request->session()->get('paypal');
+        $paypal = 1;
+        $request->session()->put('paypal', $paypal);
         $data = [];
         $cart = $this->cart($request);
+        // dd($cart);
+        $request['data'] = $cart;
 
         $data['items'] = [
             [
@@ -31,7 +35,7 @@ class ShoppingController extends Controller
                 'qty' => 1,
             ],
         ];
-
+        // dd($request);
         $data['invoice_id'] = 1;
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
         $data['return_url'] = route('payment.success', $request);
@@ -54,7 +58,9 @@ class ShoppingController extends Controller
         $response = $provider->getExpressCheckoutDetails($request->token);
 
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            // dd($request);
             $buy = $this->buy($request);
+            // dd($buy);
             return view('shopping.buy')->with('data', $buy->data);
         }
         $cart = $this->cart($request)->data;
@@ -281,11 +287,15 @@ class ShoppingController extends Controller
         $selecIngredients = $request->session()->get('selecIngredients');
         $amountFood = $request->session()->get('amountFood');
         $amountIngredients = $request->session()->get('amountIngredients');
+        $paypal = $request->session()->get('paypal');
+        // dd($request);
 
-        if ($this->validateBalance($idsFood, $amountFood, $idsIngredients, $amountIngredients)) {
-            return back()->with('success', __('cart.insufficientBalance'));
+        if ($paypal == null) {
+            if ($this->validateBalance($idsFood, $amountFood, $idsIngredients, $amountIngredients)) {
+                return back()->with('success', __('cart.insufficientBalance'));
+            }
         }
-
+            
         $this->validation($idsFood, $order, $amountFood, $data, $total, $allIngredients, false);
         $this->validation($idsIngredients, $order, $amountIngredients, $data, $total, $selecIngredients, true);
 
@@ -296,6 +306,8 @@ class ShoppingController extends Controller
         $request->session()->forget('selecIngredients');
         $request->session()->forget('amountFood');
         $request->session()->forget('amountIngredients');
+        $request->session()->forget('paypal');
+        // dd($data);
 
         return view('shopping.buy')->with('data', $data);
     }
