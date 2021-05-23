@@ -15,5 +15,6 @@ return [
     'backIngredients' => 'Back to Ingredients',
     'seeIngredients' => 'See all Ingredients',
     'createIngredients' => 'Create Ingredients',
+    'modifyIngredients' => 'Modify Ingredients',
 
 ];

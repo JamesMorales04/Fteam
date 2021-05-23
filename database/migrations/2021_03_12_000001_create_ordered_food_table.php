@@ -18,6 +18,7 @@ class CreateOrderedFoodTable extends Migration
             $table->integer('amount');
             $table->float('subTotal');
             $table->boolean('onlyIngredients');
+            $table->json('ingredients');
             $table->text('foodName');
             $table->bigInteger('food_id')->unsigned();
             $table->foreign('food_id')->references('id')->on('food');
