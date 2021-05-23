@@ -1,6 +1,7 @@
 <?php
 return [
     'ingredients'            => 'Ingredientes',
+    'showIngredients'        => 'Mostrar todos los ingredientes',
     'theseAreTheIngredients' => 'Estos son los ingredientes disponibles',
     'createIngredient'       => 'Crea un ingrediente',
     'productID'              => 'ID del Producto',
@@ -10,5 +11,6 @@ return [
     'productAvailability'    => 'Disponibilidad de producto',
     'backIngredients'        => 'Volver a Ingredientes',
     'seeIngredients'         => 'Ver todos los ingredientes',
-    'createIngredients'      => 'Crear ingredientes'
+    'createIngredients'      => 'Crear ingredientes',
+    'modifyIngredients'      => 'Modificar ingredientes'
 ];

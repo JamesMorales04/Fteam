@@ -9,5 +9,6 @@ return [
     'showAllOrders' => 'Mostrar todos los pedidos',
     'foodType'      => 'Solo ingredientes',
     'subTotal'      => 'Subtotal',
-    'orderedList'   => 'Pedidos'
+    'orderedList'   => 'Pedidos',
+    'orderCreated'  => '¡Pedido creado con éxito!'
 ];

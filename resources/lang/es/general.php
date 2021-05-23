@@ -13,7 +13,6 @@ return [
     'avaliable'       => 'Disponible',
     'id'              => 'Identificación',
     'list'            => 'lista',
-    'profile'         => 'Perfil del usuario',
     'download'        => 'Descargar archivo',
     'foodMenu'        => 'Menú',
     'shoppingCart'    => 'Carrito de compras',
@@ -31,7 +30,7 @@ return [
     'month'           => 'mes',
     'year'            => 'año',
     'send'            => 'Enviar',
-    'home'            => 'Volver',
+    'home'            => 'Inicio',
     'subMenu'         => 'Submenú',
     'logout'          => 'Cerrar Sesión',
     'login'           => 'Iniciar sesión',
@@ -41,6 +40,9 @@ return [
     'descriptionApp'  => 'Aplicación para la venta de comidas de forma digital, que permitirá al usuario elegir si prefiere la comida cocida o los ingredientes para prepararla. Al seleccionar alimentos preparados el usuario podrá elegir los elementos que desea que contengan y la cantidad, si se elige otra opción de compra de los ingredientes, el usuario podrá elegir la cantidad de cada uno de los ingredientes, la número de personas para las que se desea el plato y finalmente se mostrará la receta a seguir para cocinar el producto.',
     'notFound'        => 'Elemento no encontrado',
     'itemCreated'     => '¡Artículo creado con éxito!',
+    'balance'         => 'Saldo',
     'description'     => 'Descripción',
-    'total'           => 'Total'
+    'update'          => 'Actualizar',
+    'total'           => 'Total',
+    'addBalance'      => 'Agregar saldo'
 ];
