@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.3-fpm
 
 # Copy composer.lock and composer.json
 COPY composer.json /var/www/
@@ -42,14 +42,9 @@ COPY . /var/www
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
 
+RUN composer update
 # Change current user to www
 USER www
-
-RUN php artisan key:generate
-RUN php artisan migrate
-RUN chmod -R 777 storage
-RUN a2enmod rewrite
-RUN service apache2 restart
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
