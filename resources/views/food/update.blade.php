@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">{{ __('messages.updateFood') }}</div>
+                    <div class="card-header">{{ __('food.updateFood') }}</div>
                     <div class="card-body">
                         @if ($errors->any())
                             <ul id="errors">
@@ -27,16 +27,16 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.name') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('general.name') }}</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" placeholder="Enter name" name="name"
+                                    <input type="text" class="form-control" placeholder="{{ __('general.name') }}" name="name"
                                         value="{{ $data['food']->getName() }}" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }}
-                                    {{ __('messages.description') }}</label>
+                                <label class="col-md-auto">{{ __('general.add') }}
+                                    {{ __('food.description') }}</label>
                                 <div class="col-8">
                                     <textarea cols="40" name="description" class="form-control" spellcheck="true"
                                         value="{{ old('description') }}">{{ $data['food']->getDescription() }}
@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ __('messages.avaliable') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ __('general.avaliable') }}</label>
                                 <div class="col-sm-10 col col-lg-2">
                                     @if ($data['food']->getAvailability())
                                         <input type="checkbox" class="col-sm-100" name="availability"
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }} {{ __('messages.recipe') }}
+                                <label class="col-md-auto">{{ __('general.add') }} {{ __('food.recipe') }}
                                 </label>
                                 <div class="col-8">
                                     <textarea cols="40" name="recipe" class="form-control" spellcheck="true"
@@ -67,16 +67,16 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }}
-                                    {{ __('messages.price') }}</label>
+                                <label class="col-md-auto">{{ __('general.add') }}
+                                    {{ __('general.price') }}</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" placeholder="Enter price" name="price"
+                                    <input type="text" class="form-control" placeholder="{{ __('general.price') }}" name="price"
                                         value="{{ $data['food']->getPrice() }}" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-auto">{{ __('messages.add') }}
+                                <label class="col-md-auto">{{ __('general.add') }}
                                     {{ __('ingredients.ingredients') }}</label>
                                 @foreach ($data['ingredients'] as $ingredient)
 
@@ -99,7 +99,7 @@
                                 @endforeach
                             </div>
                             <div class="form-group row col-md-auto">
-                                <input class="btn btn-primary" type="submit" value="Send" />
+                                <input class="btn btn-primary" type="submit" value="{{ __('general.send') }}" />
                             </div>
                         </form>
                     </div>
