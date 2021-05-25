@@ -53,7 +53,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="name">{{ __('general.name') }}</label>
-                                        <input class="form-control" id="name" type="text" placeholder="Enter your name"
+                                        <input class="form-control" id="name" type="text" placeholder="Visa"
                                             name="cardName" value="{{ $creditCard->getCardName() }}" required>
                                     </div>
                                 </div>

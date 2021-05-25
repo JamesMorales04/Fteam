@@ -45,7 +45,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">{{ __('ingredients.productName') }}</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" placeholder="Enter name" name="name"
+                                    <input type="text" class="form-control" placeholder="" name="name"
                                         value="{{ $data->getName() }}" />
                                 </div>
                             </div>
