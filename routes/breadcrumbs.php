@@ -94,7 +94,7 @@ Breadcrumbs::for('showallfood', function ($trail) {
     $trail->push(__('food.foods'), route('admin.showAllFood'));
 });
 
-// Home > AdminPanel > showallfood > [Food] 
+// Home > AdminPanel > showallfood > [Food]
 Breadcrumbs::for('food', function ($trail, $food) {
     $trail->parent('showallfood');
     $trail->push($food->getName(), route('food.show', $food->getId()));
@@ -158,17 +158,17 @@ Breadcrumbs::for('edituser', function ($trail, $user) {
 // Home > [UserProfile] > AddCreditCard
 Breadcrumbs::for('addcreditcard', function ($trail, $user) {
     $trail->parent('userprofile', $user);
-    $trail->push(__('creditCard.addCreditCard') , route('creditCard.create'));
+    $trail->push(__('creditCard.addCreditCard'), route('creditCard.create'));
 });
 
 // Home > [UserProfile] > ShowCreditCard
 Breadcrumbs::for('showcreditcard', function ($trail, $user) {
     $trail->parent('userprofile', $user);
-    $trail->push(__('creditCard.seeCreditCard') , route('creditCard.show', $user->getId()));
+    $trail->push(__('creditCard.seeCreditCard'), route('creditCard.show', $user->getId()));
 });
 
 // Home > [UserProfile] > ShowCreditCard
 Breadcrumbs::for('updatecreditcard', function ($trail, $user) {
     $trail->parent('showcreditcard', $user);
-    $trail->push(__('creditCard.updateCreditCard') , route('creditCard.update', Auth::id()));
+    $trail->push(__('creditCard.updateCreditCard'), route('creditCard.update', Auth::id()));
 });

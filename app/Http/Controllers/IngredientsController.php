@@ -81,7 +81,7 @@ class IngredientsController extends Controller
         try {
             $ingredients = Ingredients::findOrFail($request->get('id'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return back()->with('msg',  __('general.notFound'));
+            return back()->with('msg', __('general.notFound'));
         }
 
         $ingredients->setName($request->get('name'));

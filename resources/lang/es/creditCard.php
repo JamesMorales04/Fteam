@@ -1,4 +1,5 @@
 <?php
+
 return [
     'createCreditCard' => 'Crea una tarjeta de crédito',
     'creditCard'       => 'Tarjeta de crédito',
@@ -9,5 +10,5 @@ return [
     'cvv'              => 'CVV / CVC',
     'addCreditCard'    => 'Añadir una nueva tarjeta de crédito',
     'seeCreditCard'    => 'Ver tarjeta de crédito',
-    'updateCreditCard' => 'Actualizar tarjeta de crédito'
+    'updateCreditCard' => 'Actualizar tarjeta de crédito',
 ];

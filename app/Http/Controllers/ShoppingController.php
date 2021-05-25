@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\Billing;
 use App\Mail\Payment;
-use App\Models\User;
 use App\Models\Food;
 use App\Models\Ingredients;
 use App\Models\Order;
 use App\Models\OrderedFood;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Lang;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class ShoppingController extends Controller
@@ -49,6 +48,7 @@ class ShoppingController extends Controller
     public function cancel(Request $request)
     {
         $cart = $this->cart($request)->data;
+
         return view('shopping.cart')->with('data', $cart)->with('success', __('cart.insufficientBalance'));
     }
 
@@ -59,9 +59,11 @@ class ShoppingController extends Controller
 
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
             $buy = $this->buy($request);
+
             return view('shopping.buy')->with('data', $buy->data);
         }
         $cart = $this->cart($request)->data;
+
         return view('shopping.cart')->with('data', $cart)->with('success', __('cart.insufficientBalance'));
     }
 
@@ -140,7 +142,7 @@ class ShoppingController extends Controller
     public function modifyIngredients(Request $request)
     {
         $ingredients = $request->session()->get('selecIngredients');
-        
+
         $arr = [];
         foreach ($request['ingredients'] as $key) {
             array_push($arr, (int) $key);
@@ -193,25 +195,21 @@ class ShoppingController extends Controller
             $food = $request->session()->get('byIngredients');
             $amount = $request->session()->get('amountIngredients');
             $ingredients[$request['id']] = $request['selecIngredients'];
-        }
-        else {
+        } else {
             $food = $request->session()->get('completFood');
             $amount = $request->session()->get('amountFood');
             $ingredients[$request['id']] = $request['ingredients'];
         }
 
         if ($amount[$request['id']] > $request['amount']) {
-            
             $amount[$request['id']] = $amount[$request['id']] - $request['amount'];
-    
+
             if ($request['ingredients'] == 1) {
                 $request->session()->put('amountIngredients', $amount);
-            }
-            else {
+            } else {
                 $request->session()->put('amountFood', $amount);
             }
-        }
-        else {
+        } else {
             if ($request['ingredients'] == 1) {
                 unset($food[$request['id']]);
                 $request->session()->put('byIngredients', $food);
@@ -219,8 +217,7 @@ class ShoppingController extends Controller
                 $request->session()->put('amountIngredients', $amount);
                 unset($ingredients[$request['id']]);
                 $request->session()->put('selecIngredients', $ingredients);
-            }
-            else {
+            } else {
                 unset($food[$request['id']]);
                 $request->session()->put('completFood', $food);
                 unset($amount[$request['id']]);
@@ -229,6 +226,7 @@ class ShoppingController extends Controller
                 $request->session()->put('ingredients', $ingredients);
             }
         }
+
         return back()->with('success', __('cart.itemRemoved'));
     }
 
@@ -292,7 +290,7 @@ class ShoppingController extends Controller
                 return back()->with('success', __('cart.insufficientBalance'));
             }
         }
-            
+
         $this->validation($idsFood, $order, $amountFood, $data, $total, $allIngredients, false);
         $this->validation($idsIngredients, $order, $amountIngredients, $data, $total, $selecIngredients, true);
 
@@ -325,11 +323,10 @@ class ShoppingController extends Controller
         if ($total <= $balance) {
             $user->setBalance($balance - $total);
             $user->save();
+
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
-
 }

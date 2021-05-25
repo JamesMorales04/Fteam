@@ -1,4 +1,5 @@
 <?php
+
 return [
     'createReviews' => 'Ver',
     'updateReviews' => 'Actualizar reseña',
@@ -7,5 +8,5 @@ return [
     'reviews'       => 'Reseñas de',
     'rating'        => 'Clasificación',
     'reviewAvg'     => 'Promedio de calificación',
-    'review'        => 'Reseñas'
+    'review'        => 'Reseñas',
 ];

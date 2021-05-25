@@ -1,4 +1,5 @@
 <?php
+
 return [
     //External API
     'otherStores'   => 'External Store',

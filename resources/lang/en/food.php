@@ -1,4 +1,5 @@
 <?php
+
 return [
     'foods'             => 'Show all food',
     'askForIngredients' => 'Only ingredients',
@@ -15,5 +16,5 @@ return [
     'best-selling'      => 'The three best-selling products are',
     'createFood'        => 'Create food',
     'updateFood'        => 'Update food',
-    'view'              => 'View'
+    'view'              => 'View',
 ];

@@ -25,6 +25,7 @@ return [
     'oldPDF' => 'Descargar PDF con otro metodo',
     'description' => 'Description',
     'title' => 'Title',
+    'status' => 'Status',
 
     // Crud basico
 
