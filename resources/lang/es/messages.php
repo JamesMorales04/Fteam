@@ -1,5 +1,4 @@
 <?php
-
 return [
     'ingredients'            => 'Ingredientes',
     'theseAreTheIngredients' => 'Estos son los ingredientes disponibles',
@@ -12,12 +11,12 @@ return [
     'backIngredients'        => 'Volver a Ingredientes',
     'seeIngredients'         => 'Ver todos los ingredientes',
     'createIngredients'      => 'Crear ingredientes',
-    'createReviews'          => 'Ver',
+    'createReviews'          => 'Reseña',
     'seeReviews'             => 'Ver Reseñas',
     'comments'               => 'comentarios',
     'reviews'                => 'Reseñas de',
     'rating'                 => 'Clasificación',
     'reviewAvg'              => 'Promedio de calificación',
     'itemNotFound'           => 'Elemento no encontrado',
-    'deleteElement'          => 'Elemento eliminado correctamente',
+    'deleteElement'          => 'Elemento eliminado correctamente'
 ];
