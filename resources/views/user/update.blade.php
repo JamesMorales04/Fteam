@@ -54,14 +54,14 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">{{ __('general.name') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre"
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Jhon"
                                     value="{{ $user->getName() }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">{{ __('general.email') }}</label>
                             <div class="col-sm-10">
-                                <input type="emailHelp" class="form-control" id="email" name="email" placeholder="Email"
+                                <input type="emailHelp" class="form-control" id="email" name="email" placeholder="Jhon@jhon.com"
                                     value="{{ $user->getEmail() }}" required>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             <label class="col-sm-2 col-form-label">{{ __('general.address') }}</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Direccion" value="{{ $user->getAddress() }}" required>
+                                    placeholder="Cra 41 b" value="{{ $user->getAddress() }}" required>
                             </div>
                         </div>
 

@@ -38,21 +38,21 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">{{ __('general.name') }}</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" placeholder="Enter the name of the ingredient"
+                                    <input type="text" class="form-control" placeholder="Mango"
                                         name="name" value="{{ old('name') }}" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">{{ __('ingredients.productPrice') }}</label>
                                 <div class="col-8">
-                                    <input type="number" class="form-control" placeholder="Enter the price" name="price"
+                                    <input type="number" class="form-control" placeholder="10" name="price"
                                         value="{{ old('price') }}" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">{{ __('general.amount') }}</label>
                                 <div class="col-8">
-                                    <input type="number" class="form-control" placeholder="Enter amount" name="amount"
+                                    <input type="number" class="form-control" placeholder="10" name="amount"
                                         value="{{ old('amount') }}" />
                                 </div>
                             </div>
@@ -62,11 +62,7 @@
                             </div>
                             <br \>
                         </form>
-                        {{-- <div class="col-sm-2">
-                            <center><input type="submit" class="btn btn-outline-primary"
-                                    value="{{ __('messages.backHome') }}"
-                                    onclick="location='{{ route('home.index') }}'"></center>
-                        </div> --}}
+
                     </div>
                 </div>
                 <br>
