@@ -106,15 +106,6 @@ class FoodController extends Controller
 
         Food::destroy($foodID);
 
-        $data['food'] = Food::orderBy('id')->get();
-        $prom = [];
-        foreach ($data['food'] as $food) {
-            $prom[$food->getId()] = [Reviews::where('food_id', $food->getId())->avg('rating'), $food];
-            if ($prom[$food->getId()][0] == null) {
-                $prom[$food->getId()][0] = 0;
-            }
-        }
-
-        return view('food.showAll')->with('data', $prom);
+        return redirect()->route('admin.showAllFood');
     }
 }
