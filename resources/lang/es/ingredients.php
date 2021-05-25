@@ -1,5 +1,4 @@
 <?php
-
 return [
     'ingredients'            => 'Ingredientes',
     'showIngredients'        => 'Mostrar todos los ingredientes',
@@ -13,5 +12,5 @@ return [
     'backIngredients'        => 'Volver a Ingredientes',
     'seeIngredients'         => 'Ver todos los ingredientes',
     'createIngredients'      => 'Crear ingredientes',
-    'modifyIngredients'      => 'Modificar ingredientes',
+    'modifyIngredients'      => 'Modificar ingredientes'
 ];
