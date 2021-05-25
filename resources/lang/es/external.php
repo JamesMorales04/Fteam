@@ -1,4 +1,5 @@
 <?php
+
 return [
     'otherStores'   => 'Tienda externa',
     'body'          => 'Cuerpo',
@@ -6,5 +7,5 @@ return [
     'seed'          => 'Semilla',
     'noInformation' => 'Sin información',
     'seller'        => 'Vendedor',
-    'stock'         => 'Inventario'
+    'stock'         => 'Inventario',
 ];

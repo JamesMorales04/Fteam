@@ -1,4 +1,5 @@
 <?php
+
 return [
     'confirmation'  => 'Compra exitosa',
     'AddCart'       => 'Añadir a la cesta',
@@ -6,5 +7,5 @@ return [
     'shoppingCart'  => 'Carrito de compras',
     'removeAll'     => 'Eliminar todo',
     'buy'           => 'Comprar',
-    'buyWithPayPal' => 'Compra con Paypal'
+    'buyWithPayPal' => 'Compra con Paypal',
 ];

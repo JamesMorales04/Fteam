@@ -1,4 +1,5 @@
 <?php
+
 return [
     'orders'        => 'Pedidos',
     'order'         => 'Orden',
@@ -10,5 +11,5 @@ return [
     'foodType'      => 'Solo ingredientes',
     'subTotal'      => 'Subtotal',
     'orderedList'   => 'Pedidos',
-    'orderCreated'  => '¡Pedido creado con éxito!'
+    'orderCreated'  => '¡Pedido creado con éxito!',
 ];
