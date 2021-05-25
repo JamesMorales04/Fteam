@@ -24,3 +24,10 @@ Guia de despliegue con docker
 12. docker-compose exec app php artisan migrate
 
 sudo service docker start
+
+docker pull jamesmorales04/fteam
+docker stack rm fteam
+ docker service update --image jamesmorales04/fteam fteam_app
+ docker stack deploy --compose-file docker-compose.yml fteam
+ docker service update --replicas=10 fteam_webserver
+ docker service update --replicas=10 fteam_app
