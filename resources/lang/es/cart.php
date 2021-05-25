@@ -1,4 +1,5 @@
 <?php
+
 return [
     'insufficientBalance' => 'Saldo insuficiente',
     'confirmation'        => 'Compra exitosa',
@@ -9,5 +10,5 @@ return [
     'remove'              => 'Quitar',
     'buy'                 => 'Comprar',
     'itemRemoved'         => 'Elemento eliminado',
-    'buyWithPaypal'       => 'Compra con Paypal'
+    'buyWithPaypal'       => 'Compra con Paypal',
 ];

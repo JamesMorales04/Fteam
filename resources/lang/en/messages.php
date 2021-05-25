@@ -75,7 +75,6 @@ return [
     // 'createFood' => 'Create food',
     // 'updateFood' => 'Uddate food',
 
-    
     'ingredients'            => 'Ingredients',
     'itemNotFound'           => 'Item not found',
     'theseAreTheIngredients' => 'These are the ingredients available',

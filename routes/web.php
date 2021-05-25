@@ -93,7 +93,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['login', 'admin']], function
     Route::get('/ingredient/update/{id}', 'App\Http\Controllers\IngredientsController@update')->name('ingredients.update');
     Route::post('/ingredient/saveupdate', 'App\Http\Controllers\IngredientsController@updateSave')->name('ingredients.updateSave');
     Route::get('/food/show', 'App\Http\Controllers\AdminController@showAllFood')->name('admin.showAllFood');
-
 });
 
 Route::group(['prefix' => 'orders', 'middleware' => ['login']], function () {
@@ -113,4 +112,3 @@ Route::group(['prefix' => 'creditCards', 'middleware' => ['login']], function ()
 
 Route::get('/language/{locale}', 'App\Http\Controllers\LangController@change')->name('LangModify.change');
 Route::get('/external', 'App\Http\Controllers\ExternalApi@requestApi')->name('external.request');
-

@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
-
 class ExternalApi extends Controller
 {
-
     public function requestApi()
     {
-
         $url = 'https://jsonplaceholder.typicode.com/posts';
 
         $response = file_get_contents($url);
