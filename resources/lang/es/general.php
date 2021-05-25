@@ -44,5 +44,6 @@ return [
     'description'     => 'Descripción',
     'update'          => 'Actualizar',
     'total'           => 'Total',
-    'addBalance'      => 'Agregar saldo'
+    'addBalance'      => 'Agregar saldo',
+    'status'          => 'Estado',
 ];

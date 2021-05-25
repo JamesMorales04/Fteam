@@ -46,7 +46,7 @@
                                 @if (Auth::user()->getRole() === 'Administrador')
                                     @if ($data->getStatus() === 1)
                                         <div class="form-group row">
-                                            <label class="col-md-auto">{{ __('messages.status') }}</label>
+                                            <label class="col-md-auto">{{ __('general.status') }}</label>
                                             <div class="col-sm-10">
                                                 <input type="checkbox" class="form-control" id="status" name="status"
                                                     placeholder="status" value="{{ old('status') }}" checked>
@@ -54,7 +54,7 @@
                                         </div>
                                     @else
                                         <div class="form-group row">
-                                            <label class="col-sm-2">{{ __('messages.status') }}</label>
+                                            <label class="col-sm-2">{{ __('general.status') }}</label>
                                             <div class="col-sm-3">
                                                 <input type="checkbox" class="form-control" id="status" name="status"
                                                     placeholder="status" value="{{ old('status') }}">
