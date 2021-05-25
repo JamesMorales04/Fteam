@@ -1,4 +1,5 @@
 <?php
+
 return [
     'name'            => 'Nombre',
     'email'           => 'Correo electrónico',
@@ -45,5 +46,5 @@ return [
     'update'          => 'Actualizar',
     'total'           => 'Total',
     'addBalance'      => 'Agregar saldo',
-    'status'          => 'Estado'
+    'status'          => 'Estado',
 ];

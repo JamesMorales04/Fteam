@@ -1,4 +1,5 @@
 <?php
+
 return [
     'ingredients'            => 'Ingredientes',
     'theseAreTheIngredients' => 'Estos son los ingredientes disponibles',
@@ -18,5 +19,5 @@ return [
     'rating'                 => 'Clasificación',
     'reviewAvg'              => 'Promedio de calificación',
     'itemNotFound'           => 'Elemento no encontrado',
-    'deleteElement'          => 'Elemento eliminado correctamente'
+    'deleteElement'          => 'Elemento eliminado correctamente',
 ];
